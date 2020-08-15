@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -42,8 +43,8 @@ spec:
             initialDelaySeconds: 15
             periodSeconds: 30
           volumeMounts:
-          - mountPath: /config
-            name: config
+            - mountPath: /config
+              name: config
           resources:
             requests:
               memory: "32Mi"
@@ -52,9 +53,9 @@ spec:
               memory: "32Mi"
               cpu: 200m
       volumes:
-      - name: config
-        persistentVolumeClaim:
-          claimName: home-assistant-pvc
+        - name: config
+          persistentVolumeClaim:
+            claimName: home-assistant-pvc
       nodeSelector:
         beta.kubernetes.io/arch: arm
 ---
