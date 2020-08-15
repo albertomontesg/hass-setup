@@ -2,7 +2,11 @@
 - alias: Echo Breakfast Notification
   trigger:
     platform: template
-    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.echo_breakfast_time', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
+    value_template: >-
+      {{ states('sensor.time') == (
+        state_attr('input_datetime.echo_breakfast_time', 'timestamp') |
+        int | timestamp_custom('%H:%M', False))
+      }}
   action:
     service: notify.mobile_app_both_iphones
     data:
@@ -16,7 +20,11 @@
 - alias: Echo Dinner Notification
   trigger:
     platform: template
-    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.echo_dinner_time', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
+    value_template: >-
+      {{ states('sensor.time') == (
+        state_attr('input_datetime.echo_dinner_time', 'timestamp') |
+        int | timestamp_custom('%H:%M', False))
+      }}
   action:
     service: notify.mobile_app_both_iphones
     data:
@@ -31,7 +39,11 @@
 - alias: Echo Morning Walk Notification
   trigger:
     platform: template
-    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.echo_morning_walk_time', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
+    value_template: >-
+      {{ states('sensor.time') == (
+        state_attr('input_datetime.echo_morning_walk_time', 'timestamp') |
+        int | timestamp_custom('%H:%M', False))
+      }}
   action:
     service: notify.mobile_app_both_iphones
     data:
@@ -45,7 +57,11 @@
 - alias: Echo Afternoon Walk Notification
   trigger:
     platform: template
-    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.echo_afternoon_walk_time', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
+    value_template: >-
+      {{ states('sensor.time') == (
+        state_attr('input_datetime.echo_afternoon_walk_time', 'timestamp') |
+        int | timestamp_custom('%H:%M', False))
+      }}
   action:
     service: notify.mobile_app_both_iphones
     data:
@@ -59,7 +75,11 @@
 - alias: Echo Night Walk Notification
   trigger:
     platform: template
-    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.echo_night_walk_time', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
+    value_template: >-
+      {{ states('sensor.time') == (
+        state_attr('input_datetime.echo_night_walk_time', 'timestamp') |
+        int | timestamp_custom('%H:%M', False))
+      }}
   action:
     service: notify.mobile_app_both_iphones
     data:

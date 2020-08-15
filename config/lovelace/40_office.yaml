@@ -35,7 +35,6 @@ cards:
               red: 120
               amber: 0
               green: 60
-            #scale: '50px'
 
           - type: gauge
             title: Hot End Temp
@@ -47,7 +46,6 @@ cards:
               red: 225
               amber: 0
               green: 200
-            #scale: '50px'
 
       - type: horizontal-stack
         cards:
@@ -61,7 +59,6 @@ cards:
               red: 120
               amber: 0
               green: 59
-            #scale: '50px'
 
           - type: gauge
             title: Hot End Target
@@ -73,7 +70,6 @@ cards:
               red: 225
               amber: 0
               green: 199
-            #scale: '50px'
 
       # - type: 'custom:bignumber-card'
       #   title: Current Job Completion Status
@@ -110,7 +106,7 @@ cards:
             name: Printing Status
             icon: mdi:printer-wireless
           - entity: binary_sensor.prusa_mk3s_printing_error
-            name:  Error State
+            name: Error State
             icon: mdi:printer-alert
           - entity: sensor.prusa_mk3s_current_state
             name: Current Status
