@@ -27,7 +27,7 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: esphome
-          image: "esphome/esphome-armv7:1.14.3"
+          image: "esphome/esphome-armv7:1.14.5"
           imagePullPolicy: Always
           command:
             - "esphome"
@@ -53,17 +53,17 @@ spec:
               port: http
             initialDelaySeconds: 15
           volumeMounts:
-          - mountPath: /config
-            name: config
+            - mountPath: /config
+              name: config
       volumes:
-      - name: config
-        persistentVolumeClaim:
-          claimName: home-assistant-pvc
+        - name: config
+          persistentVolumeClaim:
+            claimName: home-assistant-pvc
       hostAliases:
-      - ip: "31.28.1.238"
-        hostnames:
-        - "dl.platformio.org"
-        - "api.platformio.org"
+        - ip: "31.28.1.238"
+          hostnames:
+            - "dl.platformio.org"
+            - "api.platformio.org"
       nodeSelector:
         beta.kubernetes.io/arch: arm
 ---
