@@ -1,3 +1,4 @@
+---
 # Input select for Zigbee2mqtt debug level
 input_select:
   zigbee2mqtt_log_level:
@@ -38,7 +39,8 @@ script:
       service: mqtt.publish
       data_template:
         topic: zigbee2mqtt/bridge/config/remove
-        payload_template: "{{ states.input_text.zigbee2mqtt_remove.state | string }}"
+        payload_template: >-
+          {{ states.input_text.zigbee2mqtt_remove.state | string }}
 
 # Timer for joining time remaining (120 sec = 2 min)
 timer:
@@ -72,7 +74,8 @@ sensor:
     state_topic: zigbee2mqtt/bridge/networkmap/raw
     value_template: >-
       {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
-    # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
+    # again, if you change base_topic of Zigbee2mqtt, change
+    # json_attributes_topic accordingly
     json_attributes_topic: zigbee2mqtt/bridge/networkmap/raw
 # Switch for enabling joining
 switch:
@@ -105,7 +108,8 @@ automation:
     action:
       service: timer.start
       entity_id: timer.zigbee_permit_join
-  # Automation to stop timer when switch turned off and turn off switch when timer finished
+  # Automation to stop timer when switch turned off and turn off switch when
+  # timer finished
   - id: zigbee_join_disabled
     alias: Zigbee Join Disabled
     trigger:
@@ -122,4 +126,3 @@ automation:
           entity_id: timer.zigbee_permit_join
       - service: switch.turn_off
         entity_id: switch.zigbee2mqtt_main_join
-

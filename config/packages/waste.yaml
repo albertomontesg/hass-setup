@@ -1,13 +1,14 @@
+---
 sensor:
   - platform: openerz
     name: Cardboard Waste
-    zip: "8046"
+    zip: 8046
     waste_type: cardboard
   - platform: openerz
     name: Paper Waste
-    zip: "8046"
+    zip: 8046
     waste_type: paper
   - platform: openerz
     name: Textile Waste
-    zip: "8046"
+    zip: 8046
     waste_type: textile

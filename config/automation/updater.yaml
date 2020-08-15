@@ -1,3 +1,4 @@
+---
 - alias: Update Available Notification
   trigger:
     - platform: state
@@ -7,4 +8,7 @@
   action:
     - service: notify.notify
       data_template:
-        message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
+        message: >-
+          Home Assistant
+          {{ state_attr('binary_sensor.updater', 'newest_version') }}
+          is available.

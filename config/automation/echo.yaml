@@ -1,3 +1,4 @@
+---
 - alias: Echo Breakfast Notification
   trigger:
     platform: template
@@ -26,7 +27,7 @@
           url: "https://i.imgur.com/nhtkemT.jpg"
           content-type: jpeg
           hide-thumbnail: false
-          
+
 - alias: Echo Morning Walk Notification
   trigger:
     platform: template

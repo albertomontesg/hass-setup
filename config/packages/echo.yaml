@@ -1,3 +1,4 @@
+---
 input_datetime:
   echo_breakfast_time:
     name: Echo's Breakfast Time
@@ -7,7 +8,7 @@ input_datetime:
     name: Echo's Dinner Time
     has_date: false
     has_time: true
-    
+
   echo_morning_walk_time:
     name: Echo's Morning Walk Time
     has_date: false

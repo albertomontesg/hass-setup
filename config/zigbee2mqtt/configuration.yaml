@@ -1,3 +1,4 @@
+---
 homeassistant: false
 permit_join: true
 mqtt:

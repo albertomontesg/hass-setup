@@ -1,3 +1,4 @@
+---
 light:
   - platform: flux_led_custom
     devices:
@@ -14,7 +15,7 @@ light:
       172.16.1.32:
         name: tv_led
         mode: "rgb"
-        
+
   # - platform: mqtt
   #   name: "Dinner Table Light"
   #   state_topic: "zigbee2mqtt/dinner_table_light"
@@ -39,7 +40,7 @@ light:
     state_topic: "switches/living_room/switch/living_room_light/state"
     command_topic: "switches/living_room/switch/living_room_light/command"
     availability_topic: "switches/living_room/status"
-    
+
   - platform: mqtt
     name: Bedroom
     state_topic: "switches/bedroom/switch/bedroom_light/state"

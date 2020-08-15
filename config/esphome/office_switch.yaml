@@ -1,6 +1,7 @@
+---
 substitutions:
  device_name: office
  upper_device_name: Office
  device_ip: "172.16.4.2"
- 
+
 <<: !include templates/sonoff_mini.yaml

@@ -1,3 +1,4 @@
+---
 - alias: Switch On Sofa Light on Media
   trigger:
     platform: state
@@ -36,7 +37,7 @@
     - service: light.turn_off
       data:
         entity_id: light.tv_led
-        
+
 - alias: Switch On Bed Light on Media
   trigger:
     platform: state
@@ -52,7 +53,7 @@
     - service: light.turn_on
       data:
         entity_id: light.bed_led
-        
+
 - alias: Switch Off Bed Light on Media
   trigger:
     platform: state

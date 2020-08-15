@@ -1,3 +1,4 @@
+---
 title: Cleaning
 icon: mdi:spray-bottle
 panel: false
@@ -9,40 +10,15 @@ cards:
         entity: vacuum.xiaomi_vacuum_cleaner
         stats:
           default:
-          - attribute: filter_left
-            unit: hours
-            subtitle: Filter
-          - attribute: side_brush_left
-            unit: hours
-            subtitle: Side brush
-          - attribute: main_brush_left
-            unit: hours
-            subtitle: Main brush
-          - attribute: sensor_dirty_left
-            unit: hours
-            subtitle: Sensors
-      # - type: custom:xiaomi-vacuum-card
-      #   entity: vacuum.xiaomi_vacuum_cleaner
-      #   name: Vacuum
-      # - type: custom:xiaomi-vacuum-map-card
-      #   entity: vacuum.xiaomi_vacuum_cleaner
-      #   map_image: '/local/xiaomi_vacuum_map_card/map.png'
-      #   calibration_points:
-      #   - vacuum:
-      #       x: 25500
-      #       y: 25500
-      #     map:
-      #       x: 466
-      #       y: 1889
-      #   - vacuum:
-      #       x: 26500
-      #       y: 26500
-      #     map:
-      #       x: 730
-      #       y: 1625
-      #   - vacuum:
-      #       x: 25500
-      #       y: 26500
-      #     map:
-      #       x: 466
-      #       y: 1625
+            - attribute: filter_left
+              unit: hours
+              subtitle: Filter
+            - attribute: side_brush_left
+              unit: hours
+              subtitle: Side brush
+            - attribute: main_brush_left
+              unit: hours
+              subtitle: Main brush
+            - attribute: sensor_dirty_left
+              unit: hours
+              subtitle: Sensors

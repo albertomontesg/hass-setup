@@ -1,3 +1,4 @@
+---
 title: Home
 icon: mdi:home
 panel: false
@@ -43,8 +44,8 @@ cards:
     cards:
       - type: custom:mini-graph-card
         entities:
-        - sensor.inside_temperature
-        - sensor.outside_temperature
+          - sensor.inside_temperature
+          - sensor.outside_temperature
         name: Temperature
         animate: true
         hour24: true
@@ -52,8 +53,8 @@ cards:
         decimals: 1
       - type: custom:mini-graph-card
         entities:
-        - sensor.inside_humidity
-        - sensor.outside_humidity
+          - sensor.inside_humidity
+          - sensor.outside_humidity
         name: Humidity
         animate: true
         hour24: true
@@ -61,8 +62,8 @@ cards:
         decimals: 1
       - type: custom:mini-graph-card
         entities:
-        - sensor.inside_pressure
-        - sensor.outside_pressure
+          - sensor.inside_pressure
+          - sensor.outside_pressure
         name: Pressure
         animate: true
         hour24: true
@@ -92,10 +93,7 @@ cards:
     title: Waste
     cards:
       - type: entities
-        entities: 
+        entities:
           - sensor.cardboard_waste
           - sensor.paper_waste
           - sensor.textile_waste
-        # icon_size: 35px
-        # icon_color: green
-        # hide_date: true

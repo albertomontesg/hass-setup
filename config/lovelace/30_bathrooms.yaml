@@ -1,3 +1,4 @@
+---
 title: Bathrooms
 icon: mdi:shower
 panel: false
@@ -7,22 +8,22 @@ cards:
     title: Climate
     cards:
       - type: custom:mini-graph-card
-        entities: 
-        - sensor.main_bathroom_temperature
+        entities:
+          - sensor.main_bathroom_temperature
         name: Temperature
         animate: true
         hour24: true
         decimals: 1
       - type: custom:mini-graph-card
-        entities: 
-        - sensor.main_bathroom_humidity
+        entities:
+          - sensor.main_bathroom_humidity
         name: Humidity
         animate: true
         hour24: true
         decimals: 1
       - type: custom:mini-graph-card
-        entities: 
-        - sensor.main_bathroom_pressure
+        entities:
+          - sensor.main_bathroom_pressure
         name: Pressure
         animate: true
         hour24: true

@@ -1,5 +1,6 @@
+---
 title: Settings
-icon: mdi:settings
+icon: mdi:cog
 panel: false
 path: Settings
 cards:
@@ -13,10 +14,10 @@ cards:
     cards:
       - type: custom:mini-graph-card
         entities:
-        - entity: sensor.speedtest_download
-          name: Download
-        - entity: sensor.speedtest_upload
-          name: Upload
+          - entity: sensor.speedtest_download
+            name: Download
+          - entity: sensor.speedtest_upload
+            name: Upload
         name: Speed
         icon: mdi:server
         extrema: true
@@ -26,7 +27,7 @@ cards:
         decimals: 1
       - type: custom:mini-graph-card
         entities:
-        - entity: sensor.speedtest_ping
+          - entity: sensor.speedtest_ping
         extrema: true
         name: Ping
         icon: mdi:flash
@@ -63,7 +64,7 @@ cards:
       - type: entities
         # show_header_toggle: false
         entities:
-            # TODO(albertomontes): uncomment custom type when fixed.
+          # TODO(albertomontes): uncomment custom type when fixed.
           - entity: sensor.living_room_sensor_battery
             name: Living Room Temperature Sensor
             # type: custom:battery-entity
@@ -86,4 +87,3 @@ cards:
           - automation.switch_off_sofa_light_on_media
           - automation.switch_on_bed_light_on_media
           - automation.switch_off_bed_light_on_media
-  

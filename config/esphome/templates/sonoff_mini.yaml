@@ -1,19 +1,20 @@
+---
 esphome:
   name: ${device_name}_switch
   platform: ESP8266
   board: esp01_1m
-  
+
 wifi:
   ssid: !secret wifi_name
   password: !secret wifi_password
-  
+
   manual_ip:
     static_ip: $device_ip
     gateway: 172.16.0.1
     subnet: 255.255.0.0
     dns1: 8.8.8.8
     dns2: 8.8.4.4
-    
+
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "$upper_device_name Switch Hotspot"
@@ -28,7 +29,7 @@ ota:
 
 web_server:
   port: 80
-  
+
 mqtt:
   broker: 172.16.8.3
   username: !secret mqtt_username
@@ -50,7 +51,7 @@ binary_sensor:
       - invert:
       - delayed_off: 10ms
     on_press:
-      - switch.toggle: 
+      - switch.toggle:
           id: relay_1
 
   - platform: gpio

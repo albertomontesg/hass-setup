@@ -1,3 +1,4 @@
+---
 title: Office
 icon: mdi:chair-rolling
 panel: false
@@ -30,12 +31,12 @@ cards:
             unit_of_measurement: °C
             min: 0
             max: 150
-            severity: 
+            severity:
               red: 120
               amber: 0
               green: 60
             #scale: '50px'
-  
+
           - type: gauge
             title: Hot End Temp
             entity: sensor.prusa_mk3s_actual_tool0_temp
@@ -46,8 +47,8 @@ cards:
               red: 225
               amber: 0
               green: 200
-            #scale: '50px'  
-  
+            #scale: '50px'
+
       - type: horizontal-stack
         cards:
           - type: gauge
@@ -56,12 +57,12 @@ cards:
             unit_of_measurement: °C
             min: 0
             max: 150
-            severity: 
+            severity:
               red: 120
               amber: 0
               green: 59
             #scale: '50px'
-  
+
           - type: gauge
             title: Hot End Target
             entity: sensor.prusa_mk3s_target_tool0_temp
@@ -72,7 +73,7 @@ cards:
               red: 225
               amber: 0
               green: 199
-            #scale: '50px'  
+            #scale: '50px'
 
       # - type: 'custom:bignumber-card'
       #   title: Current Job Completion Status
@@ -87,20 +88,20 @@ cards:
       #     - value: 40
       #       style: 'var(--label-badge-yellow)'
       #     - value: 70
-      #       style: 'var(--label-badge-green)' 
-      
+      #       style: 'var(--label-badge-green)'
+
       - type: horizontal-stack
         cards:
           - type: sensor
             name: Elapsed
             entity: sensor.prusa_mk3s_time_elapsed
             graph: none
-  
+
           - type: sensor
             name: Remaining
             entity: sensor.prusa_mk3s_time_remaining
             graph: none
-  
+
       - type: glance
         show_header_toggle: false
         column_width: calc(100% / 3)

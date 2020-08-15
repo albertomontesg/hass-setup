@@ -1,3 +1,4 @@
+---
 title: Living Room
 icon: mdi:sofa
 panel: false
@@ -29,22 +30,22 @@ cards:
     title: Climate
     cards:
       - type: custom:mini-graph-card
-        entities: 
-        - sensor.living_room_temperature
+        entities:
+          - sensor.living_room_temperature
         name: Temperature
         animate: true
         hour24: true
         decimals: 1
       - type: custom:mini-graph-card
-        entities: 
-        - sensor.living_room_humidity
+        entities:
+          - sensor.living_room_humidity
         name: Humidity
         animate: true
         hour24: true
         decimals: 1
       - type: custom:mini-graph-card
-        entities: 
-        - sensor.living_room_pressure
+        entities:
+          - sensor.living_room_pressure
         name: Pressure
         animate: true
         hour24: true

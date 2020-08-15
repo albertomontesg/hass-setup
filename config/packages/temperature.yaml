@@ -1,3 +1,4 @@
+---
 sensor:
   # Living Room Temperature Humidity Sensor
   - platform: mqtt
@@ -31,7 +32,7 @@ sensor:
     unit_of_measurement: '%'
     device_class: battery
     value_template: '{{ value_json.battery }}'
-      
+
   # Bedroom Temperature Humidity Sensor
   - platform: mqtt
     name: Bedroom Temperature
@@ -64,7 +65,7 @@ sensor:
     unit_of_measurement: '%'
     device_class: battery
     value_template: '{{ value_json.battery }}'
-      
+
   # Outside Temperature Humidity Sensor
   - platform: mqtt
     name: Outside Temperature
@@ -96,7 +97,7 @@ sensor:
     availability_topic: zigbee2mqtt/bridge/state
     unit_of_measurement: '%'
     device_class: battery
-    value_template: '{{ value_json.battery }}'      
+    value_template: '{{ value_json.battery }}'
 
   # Outside Temperature Humidity Sensor
   - platform: mqtt
@@ -129,7 +130,7 @@ sensor:
     availability_topic: zigbee2mqtt/bridge/state
     unit_of_measurement: '%'
     device_class: battery
-    value_template: '{{ value_json.battery }}'      
+    value_template: '{{ value_json.battery }}'
 
   # Mold indicators.
   - platform: mold_indicator
@@ -144,7 +145,7 @@ sensor:
     indoor_humidity_sensor: sensor.living_room_humidity
     outdoor_temp_sensor: sensor.outside_temperature
     calibration_factor: 1.0
-    
+
   # Average Climate values for all the inside house.
   - platform: min_max
     type: mean
@@ -167,4 +168,3 @@ sensor:
       - sensor.living_room_pressure
       - sensor.bedroom_pressure
       - sensor.main_bathroom_pressure
-
