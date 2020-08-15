@@ -1,0 +1,12 @@
+light.bedroom:
+  name: Bedroom Light
+light.bed_led:
+  name: Cama Bedroom
+light.tv_led:
+  name: Tele Living Room
+light.sofa_led:
+  name: Sofa LED Living Room
+light.dinning_room:
+  name: Menjador Living Room
+light.studio:
+  name: Studio Light

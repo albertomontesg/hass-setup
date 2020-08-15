@@ -1,0 +1,46 @@
+title: Echo
+icon: mdi:dog
+panel: false
+path: echo
+cards:
+  - type: vertical-stack
+    cards:
+      - type: picture
+        image: https://i.imgur.com/nhtkemT.jpg
+        tap_action:
+          action: call-service
+          service: notify.mobile_app_both_iphones
+          service_data:
+            title: "Hi! I'm Echo!"
+            message: "🐕 buf buf buf 🐶"
+            data:
+              attachment:
+                url: "https://i.imgur.com/nhtkemT.jpg"
+                content-type: jpeg
+                hide-thumbnail: false
+  - type: vertical-stack
+    title: Eating Times
+    cards:
+      - type: entities
+        entities:
+          - input_datetime.echo_breakfast_time
+          - input_datetime.echo_dinner_time
+  - type: vertical-stack
+    title: Walk Times
+    cards:
+      - type: entities
+        entities:
+          - input_datetime.echo_morning_walk_time
+          - input_datetime.echo_afternoon_walk_time
+          - input_datetime.echo_night_walk_time
+  - type: vertical-stack
+    title: Notifications
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - automation.echo_breakfast_notification
+          - automation.echo_dinner_notification
+          - automation.echo_morning_walk_notification
+          - automation.echo_afternoon_walk_notification
+          - automation.echo_night_walk_notification

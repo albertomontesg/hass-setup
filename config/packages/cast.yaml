@@ -1,0 +1,4 @@
+cast:
+  media_player:
+    - host: 172.16.1.15
+    - host: 172.16.1.16

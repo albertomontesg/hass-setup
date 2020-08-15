@@ -1,0 +1,7 @@
+octoprint:
+  host: octoprint.printing.svc
+  port: 5000
+  api_key: !secret octoprint_api_key
+  name: Prusa MK3S
+  number_of_tools: 1
+  bed: true

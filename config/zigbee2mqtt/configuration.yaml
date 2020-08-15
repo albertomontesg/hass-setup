@@ -1,0 +1,23 @@
+homeassistant: false
+permit_join: true
+mqtt:
+  base_topic: zigbee2mqtt
+  server: 'mqtt://mqtt:1883'
+  user: '!secret mqtt_username'
+  password: '!secret mqtt_password'
+  version: 5
+serial:
+  port: /dev/ttyACM0
+  disable_led: true
+advanced:
+  last_seen: epoch
+  elapsed: true
+  report: true
+  pan_id: 6755
+  network_key: '!secret network_key'
+device_options:
+  retain: true
+  qos: 1
+
+devices: devices.yaml
+groups: groups.yaml

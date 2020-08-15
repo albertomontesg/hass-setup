@@ -1,0 +1,170 @@
+sensor:
+  # Living Room Temperature Humidity Sensor
+  - platform: mqtt
+    name: Living Room Temperature
+    state_topic: zigbee2mqtt/living_room_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: °C
+    device_class: temperature
+    value_template: '{{ value_json.temperature }}'
+    json_attributes_topic: zigbee2mqtt/living_room_sensor
+  - platform: mqtt
+    name: Living Room Humidity
+    state_topic: zigbee2mqtt/living_room_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: '%'
+    device_class: humidity
+    value_template: '{{ value_json.humidity }}'
+    json_attributes_topic: zigbee2mqtt/living_room_sensor
+  - platform: mqtt
+    name: Living Room Pressure
+    state_topic: zigbee2mqtt/living_room_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: hPa
+    device_class: pressure
+    value_template: '{{ value_json.pressure }}'
+    json_attributes_topic: zigbee2mqtt/living_room_sensor
+  - platform: mqtt
+    name: Living Room Sensor Battery
+    state_topic: zigbee2mqtt/living_room_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: '%'
+    device_class: battery
+    value_template: '{{ value_json.battery }}'
+      
+  # Bedroom Temperature Humidity Sensor
+  - platform: mqtt
+    name: Bedroom Temperature
+    state_topic: zigbee2mqtt/bedroom_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: °C
+    device_class: temperature
+    value_template: '{{ value_json.temperature }}'
+    json_attributes_topic: zigbee2mqtt/bedroom_sensor
+  - platform: mqtt
+    name: Bedroom Humidity
+    state_topic: zigbee2mqtt/bedroom_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: '%'
+    device_class: humidity
+    value_template: '{{ value_json.humidity }}'
+    json_attributes_topic: zigbee2mqtt/bedroom_sensor
+  - platform: mqtt
+    name: Bedroom Pressure
+    state_topic: zigbee2mqtt/bedroom_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: hPa
+    device_class: pressure
+    value_template: '{{ value_json.pressure }}'
+    json_attributes_topic: zigbee2mqtt/bedroom_sensor
+  - platform: mqtt
+    name: Bedroom Sensor Battery
+    state_topic: zigbee2mqtt/bedroom_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: '%'
+    device_class: battery
+    value_template: '{{ value_json.battery }}'
+      
+  # Outside Temperature Humidity Sensor
+  - platform: mqtt
+    name: Outside Temperature
+    state_topic: zigbee2mqtt/outdoor_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: °C
+    device_class: temperature
+    value_template: '{{ value_json.temperature }}'
+    json_attributes_topic: zigbee2mqtt/outdoor_sensor
+  - platform: mqtt
+    name: Outside Humidity
+    state_topic: zigbee2mqtt/outdoor_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: '%'
+    device_class: humidity
+    value_template: '{{ value_json.humidity }}'
+    json_attributes_topic: zigbee2mqtt/outdoor_sensor
+  - platform: mqtt
+    name: Outside Pressure
+    state_topic: zigbee2mqtt/outdoor_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: hPa
+    device_class: pressure
+    value_template: '{{ value_json.pressure }}'
+    json_attributes_topic: zigbee2mqtt/outdoor_sensor
+  - platform: mqtt
+    name: Outside Sensor Battery
+    state_topic: zigbee2mqtt/outdoor_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: '%'
+    device_class: battery
+    value_template: '{{ value_json.battery }}'      
+
+  # Outside Temperature Humidity Sensor
+  - platform: mqtt
+    name: Main Bathroom Temperature
+    state_topic: zigbee2mqtt/main_bathroom_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: °C
+    device_class: temperature
+    value_template: '{{ value_json.temperature }}'
+    json_attributes_topic: zigbee2mqtt/main_bathroom_sensor
+  - platform: mqtt
+    name: Main Bathroom Humidity
+    state_topic: zigbee2mqtt/main_bathroom_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: '%'
+    device_class: humidity
+    value_template: '{{ value_json.humidity }}'
+    json_attributes_topic: zigbee2mqtt/main_bathroom_sensor
+  - platform: mqtt
+    name: Main Bathroom Pressure
+    state_topic: zigbee2mqtt/main_bathroom_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: hPa
+    device_class: pressure
+    value_template: '{{ value_json.pressure }}'
+    json_attributes_topic: zigbee2mqtt/main_bathroom_sensor
+  - platform: mqtt
+    name: Main Bathroom Sensor Battery
+    state_topic: zigbee2mqtt/main_bathroom_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: '%'
+    device_class: battery
+    value_template: '{{ value_json.battery }}'      
+
+  # Mold indicators.
+  - platform: mold_indicator
+    name: Mold Indicator Bedroom
+    indoor_temp_sensor: sensor.bedroom_temperature
+    indoor_humidity_sensor: sensor.bedroom_humidity
+    outdoor_temp_sensor: sensor.outside_temperature
+    calibration_factor: 1.0
+  - platform: mold_indicator
+    name: Mold Indicator Living Room
+    indoor_temp_sensor: sensor.living_room_temperature
+    indoor_humidity_sensor: sensor.living_room_humidity
+    outdoor_temp_sensor: sensor.outside_temperature
+    calibration_factor: 1.0
+    
+  # Average Climate values for all the inside house.
+  - platform: min_max
+    type: mean
+    name: Inside Temperature
+    entity_ids:
+      - sensor.living_room_temperature
+      - sensor.bedroom_temperature
+      - sensor.main_bathroom_temperature
+  - platform: min_max
+    type: mean
+    name: Inside Humidity
+    entity_ids:
+      - sensor.living_room_humidity
+      - sensor.bedroom_humidity
+      - sensor.main_bathroom_humidity
+  - platform: min_max
+    type: mean
+    name: Inside Pressure
+    entity_ids:
+      - sensor.living_room_pressure
+      - sensor.bedroom_pressure
+      - sensor.main_bathroom_pressure
+

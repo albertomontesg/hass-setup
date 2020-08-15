@@ -1,0 +1,71 @@
+- alias: Switch On Sofa Light on Media
+  trigger:
+    platform: state
+    entity_id: media_player.gordi_town
+    to: 'playing'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: time
+      before: '23:59:59'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.sofa_led
+    - service: light.turn_on
+      data:
+        entity_id: light.tv_led
+
+- alias: Switch Off Sofa Light on Media
+  trigger:
+    platform: state
+    entity_id: media_player.gordi_town
+    to: 'off'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: time
+      after: '21:00:00'
+      before: '05:00:00'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.sofa_led
+    - service: light.turn_off
+      data:
+        entity_id: light.tv_led
+        
+- alias: Switch On Bed Light on Media
+  trigger:
+    platform: state
+    entity_id: media_player.marmotilla_village
+    to: 'playing'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: time
+      before: '23:59:59'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.bed_led
+        
+- alias: Switch Off Bed Light on Media
+  trigger:
+    platform: state
+    entity_id: media_player.marmotilla_village
+    to: 'off'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: time
+      after: '21:00:00'
+      before: '05:00:00'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.bed_led

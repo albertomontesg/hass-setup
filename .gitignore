@@ -1,0 +1,28 @@
+# Gitignore settings for ESPHome
+.esphome
+.pioenvs
+.piolibdeps
+**/lib/
+**/src/
+**/platformio.ini
+**/partitions.csv
+**/config/secrets.yaml
+
+# Home Assistant
+**/deps
+__pycache__/
+**/.storage/
+**/.cloud/
+**/www/community/
+.HA_VERSION
+home-assistant.log
+service_account.json
+zigbee.db
+**/tts/
+**/themes/
+
+# Zigbee2mqtt
+**/log/
+database.db
+state.json
+**/zigbee2mqtt/secret.yaml

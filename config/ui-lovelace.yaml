@@ -1,0 +1,43 @@
+title: Home
+# resources:
+# - url: /hacsfiles/atomic_calendar/atomic_calendar.js
+#   type: module
+# # - url: /hacsfiles/custom-header/custom-header.js
+# #   type: module
+# - url: /hacsfiles/garbage-collection-card/garbage-collection-card.js
+#   type: module
+# - url: /hacsfiles/lovelace-card-tools/card-tools.js
+#   type: module
+# - url: /hacsfiles/lovelace-slider-entity-row/slider-entity-row.js
+#   type: module
+# - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+#   type: module
+# - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
+#   type: module
+# - url: /hacsfiles/rgb-light-card/card.js
+#   type: js
+# - url: /hacsfiles/search-card/search-card.js
+#   type: module
+# - url: /hacsfiles/weather-card/weather-card.js
+#   type: module
+# - url: /hacsfiles/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js
+#   type: module
+# - url: /hacsfiles/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js
+#   type: module
+# - url: /hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js
+#   type: module
+# - url: /hacsfiles/lovelace-battery-entity/battery-entity.js
+#   type: module
+# - url: /hacsfiles/bignumber-card/bignumber-card.js
+#   type: module
+# - url: /hacsfiles/vacuum-card/vacuum-card.js
+#   type: module
+views:
+- !include lovelace/0_general_view.yaml
+- !include lovelace/10_living_room.yaml
+- !include lovelace/20_bedroom.yaml
+- !include lovelace/30_bathrooms.yaml
+- !include lovelace/40_office.yaml
+- !include lovelace/80_echo.yaml
+- !include lovelace/81_cleaning.yaml
+- !include lovelace/90_devices_config.yaml

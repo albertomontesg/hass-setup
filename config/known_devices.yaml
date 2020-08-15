@@ -1,0 +1,32 @@
+
+f099b636e2cf:
+  hide_if_away: false
+  icon: mdi:cellphone
+  mac: F0:99:B6:36:E2:CF
+  name: iPhone Alberto
+  picture:
+  track: true
+
+c8_3c_85_38_ca_52:
+  hide_if_away: false
+  icon: mdi:cellphone
+  mac: C8:3C:85:38:CA:52
+  name: iPhone Judith
+  picture:
+  track: true
+
+8c_85_90_bb_dd_56:
+  hide_if_away: false
+  icon:
+  mac: 8C:85:90:BB:DD:56
+  name: 8c 85 90 bb dd 56
+  picture:
+  track: true
+
+f8_6f_c1_b3_ac_30:
+  hide_if_away: false
+  icon: mdi:watch-variant
+  mac: F8:6F:C1:B3:AC:30
+  name: Apple Watch Alberto
+  picture:
+  track: true

@@ -1,0 +1,16 @@
+- name: Home
+  latitude: 47.415606
+  longitude: 8.530288
+  radius: 50
+
+- name: Google Hurliman
+  latitude: 47.365102
+  longitude: 8.525183
+  radius: 200
+  icon: mdi:google
+
+- name: Universitätsspital
+  latitude: 47.376986
+  longitude: 8.552010
+  radius: 250
+  icon: mdi:school

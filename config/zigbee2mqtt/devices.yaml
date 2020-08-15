@@ -1,0 +1,28 @@
+'0x00158d0002b546af':
+  friendly_name: living_room_sensor
+  temperature_precision: 1
+  humidity_precision: 1
+  pressure_precision: 1
+  retain: true
+  debounce: 1
+'0x00158d00036bd864':
+  friendly_name: main_bathroom_sensor
+  temperature_precision: 1
+  humidity_precision: 1
+  pressure_precision: 1
+  retain: true
+  debounce: 1
+'0x00158d0002b54dce':
+  friendly_name: bedroom_sensor
+  temperature_precision: 1
+  humidity_precision: 1
+  pressure_precision: 1
+  retain: true
+  debounce: 1
+'0x00158d00036bd476':
+  friendly_name: outdoor_sensor
+  temperature_precision: 1
+  humidity_precision: 1
+  pressure_precision: 1
+  retain: true
+  debounce: 1

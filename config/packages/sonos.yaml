@@ -1,0 +1,6 @@
+sonos:
+  media_player:
+    hosts:
+    - 172.16.1.47  # Living Room
+    - 172.16.1.48  # Bedroom
+    - 172.16.1.53  # Office

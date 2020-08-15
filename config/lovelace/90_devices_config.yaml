@@ -1,0 +1,89 @@
+title: Settings
+icon: mdi:settings
+panel: false
+path: Settings
+cards:
+  - type: vertical-stack
+    title: Search
+    cards:
+      - type: custom:search-card
+        max_results: 10
+  - type: vertical-stack
+    title: Internet
+    cards:
+      - type: custom:mini-graph-card
+        entities:
+        - entity: sensor.speedtest_download
+          name: Download
+        - entity: sensor.speedtest_upload
+          name: Upload
+        name: Speed
+        icon: mdi:server
+        extrema: true
+        animate: true
+        hour24: true
+        points_per_hour: 1
+        decimals: 1
+      - type: custom:mini-graph-card
+        entities:
+        - entity: sensor.speedtest_ping
+        extrema: true
+        name: Ping
+        icon: mdi:flash
+        animate: true
+        hour24: true
+        points_per_hour: 1
+        decimals: 1
+  - type: vertical-stack
+    title: Zigbee2mqtt
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.zigbee2mqtt_bridge_state
+          - entity: sensor.zigbee2mqtt_version
+          - entity: sensor.coordinator_version
+          - entity: input_select.zigbee2mqtt_log_level
+          - type: divider
+          - entity: switch.zigbee2mqtt_main_join
+          - entity: timer.zigbee_permit_join
+          - type: divider
+          - entity: input_text.zigbee2mqtt_old_name
+          - entity: input_text.zigbee2mqtt_new_name
+          - entity: script.zigbee2mqtt_rename
+          - type: divider
+          - entity: input_text.zigbee2mqtt_remove
+          - entity: script.zigbee2mqtt_remove
+          - type: divider
+          - type: custom:zigbee2mqtt-networkmap
+            entity: sensor.zigbee2mqtt_networkmap
+  - type: vertical-stack
+    title: Batteries
+    cards:
+      - type: entities
+        # show_header_toggle: false
+        entities:
+            # TODO(albertomontes): uncomment custom type when fixed.
+          - entity: sensor.living_room_sensor_battery
+            name: Living Room Temperature Sensor
+            # type: custom:battery-entity
+          - entity: sensor.bedroom_sensor_battery
+            name: Bedroom Temperature Sensor
+            # type: custom:battery-entity
+          - entity: sensor.main_bathroom_sensor_battery
+            name: Main Bathroom Temperature Sensor
+            # type: custom:battery-entity
+          - entity: sensor.outside_sensor_battery
+            name: Outside Temperature Sensor
+            # type: custom:battery-entity
+  - type: vertical-stack
+    title: Automations
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - automation.switch_on_sofa_light_on_media
+          - automation.switch_off_sofa_light_on_media
+          - automation.switch_on_bed_light_on_media
+          - automation.switch_off_bed_light_on_media
+  

@@ -1,0 +1,6 @@
+notify:
+  - name: mobile_app_both_iphones
+    platform: group
+    services:
+      - service: mobile_app_albertos_iphone
+      - service: mobile_app_iphone_de_judith

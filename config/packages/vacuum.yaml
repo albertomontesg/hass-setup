@@ -1,0 +1,5 @@
+vacuum:
+- platform: xiaomi_miio
+  name: Xiaomi Vacuum Cleaner
+  host: 172.16.1.50
+  token: 64444a6b6c7065584673503769756d41
