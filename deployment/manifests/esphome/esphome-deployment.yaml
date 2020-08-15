@@ -65,6 +65,9 @@ spec:
           hostnames:
             - "dl.platformio.org"
             - "api.platformio.org"
+        - ip: "88.198.170.159"
+          hostnames:
+            - "api.registry.platformio.org"
       nodeSelector:
         beta.kubernetes.io/arch: arm
 ---
