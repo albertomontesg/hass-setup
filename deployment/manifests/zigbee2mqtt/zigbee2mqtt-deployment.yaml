@@ -29,7 +29,8 @@ spec:
           command:
             - sh
             - -c
-            - 'until test -w /dev/ttyACM0; do echo waiting for USB sniffer; sleep 2; done'
+            - 'until test -w /dev/ttyACM0; do echo waiting for USB sniffer;
+              sleep 2; done'
           volumeMounts:
             - mountPath: /dev/ttyACM0
               name: usb-sniffer

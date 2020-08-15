@@ -38,9 +38,9 @@ mqtt:
 
 # Setting up the pressure mats
 esp32_touch:
-  # Delete this after you are done with the setup process
-  # setup_mode: true
-  # iir_filter: 10ms
+# Delete this after you are done with the setup process
+#   setup_mode: true
+#   iir_filter: 10ms
 
 
 binary_sensor:

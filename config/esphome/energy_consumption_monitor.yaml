@@ -70,8 +70,8 @@ sensor:
         name: ${disp_name} Volts A
         id: ic1Volts
         accuracy_decimals: 1
-       # filters:
-         # - multiply: 2.0
+        # filters:
+        #   - multiply: 2.0
       current:
         name: ${disp_name} CT1 Amps
         id: ct1Amps
@@ -102,7 +102,7 @@ sensor:
     line_frequency: 60Hz
     gain_pga: 1X
     update_interval: ${update_time}
-  #IC2
+  # IC2
   - platform: atm90e32
     cs_pin: 4
     phase_a:
