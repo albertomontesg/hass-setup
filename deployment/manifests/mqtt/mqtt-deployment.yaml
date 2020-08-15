@@ -1,0 +1,97 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mqtt-config
+  labels:
+    app: mqtt
+    component: pubsub
+  namespace: home-automation
+data:
+  mosquitto.conf: |
+    pid_file /var/run/mosquitto.pid
+    persistence true
+    persistence_location /mosquitto/data
+    user mosquitto
+    password_file /mosquitto/config/passwd
+    port 1883
+    log_dest file /mosquitto/log/mosquitto.log
+    log_dest stdout
+  passwd: |
+    mosquitto:$6$Qcx7PZCAS3CmVq0O$1Vqht/m00W1DauUYjdx5slQyfLT8lqhQAgHCJcyrz+dqhBH5uCaOELMxO9FXd2uEOhRf+rBGzKPCTBMwKxIrxw==
+# Password generated with mosquitto_passwd command.
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mqtt
+  labels:
+    app: mqtt
+    component: pubsub
+  namespace: home-automation
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: mqtt
+      component: pubsub
+  template:
+    metadata:
+      labels:
+        app: mqtt
+        component: pubsub
+      namespace: home-automation
+    spec:
+      containers:
+        - name: mqtt
+          image: eclipse-mosquitto:1.6.9
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: mqtt
+              containerPort: 1883
+            - name: ws-mqtt
+              containerPort: 9001
+          volumeMounts:
+            - mountPath: /mosquitto/data
+              name: mqtt-data
+            - mountPath: /mosquitto/config
+              name: mqtt-config
+          resources:
+            requests:
+              memory: "32Mi"
+              cpu: 100m
+            limits:
+              memory: "32Mi"
+              cpu: 100m
+      volumes:
+        - name: mqtt-data
+          persistentVolumeClaim:
+            claimName: mqtt-pvc
+        - name: mqtt-config
+          configMap:
+            name: mqtt-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mqtt
+  labels:
+    app: mqtt
+    component: pubsub
+  namespace: home-automation
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 172.16.8.3
+  ports:
+    - name: mqtt
+      port: 1883
+      protocol: TCP
+    - name: ws-mqtt
+      port: 9001
+      protocol: TCP
+  selector:
+    app: mqtt
+    component: pubsub

@@ -1,0 +1,22 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: esphome
+  namespace: home-automation
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: "Host(`esphome.hass.c6.montesg.xyz`)"
+      kind: Rule
+      services:
+        - kind: Service
+          name: esphome
+          namespace: home-automation
+          passHostHeader: true
+          port: 6052
+  tls:
+    certResolver: le
+    options:
+      name: mutual-auth
+      namespace: traefik

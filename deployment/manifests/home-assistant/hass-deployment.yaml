@@ -1,0 +1,93 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: home-assistant
+  labels:
+    app: home-assistant
+    component: core
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: home-assistant
+      component: core
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+  template:
+    metadata:
+      labels:
+        app: home-assistant
+        component: core
+      namespace: home-automation
+    spec:
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      initContainers:
+        - name: check-db-ready
+          image: postgres:11.7-alpine
+          command:
+            - sh
+            - -c
+            - 'until pg_isready -h postgres -p 5432 -U postgresadmin -d homeassistant;
+              do echo waiting for database; sleep 2; done;'
+      containers:
+        - name: home-assistant
+          image: "homeassistant/raspberrypi3-64-homeassistant:0.114.1"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: api
+              containerPort: 8123
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: api
+            initialDelaySeconds: 120
+            failureThreshold: 20
+            timeoutSeconds: 5
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /
+              port: api
+            initialDelaySeconds: 120
+            failureThreshold: 20
+            timeoutSeconds: 5
+            periodSeconds: 30
+          volumeMounts:
+          - mountPath: /config
+            name: config
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: 1
+            limits:
+              memory: "512Mi"
+              cpu: 2
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: home-assistant-pvc
+      nodeSelector:
+        beta.kubernetes.io/arch: arm64
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: home-assistant
+  labels:
+    app: home-assistant
+    component: core
+  namespace: home-automation
+spec:
+  type: ClusterIP
+  ports:
+    - name: api
+      port: 8123
+      protocol: TCP
+      targetPort: 8123
+  selector:
+    app: home-assistant
+    component: core

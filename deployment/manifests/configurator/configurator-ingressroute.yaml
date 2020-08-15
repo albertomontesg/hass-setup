@@ -1,0 +1,22 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: configurator
+  namespace: home-automation
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: "Host(`config.hass.c6.montesg.xyz`)"
+      kind: Rule
+      services:
+        - kind: Service
+          name: configurator
+          namespace: home-automation
+          passHostHeader: true
+          port: 3218
+  tls:
+    certResolver: le
+    options:
+      name: mutual-auth
+      namespace: traefik

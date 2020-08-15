@@ -1,0 +1,16 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mqtt-pvc
+  labels:
+    app: mqtt
+    component: pubsub
+  namespace: home-automation
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "nfs-storage-disk1"
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 100Mi

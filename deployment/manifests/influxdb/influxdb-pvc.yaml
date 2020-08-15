@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: influxdb-pv
+  labels:
+    app: influxdb
+    component: db
+  namespace: home-automation
+spec:
+  capacity:
+    storage: 10Gi
+  volumeMode: Filesystem
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: /mnt/disk1/data/home-automation/influxdb
+    server: 172.16.3.5
+  persistentVolumeReclaimPolicy: Retain
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: influxdb-pvc
+  labels:
+    app: influxdb
+    component: db
+  namespace: home-automation
+spec:
+  volumeMode: Filesystem
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi

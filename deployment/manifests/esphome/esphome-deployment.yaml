@@ -1,0 +1,91 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: esphome
+  labels:
+    app: home-assistant
+    component: esphome
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: home-assistant
+      component: esphome
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: home-assistant
+        component: esphome
+      namespace: home-automation
+    spec:
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      containers:
+        - name: esphome
+          image: "esphome/esphome-armv7:1.14.3"
+          imagePullPolicy: Always
+          command:
+            - "esphome"
+          args:
+            - "/config/esphome"
+            - "dashboard"
+          ports:
+            - name: http
+              containerPort: 6052
+              protocol: TCP
+            - name: ota
+              containerPort: 6123
+              protocol: TCP
+          env:
+            - name: ESPHOME_DASHBOARD_USE_PING
+              value: "true"
+          livenessProbe:
+            tcpSocket:
+              port: http
+            initialDelaySeconds: 30
+          readinessProbe:
+            tcpSocket:
+              port: http
+            initialDelaySeconds: 15
+          volumeMounts:
+          - mountPath: /config
+            name: config
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: home-assistant-pvc
+      hostAliases:
+      - ip: "31.28.1.238"
+        hostnames:
+        - "dl.platformio.org"
+        - "api.platformio.org"
+      nodeSelector:
+        beta.kubernetes.io/arch: arm
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: esphome
+  labels:
+    app: home-assistant
+    component: esphome
+  namespace: home-automation
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 6052
+      protocol: TCP
+      targetPort: 6052
+    - name: ota
+      port: 6123
+      protocol: TCP
+      targetPort: 6123
+  selector:
+    app: home-assistant
+    component: esphome

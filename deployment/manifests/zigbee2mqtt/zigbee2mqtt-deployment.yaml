@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zigbee2mqtt
+  labels:
+    app: zigbee2mqtt
+    component: zigbee-router
+  namespace: home-automation
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+  selector:
+    matchLabels:
+      app: zigbee2mqtt
+      component: zigbee-router
+  template:
+    metadata:
+      labels:
+        app: zigbee2mqtt
+        component: zigbee-router
+      namespace: home-automation
+    spec:
+      initContainers:
+        - name: check-usb-sniffer
+          image: alpine:3.10.2
+          command:
+            - sh
+            - -c
+            - 'until test -w /dev/ttyACM0; do echo waiting for USB sniffer; sleep 2; done'
+          volumeMounts:
+            - mountPath: /dev/ttyACM0
+              name: usb-sniffer
+      containers:
+        - name: zigbee2mqtt
+          image: koenkk/zigbee2mqtt:1.14.0
+          imagePullPolicy: Always
+          securityContext:
+            privileged: true
+          # env:
+          #   - name: DEBUG
+          #     value: "zigbee-herdsman:*"
+          volumeMounts:
+            - mountPath: /app/data
+              name: zigbee2mqtt-data
+              subPath: zigbee2mqtt
+            - mountPath: /dev/ttyACM0
+              name: usb-sniffer
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: 100m
+            limits:
+              memory: "128Mi"
+              cpu: 200m
+      volumes:
+        - name: zigbee2mqtt-data
+          persistentVolumeClaim:
+            claimName: home-assistant-pvc
+        - name: usb-sniffer
+          hostPath:
+            path: /dev/ttyACM0
+      nodeSelector:
+        beta.kubernetes.io/arch: arm64
+        device: zigbee

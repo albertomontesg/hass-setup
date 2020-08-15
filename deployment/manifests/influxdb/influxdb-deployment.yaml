@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: influxdb-env
+  labels:
+    app: influxdb
+    component: db
+  namespace: home-automation
+data:
+  INFLUXDB_DB: homeassistant
+  INFLUXDB_USER: hass
+  INFLUXDB_PASSWORD: gfdble34bu23g4y4fd
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: influxdb
+  labels:
+    app: influxdb
+    component: db
+  namespace: home-automation
+spec:
+  selector:
+    matchLabels:
+      app: influxdb
+      component: db
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: influxdb
+        component: db
+      namespace: home-automation
+    spec:
+      containers:
+        - name: influxdb
+          image: influxdb:1.7.9
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8086
+          envFrom:
+            - configMapRef:
+                name: influxdb-env
+          volumeMounts:
+            - mountPath: /var/lib/influxdb
+              name: influxdb-data
+          readinessProbe:
+            httpGet:
+              path: /ping
+              port: 8086
+            initialDelaySeconds: 30
+            failureThreshold: 10
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /ping
+              port: 8086
+            initialDelaySeconds: 15
+            failureThreshold: 10
+            timeoutSeconds: 5
+      volumes:
+        - name: influxdb-data
+          persistentVolumeClaim:
+            claimName: influxdb-pvc
+      nodeSelector:
+        beta.kubernetes.io/arch: arm64
