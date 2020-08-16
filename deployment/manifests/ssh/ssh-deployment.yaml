@@ -104,8 +104,7 @@ metadata:
     component: ssh
   namespace: home-automation
 spec:
-  type: LoadBalancer
-  loadBalancerIP: 172.16.8.7
+  type: ClusterIP
   ports:
     - name: ssh
       port: 2222
