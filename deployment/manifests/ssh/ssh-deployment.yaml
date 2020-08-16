@@ -78,22 +78,6 @@ spec:
         - name: public-keys
           secret:
             secretName: ssh-public-key
-      # We need to co-locate this pod to the same node as Traefik to get the
-      # same node IP from the MetalLB, so HTTP and SSH protocols are served from
-      # the same logical IP and physical IP.
-      affinity:
-        podAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
-                matchExpressions:
-                  - key: app
-                    operator: In
-                    values:
-                      - traefik
-              namespaces:
-                - traefik
-              topologyKey: "kubernetes.io/hostname"
-
 ---
 apiVersion: v1
 kind: Service
