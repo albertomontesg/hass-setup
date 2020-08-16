@@ -1,0 +1,17 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: ssh
+  namespace: home-automation
+spec:
+  entryPoints:
+    - ssh
+  routes:
+    - match: "HostSNI(`*`)"
+      kind: Rule
+      services:
+        - kind: Service
+          name: ssh
+          namespace: home-automation
+          port: 2222

@@ -26,3 +26,6 @@ zigbee.db
 database.db
 state.json
 **/zigbee2mqtt/secret.yaml
+
+# Deployments
+**/manifests/**/*secrets.yaml

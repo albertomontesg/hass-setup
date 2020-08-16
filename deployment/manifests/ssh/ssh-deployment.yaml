@@ -1,0 +1,116 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ssh
+  labels:
+    app: home-assistant
+    component: ssh
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: home-assistant
+      component: ssh
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: home-assistant
+        component: ssh
+      namespace: home-automation
+    spec:
+      hostname: config
+      containers:
+        - name: ssh
+          image: "linuxserver/openssh-server:latest"
+          imagePullPolicy: Always
+          ports:
+            - name: ssh
+              containerPort: 2222
+              protocol: TCP
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: TZ
+              value: "Europe/Zurich"
+            - name: SUDO_ACCESS
+              value: "false"
+            - name: "PUBLIC_KEY_FILE"
+              value: "/home/.ssh/c6_id_rsa.pub"
+            - name: PASSWORD_ACCESS
+              value: "false"
+            - name: USER_NAME
+              value: "cluster"
+          livenessProbe:
+            tcpSocket:
+              port: ssh
+            initialDelaySeconds: 30
+            periodSeconds: 30
+          readinessProbe:
+            tcpSocket:
+              port: ssh
+            initialDelaySeconds: 15
+            periodSeconds: 30
+          volumeMounts:
+            - mountPath: /config
+              name: config
+            - mountPath: /home/.ssh
+              readOnly: true
+              name: public-keys
+          resources:
+            requests:
+              memory: "32Mi"
+              cpu: 100m
+            limits:
+              memory: "32Mi"
+              cpu: 200m
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: home-assistant-pvc
+        - name: public-keys
+          secret:
+            secretName: ssh-public-key
+      # We need to co-locate this pod to the same node as Traefik to get the
+      # same node IP from the MetalLB, so HTTP and SSH protocols are served from
+      # the same logical IP and physical IP.
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - traefik
+              namespaces:
+                - traefik
+              topologyKey: "kubernetes.io/hostname"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ssh
+  labels:
+    app: home-assistant
+    component: ssh
+  namespace: home-automation
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 172.16.8.7
+  ports:
+    - name: ssh
+      port: 2222
+      protocol: TCP
+      targetPort: 2222
+  selector:
+    app: home-assistant
+    component: ssh
