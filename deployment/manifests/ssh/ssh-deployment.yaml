@@ -41,7 +41,7 @@ spec:
             - name: TZ
               value: "Europe/Zurich"
             - name: SUDO_ACCESS
-              value: "false"
+              value: "true"
             - name: "PUBLIC_KEY_FILE"
               value: "/home/.ssh/c6_id_rsa.pub"
             - name: PASSWORD_ACCESS
