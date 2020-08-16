@@ -59,7 +59,7 @@ spec:
             initialDelaySeconds: 15
             periodSeconds: 30
           volumeMounts:
-            - mountPath: /config
+            - mountPath: /config/hass
               name: config
             - mountPath: /home/.ssh
               readOnly: true
