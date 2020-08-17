@@ -154,6 +154,8 @@ sensor:
       - sensor.living_room_temperature
       - sensor.bedroom_temperature
       - sensor.main_bathroom_temperature
+      # This comes from the Dyson fan defined in climate.yaml.
+      - sensor.office_temperature
   - platform: min_max
     type: mean
     name: Inside Humidity
@@ -161,6 +163,8 @@ sensor:
       - sensor.living_room_humidity
       - sensor.bedroom_humidity
       - sensor.main_bathroom_humidity
+      # This comes from the Dyson fan defined in climate.yaml.
+      - sensor.humidity
   - platform: min_max
     type: mean
     name: Inside Pressure
