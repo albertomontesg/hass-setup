@@ -9,7 +9,7 @@ metadata:
   namespace: home-automation
 spec:
   capacity:
-    storage: 10Gi
+    storage: 20Gi
   volumeMode: Filesystem
   storageClassName: manual
   accessModes:
@@ -34,4 +34,4 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 5Gi
+      storage: 15Gi
