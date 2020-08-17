@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: teslamate-pv
+  labels:
+    app: teslamate
+    component: main
+  namespace: home-automation
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: /mnt/disk1/data/home-automation/teslamate
+    server: 172.16.3.5
+  persistentVolumeReclaimPolicy: Retain
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: teslamate-pvc
+  labels:
+    app: teslamate
+    component: main
+  namespace: home-automation
+spec:
+  volumeMode: Filesystem
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi

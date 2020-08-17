@@ -1,0 +1,20 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: teslamate
+  namespace: home-automation
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: "Host(`tesla.hass.c6.montesg.xyz`)"
+      kind: Rule
+      services:
+        - kind: Service
+          name: teslamate
+          namespace: home-automation
+          passHostHeader: true
+          port: 4000
+  tls:
+    certResolver: le

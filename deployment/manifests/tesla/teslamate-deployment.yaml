@@ -1,0 +1,75 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teslamate
+  labels:
+    app: teslamate
+    component: main
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: teslamate
+      component: main
+  template:
+    metadata:
+      labels:
+        app: teslamate
+        component: main
+      namespace: home-automation
+    spec:
+      containers:
+        - name: teslamate
+          image: teslamate/teslamate:1.19
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 4000
+          env:
+            - name: DATABASE_USER
+              valueFrom:
+                secretKeyRef:
+                  name: tesla-db
+                  key: POSTGRES_USER
+            - name: DATABASE_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: tesla-db
+                  key: POSTGRES_PASSWORD
+            - name: DATABASE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: tesla-db
+                  key: POSTGRES_DB
+            - name: DATABASE_HOST
+              value: "tesla-db"
+            - name: MQTT_HOST
+              value: "mqtt"
+            - name: MQTT_USERNAME
+              value: "mosquitto"
+            - name: MQTT_PASSWORD
+              value: "6hwxKrRnWT4MP64MoNrF"
+            - name: TZ
+              value: "Europe/Zurich"
+          envFrom:
+            - secretRef:
+                name: tesla-db
+          volumeMounts:
+            - mountPath: /opt/app/import
+              name: teslamate-import
+          livenessProbe:
+            tcpSocket:
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 30
+          readinessProbe:
+            tcpSocket:
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 30
+      volumes:
+        - name: teslamate-import
+          persistentVolumeClaim:
+            claimName: teslamate-pvc

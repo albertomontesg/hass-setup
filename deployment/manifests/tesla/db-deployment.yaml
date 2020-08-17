@@ -1,0 +1,50 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tesla-db
+  labels:
+    app: teslamate
+    component: db
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: teslamate
+      component: db
+  template:
+    metadata:
+      labels:
+        app: teslamate
+        component: db
+      namespace: home-automation
+    spec:
+      containers:
+        - name: teslamate-db
+          image: postgres:12-alpine
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: db
+              containerPort: 5432
+          envFrom:
+            - secretRef:
+                name: tesla-db
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgredb
+          readinessProbe:
+            exec:
+              command:
+                - sh
+                - -c
+                - exec pg_isready -h localhost -U tess -d teslamate
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 5
+      volumes:
+        - name: postgredb
+          persistentVolumeClaim:
+            claimName: tesla-db-pvc
+      nodeSelector:
+        beta.kubernetes.io/arch: arm64
