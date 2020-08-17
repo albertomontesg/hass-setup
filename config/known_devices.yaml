@@ -30,3 +30,11 @@ f8_6f_c1_b3_ac_30:
   name: Apple Watch Alberto
   picture:
   track: true
+
+tesla_location:
+  hide_if_away: false
+  icon: mdi:car
+  mac:
+  name: Tess
+  picture:
+  track: true

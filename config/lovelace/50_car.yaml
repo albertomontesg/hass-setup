@@ -1,0 +1,53 @@
+---
+path: car
+title: Car
+panel: false
+icon: "mdi:car-connected"
+cards:
+  - type: vertical-stack
+    cards:
+      - type: glance
+        entities:
+          - entity: sensor.tesla_battery_level
+            name: Battery Level
+          - entity: sensor.tesla_state
+            name: Car State
+          - entity: sensor.tesla_plugged_in
+            name: Plugged In
+      - type: glance
+        entities:
+          - entity: sensor.tesla_park_brake
+            name: Park Brake
+          - entity: sensor.tesla_sentry_mode
+            name: Sentry Mode
+          - entity: sensor.tesla_speed
+            name: Speed
+      - type: glance
+        entities:
+          - entity: sensor.tesla_healthy
+            name: Car Health
+          - entity: sensor.tesla_windows_open
+            name: Window Status
+  - type: vertical-stack
+    cards:
+      - type: map
+        entities:
+          - device_tracker.tesla_location
+  - type: entities
+    entities:
+      - entity: sensor.tesla_charge_limit
+        name: SOC Charge Limit
+      - entity: sensor.tesla_charge_energy_added
+        name: Last Charge Energy Added
+      - entity: sensor.tesla_odometer
+        name: Odometer
+      - entity: sensor.tesla_estimated_range
+        name: Estimated Range
+      - entity: sensor.tesla_rated_range
+        name: Rated Range
+      - entity: sensor.tesla_inside_temp
+        name: Tesla Temperature (inside)
+      - entity: sensor.tesla_outside_temp
+        name: Tesla Temperature (outside)
+      - entity: proximity.home_tesla
+        name: Distance to Home
