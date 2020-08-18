@@ -45,30 +45,23 @@ cards:
       - type: custom:mini-graph-card
         entities:
           - sensor.inside_temperature
-          - sensor.outside_temperature
+          - entity: sensor.dark_sky_temperature
+            name: Outside
         name: Temperature
         animate: true
         hour24: true
         points_per_hour: 1
-        decimals: 1
+        decimals: 0
       - type: custom:mini-graph-card
         entities:
           - sensor.inside_humidity
-          - sensor.outside_humidity
+          - entity: sensor.dark_sky_humidity
+            name: Outside
         name: Humidity
         animate: true
         hour24: true
         points_per_hour: 1
-        decimals: 1
-      - type: custom:mini-graph-card
-        entities:
-          - sensor.inside_pressure
-          - sensor.outside_pressure
-        name: Pressure
-        animate: true
-        hour24: true
-        points_per_hour: 1
-        decimals: 1
+        decimals: 0
   - type: vertical-stack
     title: Lights
     cards:
