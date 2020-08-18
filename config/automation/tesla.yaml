@@ -1,6 +1,6 @@
 ---
-- alias: Update Tesla location as MQTT location updates
-  initial_state: on
+- alias: Update Tesla Location
+  initial_state: true
   trigger:
     - platform: mqtt
       topic: teslamate/cars/1/latitude

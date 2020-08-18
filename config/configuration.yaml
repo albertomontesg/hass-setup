@@ -160,6 +160,7 @@ logger:
   logs:
     homeassistant.components.http: warn
     homeassistant.components.device_tracker.nmap_tracker: warn
+    homeassistant.components.automation.update_tesla_location: warn
     pyhap.hap_server: warn
     hole: warn
     opensensemap_api: warn
