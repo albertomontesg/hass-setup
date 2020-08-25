@@ -39,7 +39,7 @@ cards:
             - entity_id: media_player.office
               name: Office
 
-  - type: vertical-stack
+  - type: horizontal-stack
     title: Climate
     cards:
       - type: custom:mini-graph-card
@@ -68,14 +68,18 @@ cards:
       - type: entities
         show_header_toggle: false
         entities:
-          - light.bedroom
           - light.living_room
-          - light.dining_room
-          - light.office
-          - light.corridor
           - light.sofa_led
           - light.tv_led
+          - type: divider
+          - light.dining_room
+          - type: divider
+          - light.corridor
+          - type: divider
+          - light.bedroom
           - light.bed_led
+          - type: divider
+          - light.office
   - type: vertical-stack
     title: Cleaning
     cards:

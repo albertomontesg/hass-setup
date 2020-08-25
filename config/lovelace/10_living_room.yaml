@@ -23,10 +23,11 @@ cards:
         show_header_toggle: false
         entities:
           - light.living_room
-          - light.dining_room
           - light.sofa_led
           - light.tv_led
-  - type: vertical-stack
+          - type: divider
+          - light.dining_room
+  - type: horizontal-stack
     title: Climate
     cards:
       - type: custom:mini-graph-card
@@ -35,21 +36,11 @@ cards:
         name: Temperature
         animate: true
         hour24: true
-        decimals: 1
+        decimals: 0
       - type: custom:mini-graph-card
         entities:
           - sensor.living_room_humidity
         name: Humidity
         animate: true
         hour24: true
-        decimals: 1
-      - type: custom:mini-graph-card
-        entities:
-          - sensor.living_room_pressure
-        name: Pressure
-        animate: true
-        hour24: true
-        decimals: 1
-      - type: entities
-        entities:
-          - entity: sensor.mold_indicator_living_room
+        decimals: 0
