@@ -22,3 +22,6 @@ cards:
             - attribute: sensor_dirty_left
               unit: hours
               subtitle: Sensors
+      - type: entities
+        entities:
+          - input_select.vacuum_room

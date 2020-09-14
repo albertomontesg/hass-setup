@@ -7,105 +7,105 @@ proximity:
       - device_tracker.tesla_location
     tolerance: 10
     unit_of_measurement: km
-    
+
 sensor:
   - platform: mqtt
-    name: tesla_battery_level
+    name: Tesla Battery Level
     state_topic: "teslamate/cars/1/battery_level"
     unit_of_measurement: "%"
     icon: mdi:battery-80
 
   - platform: mqtt
-    name: tesla_charge_energy_added
+    name: Tesla Charge Energy Added
     state_topic: "teslamate/cars/1/charge_energy_added"
     unit_of_measurement: "kW"
     icon: mdi:battery-80
 
   - platform: mqtt
-    name: tesla_charge_limit
+    name: Tesla Charge Limit
     state_topic: "teslamate/cars/1/charge_limit_soc"
     unit_of_measurement: "%"
     icon: mdi:battery-80
 
   - platform: mqtt
-    name: tesla_charge_port_door_open
+    name: Tesla Charge Port Door Open
     state_topic: "teslamate/cars/1/charge_port_door_open"
     icon: mdi:car-door
 
   - platform: mqtt
-    name: tesla_charger_actual_current
+    name: Tesla Charger Actual Current
     state_topic: "teslamate/cars/1/charger_actual_current"
     unit_of_measurement: "A"
     icon: mdi:battery-80
 
   - platform: mqtt
-    name: tesla_charger_phases
+    name: Tesla Charger Phases
     state_topic: "teslamate/cars/1/charger_phases"
     icon: mdi:power-plug
 
   - platform: mqtt
-    name: tesla_charger_power
+    name: Tesla Charger Power
     state_topic: "teslamate/cars/1/charger_power"
     unit_of_measurement: "W"
     icon: mdi:power-plug
 
   - platform: mqtt
-    name: tesla_charger_voltage
+    name: Tesla Charger Voltage
     state_topic: "teslamate/cars/1/charger_voltage"
     unit_of_measurement: "V"
     icon: mdi:gauge
 
   - platform: mqtt
-    name: tesla_display_name
+    name: Tesla Display Name
     state_topic: "teslamate/cars/1/display_name"
     icon: mdi:car
 
   - platform: mqtt
-    name: tesla_estimated_range
+    name: Tesla Estimated Range
     state_topic: "teslamate/cars/1/est_battery_range_km"
     unit_of_measurement: "km"
     icon: mdi:map-marker-path
 
   - platform: mqtt
-    name: tesla_healthy
+    name: Tesla Healthy
     state_topic: "teslamate/cars/1/healthy"
     icon: mdi:car-connected
 
   - platform: mqtt
-    name: tesla_ideal_range
+    name: Tesla Ideal Range
     state_topic: "teslamate/cars/1/ideal_battery_range_km"
     unit_of_measurement: "km"
     icon: mdi:map-marker-path
 
   - platform: mqtt
-    name: tesla_inside_temp
+    name: Tesla Inside Temp
     state_topic: "teslamate/cars/1/inside_temp"
     unit_of_measurement: °C
     icon: mdi:thermometer-lines
 
   - platform: mqtt
-    name: tesla_latitude
+    name: Tesla Latitude
     state_topic: "teslamate/cars/1/latitude"
     icon: mdi:crosshairs-gps
 
   - platform: mqtt
-    name: tesla_locked
+    name: Tesla Locked
     state_topic: "teslamate/cars/1/locked"
     icon: mdi:lock
 
   - platform: mqtt
-    name: tesla_longitude
+    name: Tesla Longitude
     state_topic: "teslamate/cars/1/longitude"
     icon: mdi:crosshairs-gps
 
   - platform: mqtt
-    name: tesla_odometer
+    name: Tesla Odometer
     state_topic: "teslamate/cars/1/odometer"
     unit_of_measurement: km
     icon: mdi:gauge
 
   - platform: mqtt
-    name: tesla_outside_temp
+    name: Tesla Outside Temp
     state_topic: "teslamate/cars/1/outside_temp"
     unit_of_measurement: °C
     icon: mdi:thermometer-lines
@@ -113,7 +113,7 @@ sensor:
   - platform: template
     sensors:
       tesla_park_brake:
-        friendly_name: Park Brake
+        friendly_name: Tesla Park Brake
         value_template: >-
           {% if is_state('sensor.tesla_shift_state', 'P') %}
             true
@@ -122,57 +122,57 @@ sensor:
           {% endif %}
 
   - platform: mqtt
-    name: tesla_plugged_in
+    name: Tesla Plugged In
     state_topic: "teslamate/cars/1/plugged_in"
     icon: mdi:power-plug
 
   - platform: mqtt
-    name: tesla_rated_range
+    name: Tesla Rated Range
     state_topic: "teslamate/cars/1/rated_battery_range_km"
     unit_of_measurement: "km"
     icon: mdi:map-marker-path
 
   - platform: mqtt
-    name: tesla_scheduled_charging_start
+    name: Tesla Scheduled Charging Start
     state_topic: "teslamate/cars/1/scheduled_charging_start_time"
     icon: mdi:clock-outline
 
   - platform: mqtt
-    name: tesla_sentry_mode
+    name: Tesla Sentry Mode
     state_topic: "teslamate/cars/1/sentry_mode"
     icon: mdi:cctv
 
   - platform: mqtt
-    name: tesla_shift_state
+    name: Tesla Shift State
     state_topic: "teslamate/cars/1/shift_state"
     icon: mdi:car-shift-pattern
 
   - platform: mqtt
-    name: tesla_speed
+    name: Tesla Speed
     state_topic: "teslamate/cars/1/speed"
     icon: mdi:speedometer
 
   - platform: mqtt
-    name: tesla_state
+    name: Tesla State
     state_topic: "teslamate/cars/1/state"
     icon: mdi:car-connected
 
   - platform: mqtt
-    name: tesla_time_to_full_charge
+    name: Tesla Time to Full Charge
     state_topic: "teslamate/cars/1/time_to_full_charge"
     icon: mdi:clock-outline
 
   - platform: mqtt
-    name: tesla_windows_open
+    name: Tesla Windows Open
     state_topic: "teslamate/cars/1/windows_open"
     icon: mdi:car-door
 
   - platform: mqtt
-    name: tesla_version
+    name: Tesla Version
     state_topic: "teslamate/cars/1/version"
     icon: mdi:alphabetical
 
   - platform: mqtt
-    name: tesla_update_available
+    name: Tesla Update Available
     state_topic: "teslamate/cars/1/update_available"
     icon: mdi:gift

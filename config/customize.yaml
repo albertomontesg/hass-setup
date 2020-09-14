@@ -1,49 +1,41 @@
 ---
+light.bed_led:
+  friendly_name: Bed LED
+  homebridge_name: Llit LED
+light.bedroom:
+  homebridge_name: Bedroom Light
+light.corridor:
+  homebridge_name: Corridor Light
+light.dinning_room:
+  homebridge_name: Dinning Room Light
+light.living_room:
+  homebridge_name: Living Room Light
+light.office:
+  homebridge_name: Office Light
 light.sofa_led:
   friendly_name: Sofa LED
   homebridge_name: Sofa LED
-
 light.tv_led:
   friendly_name: TV LED
   homebridge_name: TV LED
 
-light.bed_led:
-  friendly_name: Bed LED
-  homebridge_name: Llit LED
-
-light.bedroom:
-  homebridge_name: Bedroom Light
-
-light.dinning_room:
-  homebridge_name: Dinning Room Light
-
-group.all_automations:
-  friendly_name: 'All Automations'
-  hidden: true
-  homebridge_hidden: true
-
-device_tracker.f099b636e2cf:
-  friendly_name: iPhone Alberto
-  homebridge_hidden: true
-
-device_tracker.c8_3c_85_38_ca_52:
-  friendly_name: iPhone Judith
-  homebridge_hidden: true
-
-group.zigbee_group:
-  homebridge_hidden: true
-
 media_player.living_room:
   friendly_name: Sonos Living Room
-
 media_player.bedroom:
   friendly_name: Sonos Bedroom
+media_player.office:
+  friendly_name: Sonos Office
 
-sensor.cardboard_waste:
-  icon: "mdi:package-variant"
+binary_sensor.workday_sensor:
+  homebridge_hidden: true
+binary_sensor.in_working_hours:
+  homebridge_hidden: true
 
-sensor.paper_waste:
-  icon: "mdi:file"
+fan.office:
+  friendly_name: Office Fan
+  homebridge_name: Office Fan
 
-sensor.textile_waste:
-  icon: "mdi:tshirt-crew"
+sensor.inside_temperature:
+  homebridge_hidden: true
+sensor.inside_humidity:
+  homebridge_hidden: true

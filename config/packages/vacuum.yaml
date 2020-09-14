@@ -4,3 +4,14 @@ vacuum:
     name: Xiaomi Vacuum Cleaner
     host: 172.16.1.50
     token: !secret xiaomi_vacuum_token
+
+input_select:
+  vacuum_room:
+    name: Choose a room to clean
+    options:
+      - Select Input
+      - Kitchen
+      - Sofa Area
+      - Bedroom
+      - Corridor
+    initial: Select Input

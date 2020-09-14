@@ -112,9 +112,16 @@ homekit:
   filter:
     exclude_domains:
       - automation
-      - script
     exclude_entity_globs:
       - device_tracker.*
+      - sensor.dark_sky*
+      - sensor.prusa_mk3s_*
+      - binary_sensor.prusa_mk3s_*
+      - script.zigbee2mqtt_*
+      - switch.zigbee2mqtt_*
+    exclude_entities:
+      - script.sonos_say
+      - script.vacuum_dispatch
 
 # Google Home
 google_assistant:

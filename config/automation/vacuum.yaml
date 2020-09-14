@@ -1,0 +1,14 @@
+---
+- alias: Start Cleaning Room
+  trigger:
+    - platform: state
+      entity_id: input_select.vacuum_room
+      from: 'Select Input'
+  action:
+    - service: script.vacuum_dispatch
+      data_template:
+        room: "{{ trigger.to_state.state }}"
+    - service: input_select.select_option
+      entity_id: input_select.vacuum_room
+      data_template:
+        option: "Select Input"

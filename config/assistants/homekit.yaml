@@ -1,15 +1,20 @@
 ---
-light.bedroom:
-  name: Bedroom Light
-light.bed_led:
-  name: Cama Bedroom
-light.tv_led:
-  name: Tele Living Room
-light.sofa_led:
-  name: Sofa LED Living Room
-light.dinning_room:
-  name: Menjador Living Room
-light.office:
-  name: Office Light
-light.corride:
-  name: Corrido Light
+sensor.living_room_humidity:
+  linked_battery_sensor: sensor.living_room_sensor_battery
+sensor.living_room_temperature:
+  linked_battery_sensor: sensor.living_room_sensor_battery
+
+sensor.bedroom_humidity:
+  linked_battery_sensor: sensor.bedroom_sensor_battery
+sensor.bedroom_temperature:
+  linked_battery_sensor: sensor.bedroom_sensor_battery
+
+sensor.outside_humidity:
+  linked_battery_sensor: sensor.outside_sensor_battery
+sensor.outside_temperature:
+  linked_battery_sensor: sensor.outside_sensor_battery
+
+sensor.main_bathroom_humidity:
+  linked_battery_sensor: sensor.main_bathroom_sensor_battery
+sensor.main_bathroom_temperature:
+  linked_battery_sensor: sensor.main_bathroom_sensor_battery
