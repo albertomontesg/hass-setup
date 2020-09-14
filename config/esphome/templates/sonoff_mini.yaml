@@ -6,15 +6,15 @@ esphome:
   build_path: /build/${device_name}_switch
 
 wifi:
-  ssid: !secret wifi_name
-  password: !secret wifi_password
+  ssid: !secret wifi_iot_name
+  password: !secret wifi_iot_password
 
   manual_ip:
     static_ip: $device_ip
-    gateway: 172.16.0.1
+    gateway: 10.4.0.1
     subnet: 255.255.0.0
-    dns1: 8.8.8.8
-    dns2: 8.8.4.4
+    dns1: 1.1.1.1
+    dns2: 8.8.8.8
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:

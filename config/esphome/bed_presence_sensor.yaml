@@ -5,15 +5,15 @@ esphome:
   board: nodemcu-32s
 
 wifi:
-  ssid: !secret wifi_name
-  password: !secret wifi_password
+  ssid: !secret wifi_iot_name
+  password: !secret wifi_iot_password
 
   manual_ip:
-    static_ip: 172.16.4.10
-    gateway: 172.16.0.1
+    static_ip: 10.4.5.1
+    gateway: 10.4.0.1
     subnet: 255.255.0.0
-    dns1: 8.8.8.8
-    dns2: 8.8.4.4
+    dns1: 1.1.1.1
+    dns2: 8.8.8.8
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
@@ -40,29 +40,28 @@ mqtt:
 esp32_touch:
 # Delete this after you are done with the setup process
 #   setup_mode: true
-#   iir_filter: 10ms
 
 
 binary_sensor:
   - platform: esp32_touch
     name: "Top Right"
     pin: GPIO12
-    threshold: 3
+    threshold: 2
     id: top_right
   - platform: esp32_touch
     name: "Bottom Right"
     pin: GPIO13
-    threshold: 4
+    threshold: 2
     id: bottom_right
   - platform: esp32_touch
     name: "Top Left"
     pin: GPIO14
-    threshold: 6
+    threshold: 2
     id: top_left
   - platform: esp32_touch
     name: "Bottom Left"
     pin: GPIO15
-    threshold: 6
+    threshold: 2
     id: bottom_left
   - platform: template
     name: "Alberto in Bed"
