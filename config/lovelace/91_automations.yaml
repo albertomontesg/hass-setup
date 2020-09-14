@@ -36,6 +36,7 @@ cards:
           - automation.switch_off_bed_light_on_media
           - type: divider
           - automation.pause_music_on_content_in_tv
+          - automation.pause_music_on_leaving_home
   - type: vertical-stack
     title: Notifications
     cards:

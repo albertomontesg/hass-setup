@@ -75,15 +75,29 @@
   trigger:
     - platform: state
       entity_id: media_player.gordi_town
-      to: 'Playing'
+      to: 'playing'
     - platform: state
       entity_id: media_player.marmotilla_village
-      to: 'Playing'
+      to: 'playing'
   condition:
     - condition: state
       entity_id: media_player.living_room
-      state: 'Playing'
+      state: 'playing'
   action:
     - service: media_player.media_pause
       data:
         entity_id: media_player.living_room
+
+- alias: Pause Music on Leaving Home
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.someone_home
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: media_player.office
+      state: 'playing'
+  action:
+    - service: media_player.media_pause
+      data:
+        entity_id: media_player.office
