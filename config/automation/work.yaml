@@ -12,6 +12,7 @@
     - service: media_player.media_play
       data:
         entity_id: media_player.office
+
 - alias: Switch On Music Entering During Working Hours
   trigger:
     - platform: state
@@ -25,6 +26,7 @@
     - service: media_player.media_play
       data:
         entity_id: media_player.office
+
 - alias: Switch Off Music Leaving During Working Hours
   trigger:
     - platform: state
@@ -38,7 +40,7 @@
     - service: media_player.media_pause
       data:
         entity_id: media_player.office
-# TODO(albertomontesg): Switch off music when Judith gets home?
+
 - alias: Notify When Judith Leaves Work
   trigger:
     - platform: zone
@@ -57,3 +59,31 @@
     data:
       title: "Judith just left work!"
       message: "She will be home soon."
+
+- alias: Pause Music on Work Meeting
+  trigger:
+    platform: state
+    entity_id: calendar.work_google
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: 'on'
+  action:
+    - service: media_player.media_pause
+      data:
+        entity_id: media_player.office
+
+- alias: Resume Music After Work Meeting
+  trigger:
+    platform: state
+    entity_id: calendar.work_google
+    to: 'off'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.in_working_hours
+      state: 'on'
+  action:
+    - service: media_player.media_play
+      data:
+        entity_id: media_player.office

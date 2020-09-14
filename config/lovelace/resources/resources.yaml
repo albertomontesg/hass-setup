@@ -23,8 +23,6 @@
   type: module
 - url: /hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js
   type: module
-- url: /hacsfiles/lovelace-battery-entity/battery-entity.js
-  type: module
 - url: /hacsfiles/bignumber-card/bignumber-card.js
   type: module
 - url: /hacsfiles/vacuum-card/vacuum-card.js

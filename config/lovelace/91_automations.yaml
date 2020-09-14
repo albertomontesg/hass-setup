@@ -14,10 +14,15 @@ cards:
           - input_datetime.working_hours_start
           - input_datetime.working_hours_end
           - binary_sensor.in_working_hours
+          - type: divider
           - automation.switch_on_music_start_working_hours
           - automation.switch_on_music_entering_during_working_hours
           - automation.switch_off_music_leaving_during_working_hours
+          - type: divider
           - automation.notify_when_judith_leaves_work
+          - type: divider
+          - automation.pause_music_on_work_meeting
+          - automation.resume_music_after_work_meeting
   - type: vertical-stack
     title: Media Players
     cards:
@@ -26,8 +31,10 @@ cards:
         entities:
           - automation.switch_on_sofa_light_on_media
           - automation.switch_off_sofa_light_on_media
+          - type: divider
           - automation.switch_on_bed_light_on_media
           - automation.switch_off_bed_light_on_media
+          - type: divider
           - automation.pause_music_on_content_in_tv
   - type: vertical-stack
     title: Notifications
