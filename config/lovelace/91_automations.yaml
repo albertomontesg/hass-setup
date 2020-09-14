@@ -1,0 +1,38 @@
+---
+title: Automations
+icon: mdi:clock
+panel: false
+path: automations
+cards:
+  - type: vertical-stack
+    title: Work
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - binary_sensor.workday_sensor
+          - input_datetime.working_hours_start
+          - input_datetime.working_hours_end
+          - binary_sensor.in_working_hours
+          - automation.switch_on_music_start_working_hours
+          - automation.switch_on_music_entering_during_working_hours
+          - automation.switch_off_music_leaving_during_working_hours
+          - automation.notify_when_judith_leaves_work
+  - type: vertical-stack
+    title: Media Players
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - automation.switch_on_sofa_light_on_media
+          - automation.switch_off_sofa_light_on_media
+          - automation.switch_on_bed_light_on_media
+          - automation.switch_off_bed_light_on_media
+          - automation.pause_music_on_content_in_tv
+  - type: vertical-stack
+    title: Notifications
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - automation.notify_leaving_basketball_practice

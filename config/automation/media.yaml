@@ -70,3 +70,20 @@
     - service: light.turn_off
       data:
         entity_id: light.bed_led
+
+- alias: Pause Music on Content in TV
+  trigger:
+    - platform: state
+      entity_id: media_player.gordi_town
+      to: 'Playing'
+    - platform: state
+      entity_id: media_player.marmotilla_village
+      to: 'Playing'
+  condition:
+    - condition: state
+      entity_id: media_player.living_room
+      state: 'Playing'
+  action:
+    - service: media_player.media_pause
+      data:
+        entity_id: media_player.living_room

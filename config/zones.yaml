@@ -2,7 +2,7 @@
 - name: Home
   latitude: 47.415606
   longitude: 8.530288
-  radius: 50
+  radius: 30
 
 - name: Google Hurliman
   latitude: 47.365102
@@ -11,7 +11,19 @@
   icon: mdi:google
 
 - name: Universitätsspital
-  latitude: 47.376986
-  longitude: 8.552010
-  radius: 250
+  latitude: 47.37628540251555
+  longitude: 8.550804555416109
+  radius: 200
   icon: mdi:school
+
+- name: Schule Leutschenbach
+  latitude: 47.413457848195065
+  longitude: 8.56254491955042
+  radius: 60
+  icon: mdi:basketball
+
+- name: Schulhaus Döltschi
+  latitude: 47.36443898197531
+  longitude: 8.4995948150754
+  radius: 80
+  icon: mdi:basketball

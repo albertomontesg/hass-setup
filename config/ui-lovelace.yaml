@@ -10,3 +10,4 @@ views:
   - !include lovelace/80_echo.yaml
   - !include lovelace/81_cleaning.yaml
   - !include lovelace/90_devices_config.yaml
+  - !include lovelace/91_automations.yaml

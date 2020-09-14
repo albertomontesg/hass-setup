@@ -2,7 +2,7 @@
 title: Settings
 icon: mdi:cog
 panel: false
-path: Settings
+path: settings
 cards:
   - type: vertical-stack
     title: Search
@@ -77,13 +77,3 @@ cards:
           - entity: sensor.outside_sensor_battery
             name: Outside Temperature Sensor
             # type: custom:battery-entity
-  - type: vertical-stack
-    title: Automations
-    cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - automation.switch_on_sofa_light_on_media
-          - automation.switch_off_sofa_light_on_media
-          - automation.switch_on_bed_light_on_media
-          - automation.switch_off_bed_light_on_media

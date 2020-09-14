@@ -18,7 +18,3 @@ sensor:
 
 # Track the sun
 sun:
-
-# air_quality:
-#   - platform: opensensemap
-#     station_id: 5bdb5f4555d0ad001aeade70

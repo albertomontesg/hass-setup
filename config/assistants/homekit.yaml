@@ -9,5 +9,7 @@ light.sofa_led:
   name: Sofa LED Living Room
 light.dinning_room:
   name: Menjador Living Room
-light.studio:
-  name: Studio Light
+light.office:
+  name: Office Light
+light.corride:
+  name: Corrido Light

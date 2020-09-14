@@ -1,26 +1,18 @@
 ---
-device_tracker:
-  - platform: nmap_tracker
-    home_interval: 5
-    consider_home: 600  # 10 minutes
-    hosts:
-      - 172.16.1.11  # Alberto's iPhone
-      - 172.16.1.1   # Judith's iPhone
-      - 172.16.1.17  # Alberto's Apple Watch
-
 person:
   - name: Alberto
     id: alberto
     user_id: 0f80b3bda7f948a8b420443b50c60a98
     device_trackers:
-      - device_tracker.f099b636e2cf       # iPhone
-      - device_tracker.f8_6f_c1_b3_ac_30  # Apple Watch
-      - device_tracker.iphone
+      - device_tracker.iphone_alberto_2      # iPhone Unifi Integration
+      - device_tracker.apple_watch_alberto   # Apple Watch Unifi Integration
+      - device_tracker.iphone_alberto        # iPhone iOS App
   - name: Judith
     id: judith
     user_id: dc7b63069c994d5b9acae23ea7e93e86
     device_trackers:
-      - device_tracker.c8_3c_85_38_ca_52  # iPhone
+      - device_tracker.iphone_judith_2      # iPhone Unifi Integration
+      - device_tracker.iphone_judith        # iPhone iOS App
 
 binary_sensor:
   - platform: template

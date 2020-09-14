@@ -1,0 +1,22 @@
+---
+- alias: Notify Leaving Basketball Practice
+  trigger:
+    - platform: zone
+      entity_id: person.alberto
+      zone: zone.schule_leutschenbach
+      event: leave
+    - platform: zone
+      entity_id: person.alberto
+      zone: zone.schulhaus_doltschi
+      event: leave
+  condition:
+    - condition: state
+      entity_id: binary_sensor.someone_home
+      state: 'On'
+  action:
+    - service: script.sonos_say
+      data:
+        sonos_entity: media_player.living_room
+        volume: 0.5
+        message: 'Alberto has left practice'
+        delay: '00:00:00'
