@@ -1,0 +1,80 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: room-assistant
+  labels:
+    app: room-assistant
+    component: presence-detection
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: room-assistant
+      component: presence-detection
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+  template:
+    metadata:
+      labels:
+        app: room-assistant
+        component: presence-detection
+      namespace: home-automation
+    spec:
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      containers:
+        - name: room-assistant
+          image: mkerix/room-assistant:2.9.0
+          imagePullPolicy: Always
+          securityContext:
+            capabilities:
+              add: ["NET_ADMIN"]
+          ports:
+            - name: api
+              containerPort: 6415
+              protocol: TCP
+            - name: discovery
+              containerPort: 6425
+              protocol: UDP
+          # livenessProbe:
+          #   httpGet:
+          #     path: /status
+          #     port: api
+          #   initialDelaySeconds: 30
+          #   failureThreshold: 20
+          #   timeoutSeconds: 5
+          #   periodSeconds: 30
+          # readinessProbe:
+          #   httpGet:
+          #     path: /status
+          #     port: api
+          #   initialDelaySeconds: 30
+          #   failureThreshold: 20
+          #   timeoutSeconds: 5
+          #   periodSeconds: 30
+          volumeMounts:
+            - mountPath: /var/run/dbus
+              name: dbus
+            - mountPath: /room-assistant/config
+              name: config
+              subPath: room_assistant
+          # resources:
+          #   requests:
+          #     memory: "256Mi"
+          #     cpu: 1
+          #   limits:
+          #     memory: "512Mi"
+          #     cpu: 2
+      volumes:
+        - name: dbus
+          hostPath:
+            path: /var/run/dbus
+        - name: config
+          persistentVolumeClaim:
+            claimName: home-assistant-pvc
+      nodeSelector:
+        beta.kubernetes.io/arch: arm
+        kubernetes.io/hostname: c6node1

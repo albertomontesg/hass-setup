@@ -1,0 +1,13 @@
+---
+device_tracker:
+  - platform: mqtt
+    devices:
+      iphone_alberto_bt: >-
+        room-assistant/sensor/bluetooth-classic-f0-99-b6-41-20-6e/state
+      apple_watch_alberto_bt: >-
+        room-assistant/sensor/bluetooth-classic-f8-6f-c1-ae-83-13/state
+      iphone_judith_bt: >-
+        room-assistant/sensor/bluetooth-classic-c8-3c-85-38-ca-53/state
+      apple_watch_judith_bt: >-
+        room-assistant/sensor/bluetooth-classic-e4-e0-a6-68-be-c9/state
+    source_type: bluetooth

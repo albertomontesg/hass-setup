@@ -46,7 +46,7 @@ binary_sensor:
   - platform: esp32_touch
     name: "Top Right"
     pin: GPIO12
-    threshold: 2
+    threshold: 1
     id: top_right
   - platform: esp32_touch
     name: "Bottom Right"
@@ -67,12 +67,12 @@ binary_sensor:
     name: "Alberto in Bed"
     id: alberto_in_bed
     lambda: |-
-      return id(top_right).state || id(bottom_right).state;
+      return id(top_right).state && id(bottom_right).state;
   - platform: template
     name: "Judith in Bed"
     id: judith_in_bed
     lambda: |-
-      return id(top_left).state || id(bottom_left).state;
+      return id(top_left).state && id(bottom_left).state;
   - platform: template
     name: "Anyone in Bed"
     id: anyone_in_bed

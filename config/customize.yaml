@@ -39,3 +39,12 @@ sensor.inside_temperature:
   homebridge_hidden: true
 sensor.inside_humidity:
   homebridge_hidden: true
+
+device_tracker.iphone_alberto_bt:
+  friendly_name: iPhone Alberto BT
+device_tracker.apple_watch_alberto_bt:
+  friendly_name: Apple Watch Alberto BT
+device_tracker.iphone_judith_bt:
+  friendly_name: iPhone Judith BT
+device_tracker.apple_watch_judith_bt:
+  friendly_name: Apple Watch Judith BT

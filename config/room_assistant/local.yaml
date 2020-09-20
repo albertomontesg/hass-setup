@@ -1,0 +1,20 @@
+---
+global:
+  instanceName: living_room
+  integrations:
+    - homeAssistant
+    - bluetoothClassic
+homeAssistant:
+  mqttUrl: mqtt://mqtt:1883
+  mqttOptions:
+    username: mosquitto
+    password: 6hwxKrRnWT4MP64MoNrF
+
+bluetoothClassic:
+  hciDeviceId: 0
+  minRssi: -20
+  addresses:
+    - 'f0:99:b6:41:20:6e'  # Alberto's iPhone
+    - 'f8:6f:c1:ae:83:13'  # Alberto's Apple Watch
+    - 'c8:3c:85:38:ca:53'  # Judith's iPhone
+    - 'e4:e0:a6:68:be:c9'  # Judith's Apple Watch

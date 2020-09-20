@@ -12,11 +12,11 @@
   condition:
     - condition: state
       entity_id: binary_sensor.someone_home
-      state: 'On'
+      state: 'on'
   action:
     - service: script.sonos_say
       data:
         sonos_entity: media_player.living_room
         volume: 0.5
-        message: 'Alberto has left practice'
+        message: 'Alberto left training and is coming home.'
         delay: '00:00:00'
