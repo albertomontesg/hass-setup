@@ -5,6 +5,8 @@ person:
     user_id: 0f80b3bda7f948a8b420443b50c60a98
     device_trackers:
       - device_tracker.iphone_alberto_2      # iPhone Unifi Integration
+      - device_tracker.iphone_alberto_3      # iPhone Unifi Integration
+      - device_tracker.iphone_alberto_4      # iPhone Unifi Integration
       - device_tracker.apple_watch_alberto   # Apple Watch Unifi Integration
       - device_tracker.iphone_alberto        # iPhone iOS App
   - name: Judith
