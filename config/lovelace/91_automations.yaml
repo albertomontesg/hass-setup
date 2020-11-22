@@ -38,6 +38,16 @@ cards:
           - automation.pause_music_on_content_in_tv
           - automation.pause_music_on_leaving_home
   - type: vertical-stack
+    title: Vacuum Cleaner
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - automation.vacuum_robot_starts
+          - automation.vacuum_robot_ends
+          - type: divider
+          - automation.started_cleaning_when_leaving
+  - type: vertical-stack
     title: Notifications
     cards:
       - type: entities

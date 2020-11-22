@@ -15,3 +15,8 @@ input_select:
       - Bedroom
       - Corridor
     initial: Select Input
+
+input_boolean:
+  vacuum_clean_when_leave_home:
+    name: Vacuum Clean When Leave Home
+    icon: mdi:spray-bottle

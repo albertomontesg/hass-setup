@@ -86,6 +86,9 @@ cards:
       - type: custom:xiaomi-vacuum-card
         entity: vacuum.xiaomi_vacuum_cleaner
         name: Vacuum
+      - type: entities
+        entities:
+          - input_boolean.vacuum_clean_when_leave_home
   - type: vertical-stack
     title: Waste
     cards:

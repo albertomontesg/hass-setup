@@ -12,3 +12,42 @@
       entity_id: input_select.vacuum_room
       data_template:
         option: "Select Input"
+# Notify when Vacuum robot starts and ends.
+- alias: Vacuum Robot Starts
+  trigger:
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      to: cleaning
+  action:
+    service: notify.mobile_app_both_iphones
+    data:
+      message: "Vacuum Robot started cleaning"
+- alias: Vacuum Robot Ends
+  trigger:
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      from: cleaning
+  action:
+    service: notify.mobile_app_both_iphones
+    data:
+      message: "Vacuum Robot ended cleaning"
+# Scheduled cleaning when leaving.
+- alias: Started Cleaning when Leaving
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.someone_home
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.vacuum_clean_when_leave_home
+      state: 'on'
+    - condition: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      state: docked
+  action:
+    - service: vacuum.start
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.vacuum_clean_when_leave_home
