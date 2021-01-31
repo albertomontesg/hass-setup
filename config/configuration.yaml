@@ -19,9 +19,6 @@ homeassistant:
   # Auth providers
   auth_providers:
     - type: homeassistant
-    - type: trusted_networks
-      trusted_networks:
-        - 10.0.0.0/8  # c6 cluster network range.
 
 # Enables the frontend
 frontend:
@@ -39,8 +36,7 @@ lovelace:
 http:
   use_x_forwarded_for: true
   trusted_proxies:
-    - 172.16.1.0/24  # Home Network IPs
-    - 172.16.3.0/24  # Cluster IPs
+    - 10.0.0.0/8  # Cluster Network where Traefik proxy is running.
 
 # Checks for available updates
 updater:
