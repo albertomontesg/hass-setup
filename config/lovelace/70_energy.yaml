@@ -1,0 +1,98 @@
+---
+path: energy
+title: Energy
+panel: false
+icon: "mdi:flash"
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:mini-graph-card
+        entities:
+          - entity: sensor.energy_meter_total_amps
+            name: Total Amps
+        name: Amperage
+        animate: true
+        hour24: true
+        points_per_hour: 6
+        decimals: 2
+      - type: custom:mini-graph-card
+        entities:
+          - entity: sensor.energy_meter_total_watts
+            name: Total Watts
+        name: Power
+        animate: true
+        hour24: true
+        points_per_hour: 6
+        decimals: 0
+      - type: custom:mini-graph-card
+        entities:
+          - entity: sensor.energy_meter_total_kwh
+            name: Total Energy
+        name: Energy
+        animate: true
+        hour24: true
+        points_per_hour: 6
+        decimals: 2
+  - type: vertical-stack
+    cards:
+      - type: custom:mini-graph-card
+        entities:
+          - entity: sensor.energy_meter_volts_a
+            name: Voltage
+        name: Voltage
+        animate: true
+        hour24: true
+        points_per_hour: 6
+        decimals: 1
+      - type: custom:mini-graph-card
+        entities:
+          - entity: sensor.energy_meter_freq_a
+            name: Frequency
+        name: Frequency
+        animate: true
+        hour24: true
+        points_per_hour: 6
+        decimals: 1
+  - type: vertical-stack
+    cards:
+      - type: custom:mini-graph-card
+        entities:
+          - entity: sensor.energy_meter_ct1_amps
+            name: Line 1      
+          - entity: sensor.energy_meter_ct2_amps
+            name: Line 2
+          - entity: sensor.energy_meter_ct3_amps
+            name: Line 3
+        name: Per Line Amperage
+        animate: true
+        hour24: true
+        points_per_hour: 6
+        decimals: 2
+      - type: custom:mini-graph-card
+        entities:
+          - entity: sensor.energy_meter_ct1_watts
+            name: Line 1      
+          - entity: sensor.energy_meter_ct2_watts
+            name: Line 2
+          - entity: sensor.energy_meter_ct3_watts
+            name: Line 3
+        name: Per Line Power
+        animate: true
+        hour24: true
+        points_per_hour: 6
+        decimals: 1
+  - type: vertical-stack
+    cards:
+      - type: entities
+        entities:
+          - sensor.energy_meter_ct1_amps
+          - sensor.energy_meter_ct1_watts
+          - sensor.energy_meter_ct2_amps
+          - sensor.energy_meter_ct2_watts
+          - sensor.energy_meter_ct3_amps
+          - sensor.energy_meter_ct3_watts
+          - sensor.energy_meter_total_amps
+          - sensor.energy_meter_total_watts
+          - sensor.energy_meter_total_kwh
+          - switch.energy_meter_restart
+          - sensor.energy_meter_wifi
