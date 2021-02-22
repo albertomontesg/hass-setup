@@ -63,12 +63,8 @@
 - alias: Pause Music on Work Meeting
   trigger:
     platform: state
-    entity_id: calendar.work_google
+    entity_id: binary_sensor.albertomontes_macbookpro_camera_in_use
     to: 'on'
-  condition:
-    - condition: state
-      entity_id: binary_sensor.workday_sensor
-      state: 'on'
   action:
     - service: media_player.media_pause
       data:
@@ -77,7 +73,7 @@
 - alias: Resume Music After Work Meeting
   trigger:
     platform: state
-    entity_id: calendar.work_google
+    entity_id: binary_sensor.albertomontes_macbookpro_camera_in_use
     to: 'off'
   condition:
     - condition: state
