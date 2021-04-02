@@ -16,7 +16,7 @@ __pycache__/
 **/www/community/
 .HA_VERSION
 home-assistant.log
-service_account.json
+**/config/service_account.json
 zigbee.db
 **/tts/
 **/themes/
