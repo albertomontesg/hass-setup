@@ -81,8 +81,10 @@ jobs:
     name: 🧹 kubeval
     runs-on: ubuntu-latest
     steps:
-      - name: KubeEval
-        uses: makocchi-git/actions-k8s-manifests-validate-kubeval@1.0.0
+      - name: Run KubeEval
+        uses: stefanprodan/kube-tools@v1
         with:
-          files: deployment
-          comment: false
+          # yamllint disable rule:line-length
+          command: |
+            echo "Run kubeval"
+            kubeval --skip-kinds SealedSecret,IngressRoute,IngressRouteTCP ./deployment/**/*.yaml
