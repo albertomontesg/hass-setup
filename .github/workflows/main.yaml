@@ -76,3 +76,13 @@ jobs:
         # yamllint disable rule:line-length
         run: |
           for file in $(find ./config/esphome -type f -name "*.yaml" -not -name "secrets.yaml" -not -path "*/templates/*"); do esphome "${file}" config; done
+
+  kubernetes_deployments:
+    name: "Kubernetes Deployments"
+    runs-on: ubuntu-latest
+    steps:
+      - name: KubeEval
+        uses: makocchi-git/actions-k8s-manifests-validate-kubeval@1.0.1
+        with:
+          files: deployment
+          comment: false
