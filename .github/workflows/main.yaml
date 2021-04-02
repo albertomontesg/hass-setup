@@ -81,10 +81,12 @@ jobs:
     name: 🧹 kubeval
     runs-on: ubuntu-latest
     steps:
+      - name: ⤵️ Checkout
+        uses: actions/checkout@v1
       - name: Run KubeEval
         uses: stefanprodan/kube-tools@v1
         with:
           # yamllint disable rule:line-length
           command: |
             echo "Run kubeval"
-            kubeval --skip-kinds SealedSecret,IngressRoute,IngressRouteTCP ./deployment/**/*.yaml
+            kubeval --skip-kinds SealedSecret,IngressRoute,IngressRouteTCP -d ./deployment
