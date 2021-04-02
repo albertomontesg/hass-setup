@@ -45,11 +45,13 @@ jobs:
     steps:
       - name: ⤵️ Checkout
         uses: actions/checkout@v2
+      - name: Copy stub files into configuration folder
+        run: cp -R ./config/.stubs/* ./config/
       - name: 🚀 Run Home Assistant Configuration Check
         uses: frenck/action-home-assistant@v1.0.0
         with:
           path: "./config"
-          secrets: ./config/.stubs/secrets.yaml
+          secrets: ./config/secrets.yaml
           version: "${{ matrix.version }}"
 
   esphome:
@@ -74,4 +76,4 @@ jobs:
       - name: Run esphome on all files
         # yamllint disable rule:line-length
         run: |
-          for file in $(find ./config/esphome -type f -name "*.yaml" -not -name "secrets.yaml"); do esphome "${file}" config; done
+          for file in $(find ./config/esphome -type f -name "*.yaml" -not -name "secrets.yaml" -not -path "*/templates/*"); do esphome "${file}" config; done
