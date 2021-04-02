@@ -58,7 +58,7 @@ cards:
       - type: custom:mini-graph-card
         entities:
           - entity: sensor.energy_meter_ct1_amps
-            name: Line 1      
+            name: Line 1
           - entity: sensor.energy_meter_ct2_amps
             name: Line 2
           - entity: sensor.energy_meter_ct3_amps
@@ -71,7 +71,7 @@ cards:
       - type: custom:mini-graph-card
         entities:
           - entity: sensor.energy_meter_ct1_watts
-            name: Line 1      
+            name: Line 1
           - entity: sensor.energy_meter_ct2_watts
             name: Line 2
           - entity: sensor.energy_meter_ct3_watts

@@ -3,7 +3,7 @@
   trigger:
     - platform: state
       entity_id: input_select.vacuum_room
-      from: 'Select Input'
+      from: "Select Input"
   action:
     - service: script.vacuum_dispatch
       data_template:
@@ -36,11 +36,11 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.someone_home
-      to: 'off'
+      to: "off"
   condition:
     - condition: state
       entity_id: input_boolean.vacuum_clean_when_leave_home
-      state: 'on'
+      state: "on"
     - condition: state
       entity_id: vacuum.xiaomi_vacuum_cleaner
       state: docked

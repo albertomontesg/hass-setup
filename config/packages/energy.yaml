@@ -1,3 +1,4 @@
+---
 sensor:
   - platform: mqtt
     name: "Volts"
@@ -16,6 +17,7 @@ sensor:
     unit_of_measurement: "Amps"
   - platform: mqtt
     name: "Total Watts"
+    # yamllint disable-line rule:line-length
     state_topic: "energy_meter/appartment/sensor/energy_metter_total_watts/state"
     availability_topic: "energy_meter/appartment/status"
     unit_of_measurement: "Watts"
