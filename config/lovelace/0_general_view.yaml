@@ -45,7 +45,7 @@ cards:
       - type: custom:mini-graph-card
         entities:
           - sensor.inside_temperature
-          - entity: sensor.dark_sky_temperature
+          - entity: sensor.outside_temperature
             name: Outside
         name: Temperature
         animate: true
@@ -55,7 +55,7 @@ cards:
       - type: custom:mini-graph-card
         entities:
           - sensor.inside_humidity
-          - entity: sensor.dark_sky_humidity
+          - entity: sensor.outside_humidity
             name: Outside
         name: Humidity
         animate: true
@@ -73,6 +73,7 @@ cards:
           - light.tv_led
           - type: divider
           - light.dining_room
+          - light.dining_table
           - type: divider
           - light.corridor
           - type: divider

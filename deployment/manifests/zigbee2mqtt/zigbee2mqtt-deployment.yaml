@@ -29,14 +29,14 @@ spec:
           command:
             - sh
             - -c
-            - 'until test -w /dev/ttyACM0; do echo waiting for USB sniffer;
-              sleep 2; done'
+            - "until test -w /dev/ttyUSB0; do echo waiting for USB sniffer;
+              sleep 2; done"
           volumeMounts:
-            - mountPath: /dev/ttyACM0
+            - mountPath: /dev/ttyUSB0
               name: usb-sniffer
       containers:
         - name: zigbee2mqtt
-          image: koenkk/zigbee2mqtt:1.18.1
+          image: koenkk/zigbee2mqtt:1.18.2
           imagePullPolicy: Always
           securityContext:
             privileged: true
@@ -47,7 +47,7 @@ spec:
             - mountPath: /app/data
               name: zigbee2mqtt-data
               subPath: zigbee2mqtt
-            - mountPath: /dev/ttyACM0
+            - mountPath: /dev/ttyUSB0
               name: usb-sniffer
           resources:
             requests:
@@ -62,7 +62,7 @@ spec:
             claimName: home-assistant-pvc
         - name: usb-sniffer
           hostPath:
-            path: /dev/ttyACM0
+            path: /dev/ttyUSB0
       nodeSelector:
         beta.kubernetes.io/arch: arm64
         device: zigbee

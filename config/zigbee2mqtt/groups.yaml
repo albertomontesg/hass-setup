@@ -1,12 +1,9 @@
 ---
-{}
-# '1':
-#   friendly_name: dining_table_light
-#   retain: false
-#   transition: 1
-#   devices:
-#     - '0x000d6ffffe46f955'
-#     - '0x000d6ffffe52a044'
-#     - '0x000d6ffffe4b01bb'
-#     - '0x000d6ffffe62f264'
-#     - '0x000d6ffffe529ec7'
+"1":
+  friendly_name: dining_table_light
+  devices:
+    - "0x000d6ffffe46f955"
+    - "0x000d6ffffe52a044"
+    - "0x000d6ffffe4b01bb"
+    - "0x000d6ffffe62f264"
+    - "0x000d6ffffe529ec7"
