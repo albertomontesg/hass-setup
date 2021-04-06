@@ -31,7 +31,7 @@ web_server:
   port: 80
 
 mqtt:
-  broker: 172.16.8.3
+  broker: 10.6.8.3
   username: !secret mqtt_username
   password: !secret mqtt_password
   topic_prefix: presence/main_bed
@@ -40,7 +40,6 @@ mqtt:
 esp32_touch:
 # Delete this after you are done with the setup process
 #   setup_mode: true
-
 
 binary_sensor:
   - platform: esp32_touch

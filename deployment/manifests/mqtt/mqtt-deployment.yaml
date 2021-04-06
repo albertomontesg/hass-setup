@@ -19,6 +19,7 @@ data:
     log_dest stdout
   passwd: |
     mosquitto:$6$Qcx7PZCAS3CmVq0O$1Vqht/m00W1DauUYjdx5slQyfLT8lqhQAgHCJcyrz+dqhBH5uCaOELMxO9FXd2uEOhRf+rBGzKPCTBMwKxIrxw==
+
 # Password generated with mosquitto_passwd command.
 ---
 apiVersion: apps/v1
@@ -85,7 +86,7 @@ metadata:
   namespace: home-automation
 spec:
   type: LoadBalancer
-  loadBalancerIP: 172.16.8.3
+  loadBalancerIP: 10.6.8.3
   ports:
     - name: mqtt
       port: 1883

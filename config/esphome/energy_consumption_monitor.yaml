@@ -11,9 +11,9 @@ substitutions:
   #  100A/50ma SCT-013-000: 27518
   #  120A/40mA: SCT-016: 41787
   #  200A/100mA SCT-024: 27518
-  current_cal: '8650'
+  current_cal: "8650"
   # Jameco 9VAC Transformer: 42620
-  voltage_cal: '14517'
+  voltage_cal: "14517"
 
 esphome:
   name: energy_consumption_monitor
@@ -47,11 +47,10 @@ web_server:
   port: 80
 
 mqtt:
-  broker: 172.16.8.3
+  broker: 10.6.8.3
   username: !secret mqtt_username
   password: !secret mqtt_password
   topic_prefix: energy_meter/appartment
-
 
 spi:
   clk_pin: 18

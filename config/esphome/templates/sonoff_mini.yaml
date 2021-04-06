@@ -32,11 +32,10 @@ web_server:
   port: 80
 
 mqtt:
-  broker: 172.16.8.3
+  broker: 10.6.8.3
   username: !secret mqtt_username
   password: !secret mqtt_password
   topic_prefix: "switches/${device_name}"
-
 
 status_led:
   pin:

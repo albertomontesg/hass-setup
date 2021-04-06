@@ -16,7 +16,7 @@ spec:
     - ReadWriteMany
   nfs:
     path: /mnt/disk1/data/home-automation/db
-    server: 172.16.3.5
+    server: 10.6.3.14
   persistentVolumeReclaimPolicy: Retain
 ---
 kind: PersistentVolumeClaim

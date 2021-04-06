@@ -15,7 +15,6 @@ wifi:
     dns1: 1.1.1.1
     dns2: 8.8.8.8
 
-
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "Corridor Switch Fallback Hotspot"
@@ -32,7 +31,7 @@ web_server:
   port: 80
 
 mqtt:
-  broker: 172.16.8.3
+  broker: 10.6.8.3
   username: !secret mqtt_username
   password: !secret mqtt_password
   topic_prefix: switches/corridor
