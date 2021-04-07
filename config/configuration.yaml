@@ -36,7 +36,7 @@ lovelace:
 http:
   use_x_forwarded_for: true
   trusted_proxies:
-    - 10.0.0.0/8  # Cluster Network where Traefik proxy is running.
+    - 10.0.0.0/8 # Cluster Network where Traefik proxy is running.
 
 # Checks for available updates
 updater:
@@ -154,18 +154,18 @@ mqtt:
   password: !secret mqtt_password
   # Required for zigbee2mqtt
   birth_message:
-    topic: 'hass/status'
-    payload: 'online'
+    topic: "hass/status"
+    payload: "online"
   will_message:
-    topic: 'hass/status'
-    payload: 'offline'
+    topic: "hass/status"
+    payload: "offline"
 
 logger:
   default: info
   logs:
     homeassistant.components.http: warn
     homeassistant.components.device_tracker.nmap_tracker: warn
-    homeassistant.components.automation.update_tesla_location: warn
+    homeassistant.components.automation.update_tesla_location: error
     pyhap.hap_server: warn
     hole: warn
     opensensemap_api: warn

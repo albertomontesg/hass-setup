@@ -2,6 +2,6 @@
 sonos:
   media_player:
     hosts:
-      - 172.16.1.47  # Living Room
-      - 172.16.1.48  # Bedroom
-      - 172.16.1.53  # Office
+      - !secret sonos_bedroom_ip
+      - !secret sonos_living_room_ip
+      - !secret sonos_office_ip
