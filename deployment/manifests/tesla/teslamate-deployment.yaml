@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: teslamate
-          image: teslamate/teslamate:1.21.2
+          image: teslamate/teslamate:1.22.0
           imagePullPolicy: Always
           ports:
             - name: http
