@@ -48,6 +48,7 @@ script:
       service: mqtt.publish
       data_template:
         topic: zigbee2mqtt/bridge/request/device/rename
+        # yamllint disable-line rule:line-length
         payload_template: >-
           {
             "from": "{{ states.input_text.zigbee2mqtt_old_name.state | string }}",
@@ -59,9 +60,10 @@ script:
       service: mqtt.publish
       data_template:
         topic: zigbee2mqtt/bridge/request/device/remove
+        # yamllint disable-line rule:line-length
         payload_template: >-
-          { 
-            "id": "{{ states.input_text.zigbee2mqtt_remove.state | string }}", 
+          {
+            "id": "{{ states.input_text.zigbee2mqtt_remove.state | string }}",
             "force": {% if states.input_boolean.zigbee2mqtt_force_remove.state == "off" %}false{% else %}true{% endif %}
           }
 
@@ -123,6 +125,7 @@ automation:
       service: timer.start
       entity_id: timer.zigbee_permit_join
       data_template:
+        # yamllint disable-line rule:line-length
         duration: "{{ '00:0%i:00' % (states('input_number.zigbee2mqtt_join_minutes') | int ) }}"
   # Automation to stop timer when switch turned off and turn off switch when timer finished
   - id: zigbee_join_disabled
@@ -148,6 +151,7 @@ automation:
       topic: "zigbee2mqtt/bridge/event"
     condition:
       condition: template
+      # yamllint disable-line rule:line-length
       value_template: '{{trigger.payload_json.type == "device_interview" and trigger.payload_json.data.status == "successful" and trigger.payload_json.data.supported}}'
     action:
       - service: persistent_notification.create
