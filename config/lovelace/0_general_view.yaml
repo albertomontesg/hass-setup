@@ -16,7 +16,7 @@ cards:
     title: Media
     cards:
       - type: custom:mini-media-player
-        entity: media_player.gordi_town
+        entity: media_player.living_room_tv
         artwork: full-cover
       - type: custom:mini-media-player
         entity: media_player.marmotilla_village

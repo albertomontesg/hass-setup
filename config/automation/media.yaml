@@ -2,14 +2,14 @@
 - alias: Switch On Sofa Light on Media
   trigger:
     platform: state
-    entity_id: media_player.gordi_town
-    to: 'playing'
+    entity_id: media_player.living_room_tv
+    to: "playing"
   condition:
     - condition: state
       entity_id: sun.sun
-      state: 'below_horizon'
+      state: "below_horizon"
     - condition: time
-      before: '23:59:59'
+      before: "23:59:59"
   action:
     - service: light.turn_on
       data:
@@ -21,15 +21,15 @@
 - alias: Switch Off Sofa Light on Media
   trigger:
     platform: state
-    entity_id: media_player.gordi_town
-    to: 'off'
+    entity_id: media_player.living_room_tv
+    to: "off"
   condition:
     - condition: state
       entity_id: sun.sun
-      state: 'below_horizon'
+      state: "below_horizon"
     - condition: time
-      after: '21:00:00'
-      before: '05:00:00'
+      after: "21:00:00"
+      before: "05:00:00"
   action:
     - service: light.turn_off
       data:
@@ -42,13 +42,13 @@
   trigger:
     platform: state
     entity_id: media_player.marmotilla_village
-    to: 'playing'
+    to: "playing"
   condition:
     - condition: state
       entity_id: sun.sun
-      state: 'below_horizon'
+      state: "below_horizon"
     - condition: time
-      before: '23:59:59'
+      before: "23:59:59"
   action:
     - service: light.turn_on
       data:
@@ -58,14 +58,14 @@
   trigger:
     platform: state
     entity_id: media_player.marmotilla_village
-    to: 'off'
+    to: "off"
   condition:
     - condition: state
       entity_id: sun.sun
-      state: 'below_horizon'
+      state: "below_horizon"
     - condition: time
-      after: '21:00:00'
-      before: '05:00:00'
+      after: "21:00:00"
+      before: "05:00:00"
   action:
     - service: light.turn_off
       data:
@@ -74,15 +74,15 @@
 - alias: Pause Music on Content in TV
   trigger:
     - platform: state
-      entity_id: media_player.gordi_town
-      to: 'playing'
+      entity_id: media_player.living_room_tv
+      to: "playing"
     - platform: state
       entity_id: media_player.marmotilla_village
-      to: 'playing'
+      to: "playing"
   condition:
     - condition: state
       entity_id: media_player.living_room
-      state: 'playing'
+      state: "playing"
   action:
     - service: media_player.media_pause
       data:
@@ -92,11 +92,11 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.someone_home
-      to: 'off'
+      to: "off"
   condition:
     - condition: state
       entity_id: media_player.office
-      state: 'playing'
+      state: "playing"
   action:
     - service: media_player.media_pause
       data:
