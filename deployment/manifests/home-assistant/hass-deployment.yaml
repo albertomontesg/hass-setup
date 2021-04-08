@@ -35,7 +35,7 @@ spec:
               -d homeassistant; do echo waiting for database; sleep 2; done;'
       containers:
         - name: home-assistant
-          image: "homeassistant/raspberrypi3-64-homeassistant:2021.3.2"
+          image: "homeassistant/raspberrypi3-64-homeassistant:2021.4.0"
           imagePullPolicy: IfNotPresent
           ports:
             - name: api
