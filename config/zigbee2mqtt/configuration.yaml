@@ -17,9 +17,16 @@ advanced:
   report: true
   pan_id: 6755
   network_key: "!secret network_key"
+  ikea_ota_use_test_url: true
+  # Check for Trafdri LEDs that act as routers for availability.
+  availability_timeout: 60
+
 device_options:
   retain: true
   qos: 1
+
+frontend:
+  port: 8080
 
 devices: devices.yaml
 groups: groups.yaml
