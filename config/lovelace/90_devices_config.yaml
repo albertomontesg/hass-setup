@@ -61,21 +61,41 @@ cards:
           - type: custom:zigbee2mqtt-networkmap
             entity: sensor.zigbee2mqtt_networkmap
   - type: vertical-stack
-    title: Batteries
+    title: Sensors Batteries
     cards:
       - type: entities
         # show_header_toggle: false
         entities:
           # TODO(albertomontes): uncomment custom type when fixed.
           - entity: sensor.living_room_sensor_battery
-            name: Living Room Temperature Sensor
+            name: Living Room Temperature
             # type: custom:battery-entity
           - entity: sensor.bedroom_sensor_battery
-            name: Bedroom Temperature Sensor
+            name: Bedroom Temperature
             # type: custom:battery-entity
           - entity: sensor.main_bathroom_sensor_battery
-            name: Main Bathroom Temperature Sensor
+            name: Main Bathroom Temperature
             # type: custom:battery-entity
           - entity: sensor.outside_sensor_battery
-            name: Outside Temperature Sensor
+            name: Outside Temperature
             # type: custom:battery-entity
+          - entity: sensor.living_room_occupancy_sensor_battery
+            name: Living Room Occupancy
+            # type: custom:battery-entity
+  - type: vertical-stack
+    title: Sensors Link Quality
+    cards:
+      - type: entities
+        # show_header_toggle: false
+        entities:
+          # TODO(albertomontes): uncomment custom type when fixed.
+          - entity: sensor.living_room_sensor_link_quality
+            name: Living Room Temperature
+          - entity: sensor.bedroom_sensor_link_quality
+            name: Bedroom Temperature
+          - entity: sensor.main_bathroom_sensor_link_quality
+            name: Main Bathroom Temperature
+          - entity: sensor.outside_sensor_link_quality
+            name: Outside Temperature
+          - entity: sensor.living_room_occupancy_sensor_link_quality
+            name: Living Room Occupancy
