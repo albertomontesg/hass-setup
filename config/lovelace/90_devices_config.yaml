@@ -63,25 +63,18 @@ cards:
   - type: vertical-stack
     title: Sensors Batteries
     cards:
-      - type: entities
-        # show_header_toggle: false
+      - type: custom:battery-state-card
         entities:
-          # TODO(albertomontes): uncomment custom type when fixed.
           - entity: sensor.living_room_sensor_battery
             name: Living Room Temperature
-            # type: custom:battery-entity
           - entity: sensor.bedroom_sensor_battery
             name: Bedroom Temperature
-            # type: custom:battery-entity
           - entity: sensor.main_bathroom_sensor_battery
             name: Main Bathroom Temperature
-            # type: custom:battery-entity
           - entity: sensor.outside_sensor_battery
             name: Outside Temperature
-            # type: custom:battery-entity
           - entity: sensor.living_room_occupancy_sensor_battery
             name: Living Room Occupancy
-            # type: custom:battery-entity
   - type: vertical-stack
     title: Sensors Link Quality
     cards:
@@ -99,3 +92,5 @@ cards:
             name: Outside Temperature
           - entity: sensor.living_room_occupancy_sensor_link_quality
             name: Living Room Occupancy
+          - entity: sensor.bedroom_repeater_link_quality
+            name: Bedroom Repeater

@@ -41,3 +41,7 @@
 
 "0x00158d0006a0cd1e":
   friendly_name: living_room_occupancy
+  occupancy_timeout: 300
+
+"0xbc33acfffe2b49c5":
+  friendly_name: bedroom_repeater

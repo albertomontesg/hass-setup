@@ -1,0 +1,89 @@
+---
+sensor:
+  # Bedroom Repeater.
+  - platform: "mqtt"
+    name: Bedroom Repeater Link Quality
+    state_topic: "zigbee2mqtt/bedroom_repeater"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    value_template: "{{ value_json.linkquality }}"
+    unit_of_measurement: "lqi"
+    icon: "mdi:signal"
+  - platform: "mqtt"
+    name: Bedroom Repeater Update
+    state_topic: "zigbee2mqtt/bedroom_repeater"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    icon: "mdi:update"
+    value_template: "{{ value_json['update']['state'] }}"
+
+  # Living Room Temperature Humidity Sensor
+  - platform: mqtt
+    name: Living Room Sensor Battery
+    state_topic: zigbee2mqtt/living_room_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: "%"
+    device_class: battery
+    value_template: "{{ value_json.battery }}"
+  - platform: "mqtt"
+    name: Living Room Sensor Link Quality
+    state_topic: "zigbee2mqtt/living_room_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    value_template: "{{ value_json.linkquality }}"
+    unit_of_measurement: "lqi"
+    icon: "mdi:signal"
+
+  # Bedroom Temperature Humidity Sensor
+  - platform: mqtt
+    name: Bedroom Sensor Battery
+    state_topic: zigbee2mqtt/bedroom_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: "%"
+    device_class: battery
+    value_template: "{{ value_json.battery }}"
+  - platform: "mqtt"
+    name: Bedroom Sensor Link Quality
+    state_topic: "zigbee2mqtt/bedroom_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    value_template: "{{ value_json.linkquality }}"
+    unit_of_measurement: "lqi"
+    icon: "mdi:signal"
+
+  # Outside Temperature Humidity Sensor
+  - platform: mqtt
+    name: Outside Sensor Battery
+    state_topic: zigbee2mqtt/outdoor_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: "%"
+    device_class: battery
+    value_template: "{{ value_json.battery }}"
+  - platform: "mqtt"
+    name: Outside Sensor Link Quality
+    state_topic: "zigbee2mqtt/outside_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    value_template: "{{ value_json.linkquality }}"
+    unit_of_measurement: "lqi"
+    icon: "mdi:signal"
+
+  # Main Bathroom Temperature Humidity Sensor
+  - platform: mqtt
+    name: Main Bathroom Sensor Battery
+    state_topic: zigbee2mqtt/main_bathroom_sensor
+    availability_topic: zigbee2mqtt/bridge/state
+    unit_of_measurement: "%"
+    device_class: battery
+    value_template: "{{ value_json.battery }}"
+  - platform: "mqtt"
+    name: Main Bathroom Sensor Link Quality
+    state_topic: "zigbee2mqtt/main_bathroom_sensor"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    value_template: "{{ value_json.linkquality }}"
+    unit_of_measurement: "lqi"
+    icon: "mdi:signal"
+
+binary_sensor:
+  - platform: "mqtt"
+    name: Bedroom Repeater Update Available
+    state_topic: "zigbee2mqtt/bedroom_repeater"
+    availability_topic: "zigbee2mqtt/bridge/state"
+    payload_on: true
+    payload_off: false
+    value_template: "{{ value_json.update_available}}"
