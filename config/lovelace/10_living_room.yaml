@@ -24,7 +24,7 @@ cards:
         entities:
           - light.living_room
           - light.sofa_led
-          - light.tv_led
+          # - light.tv_led
           - type: divider
           - light.dining_room
   - type: horizontal-stack

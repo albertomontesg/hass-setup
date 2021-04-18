@@ -23,7 +23,7 @@ cards:
         show_header_toggle: false
         entities:
           - light.bedroom
-          - light.bed_led
+          # - light.bed_led
   - type: vertical-stack
     title: Bed
     cards:

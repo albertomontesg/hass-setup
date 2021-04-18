@@ -70,7 +70,7 @@ cards:
         entities:
           - light.living_room
           - light.sofa_led
-          - light.tv_led
+          # - light.tv_led
           - type: divider
           - light.dining_room
           - light.dining_table
@@ -78,7 +78,7 @@ cards:
           - light.corridor
           - type: divider
           - light.bedroom
-          - light.bed_led
+          # - light.bed_led
           - type: divider
           - light.office
   - type: vertical-stack

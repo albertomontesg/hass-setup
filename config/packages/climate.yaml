@@ -1,8 +1,9 @@
 ---
-dyson:
-  username: !secret dyson_username
-  password: !secret dyson_password
-  language: US
-  devices:
-    - device_id: !secret dyson_office_fan_id
-      device_ip: !secret dyson_office_fan_ip
+# dyson:
+#   username: !secret dyson_username
+#   password: !secret dyson_password
+#   language: US
+#   devices:
+#     - device_id: !secret dyson_office_fan_id
+#       device_ip: !secret dyson_office_fan_ip
+{}
