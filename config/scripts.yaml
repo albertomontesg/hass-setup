@@ -64,9 +64,3 @@ vacuum_dispatch:
           {% elif room|lower in ("corridor", "the corridor") %}
             script.vacuum_kitchen
           {% endif %}
-vacuum_home:
-  alias: "Vacuum Home"
-  sequence:
-    - service: vacuum.start
-      data_template:
-        entity_id: vacuum.xiaomi_vacuum_cleaner

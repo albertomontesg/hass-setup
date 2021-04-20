@@ -112,12 +112,25 @@ homekit:
       - device_tracker.*
       - sensor.dark_sky*
       - sensor.prusa_mk3s_*
+      - sensor.tesla_*
+      - sensor.outside_*
       - binary_sensor.prusa_mk3s_*
+      - input_boolean.zigbee2mqtt_*
       - script.zigbee2mqtt_*
       - switch.zigbee2mqtt_*
+      - switch.energy_meter_*
+      - switch.office_fan_*
+      - binary_sensor.albertomontes_macbookpro_*
     exclude_entities:
+      - sensor.inside_temperature
       - script.sonos_say
       - script.vacuum_dispatch
+      - media_player.all_tvs
+      - binary_sensor.in_working_hours
+      - binary_sensor.workday_sensor
+      - binary_sensor.bedroom_repeater_update_available
+      - binary_sensor.updater
+      - light.dining_table
 
 # Google Home
 google_assistant:
@@ -152,6 +165,7 @@ mqtt:
   port: 1883
   username: !secret mqtt_username
   password: !secret mqtt_password
+  discovery: false
   # Required for zigbee2mqtt
   birth_message:
     topic: "hass/status"
