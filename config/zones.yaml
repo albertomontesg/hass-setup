@@ -13,7 +13,7 @@
 - name: Universitätsspital
   latitude: 47.37628540251555
   longitude: 8.550804555416109
-  radius: 200
+  radius: 350
   icon: mdi:school
 
 - name: Schule Leutschenbach
