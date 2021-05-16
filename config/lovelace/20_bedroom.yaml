@@ -8,7 +8,7 @@ cards:
     title: Media
     cards:
       - type: custom:mini-media-player
-        entity: media_player.marmotilla_village
+        entity: media_player.bedroom_tv
         artwork: full-cover
       - type: custom:mini-media-player
         entity: media_player.bedroom

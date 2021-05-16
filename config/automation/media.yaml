@@ -41,7 +41,7 @@
 - alias: Switch On Bed Light on Media
   trigger:
     platform: state
-    entity_id: media_player.marmotilla_village
+    entity_id: media_player.bedroom_tv
     to: "playing"
   condition:
     - condition: state
@@ -57,7 +57,7 @@
 - alias: Switch Off Bed Light on Media
   trigger:
     platform: state
-    entity_id: media_player.marmotilla_village
+    entity_id: media_player.bedroom_tv
     to: "off"
   condition:
     - condition: state
@@ -77,7 +77,7 @@
       entity_id: media_player.living_room_tv
       to: "playing"
     - platform: state
-      entity_id: media_player.marmotilla_village
+      entity_id: media_player.bedroom_tv
       to: "playing"
   condition:
     - condition: state

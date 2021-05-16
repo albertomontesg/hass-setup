@@ -19,7 +19,7 @@ cards:
         entity: media_player.living_room_tv
         artwork: full-cover
       - type: custom:mini-media-player
-        entity: media_player.marmotilla_village
+        entity: media_player.bedroom_tv
         artwork: full-cover
       - type: custom:mini-media-player
         entity: media_player.living_room
