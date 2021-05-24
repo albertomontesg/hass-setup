@@ -5,9 +5,9 @@
     - platform: state
       entity_id: binary_sensor.albertomontes_macbookpro_camera_in_use
       to: "on"
-    - platform: state
-      entity_id: calendar.work_google
-      to: "on"
+    # - platform: state
+    #   entity_id: calendar.work_google
+    #   to: "on"
   action:
     - alias: Pause Music
       service: media_player.media_pause

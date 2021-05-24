@@ -19,6 +19,9 @@ homeassistant:
   # Auth providers
   auth_providers:
     - type: homeassistant
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.0.0/24
 
 # Enables the frontend
 frontend:
