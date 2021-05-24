@@ -195,9 +195,6 @@ logger:
 # System Health
 system_health:
 
-hacs:
-  token: !secret hacs_access_token
-
 google:
   client_id: !secret google_calendar_client_id
   client_secret: !secret google_calendar_client_secret
