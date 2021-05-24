@@ -1,6 +1,7 @@
 {
     "domain": "flux_led_custom",
     "name": "Flux LED/MagicLight",
+    "version": "0.0.1",
     "documentation": "https://www.home-assistant.io/integrations/flux_led",
     "requirements": ["flux_led==0.22"],
     "codeowners": [],
