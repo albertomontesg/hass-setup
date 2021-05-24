@@ -1,0 +1,46 @@
+---
+- alias: Notify When Judith Leaves Work
+  id: notify_when_judith_leaves_work
+  trigger:
+    - platform: zone
+      entity_id: person.judith
+      zone: zone.universitatsspital
+      event: leave
+  condition:
+    - alias: Someone Home
+      condition: state
+      entity_id: binary_sensor.someone_home
+      state: "on"
+    - alias: Working Day
+      condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: "on"
+  action:
+    - alias: Notify Alberto
+      service: notify.mobile_app_iphone_alberto
+      data:
+        title: "Judith just left work!"
+        message: "She will be home soon."
+
+- alias: Notify Judith When Picked Up
+  id: notify_judith_when_picked_up
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.tesla_location
+      zone: zone.universitatsspital_sorroundings
+      event: enter
+  condition:
+    - alias: Working Day
+      condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: "on"
+    - alias: Judith at Work
+      condition: zone
+      entity_id: person.judith
+      zone: zone.universitatsspital
+  action:
+    - alias: Notify Judith
+      service: notify.mobile_app_iphone_judith
+      data:
+        title: "Your ride is arriving!"
+        message: "Expect it to be at the door in 2 minutes."

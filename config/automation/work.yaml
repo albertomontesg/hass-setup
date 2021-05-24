@@ -1,24 +1,6 @@
 ---
-- alias: Notify When Judith Leaves Work
-  trigger:
-    - platform: zone
-      entity_id: person.judith
-      zone: zone.universitatsspital
-      event: leave
-  condition:
-    - condition: state
-      entity_id: binary_sensor.someone_home
-      state: "on"
-    - condition: state
-      entity_id: binary_sensor.workday_sensor
-      state: "on"
-  action:
-    service: notify.mobile_app_iphone_alberto
-    data:
-      title: "Judith just left work!"
-      message: "She will be home soon."
-
 - alias: Pause Music on Work Meeting
+  id: pause_music_on_meeting
   trigger:
     - platform: state
       entity_id: binary_sensor.albertomontes_macbookpro_camera_in_use
@@ -27,20 +9,42 @@
       entity_id: calendar.work_google
       to: "on"
   action:
-    - service: media_player.media_pause
+    - alias: Pause Music
+      service: media_player.media_pause
       data:
         entity_id: media_player.office
 
 - alias: Resume Music After Work Meeting
+  id: resume_music_after_meeting
   trigger:
     platform: state
     entity_id: binary_sensor.albertomontes_macbookpro_camera_in_use
     to: "off"
   condition:
-    - condition: state
+    - alias: Working Hours
+      condition: state
       entity_id: binary_sensor.in_working_hours
       state: "on"
   action:
-    - service: media_player.media_play
+    - alias: Play Music
+      service: media_player.media_play
       data:
         entity_id: media_player.office
+
+- alias: Notification on Work Meeting
+  id: notification_on_work_meeting
+  trigger:
+    - platform: state
+      entity_id: calendar.work_google
+      to: "on"
+  condition:
+    - alias: Working Hours
+      condition: state
+      entity_id: binary_sensor.in_working_hours
+      state: "on"
+  action:
+    - service: script.sonos_play
+      data:
+        sonos_entity: media_player.office
+        volume: 0.5
+        delay: '00:00:00'

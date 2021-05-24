@@ -20,9 +20,11 @@ cards:
           - automation.pause_music_when_leaving_home
           - type: divider
           - automation.notify_when_judith_leaves_work
+          - automation.notify_judith_when_picked_up
           - type: divider
           - automation.pause_music_on_work_meeting
           - automation.resume_music_after_work_meeting
+          - automation.notification_on_work_meeting
   - type: vertical-stack
     title: Media Players
     cards:

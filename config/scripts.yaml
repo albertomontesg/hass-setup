@@ -2,24 +2,60 @@
 sonos_say:
   alias: "Sonos TTS Script"
   sequence:
-    - service: sonos.snapshot
+    - alias: Store Sonos Snapshot
+      service: sonos.snapshot
       data_template:
         entity_id: "{{ sonos_entity }}"
-    - service: sonos.unjoin
+    - alias: Unjoin speaker
+      service: sonos.unjoin
       data_template:
         entity_id: "{{ sonos_entity }}"
-    - service: media_player.volume_set
+    - alias: Set Volume
+      service: media_player.volume_set
       data_template:
         entity_id: "{{ sonos_entity }}"
         volume_level: "{{ volume }}"
-    - service: tts.google_translate_say
+    - alias: Play Text
+      service: tts.google_translate_say
       data_template:
         entity_id: "{{ sonos_entity }}"
         message: "{{ message }}"
-    - delay: "{{ delay }}"
-    - service: sonos.restore
+    - alias: Wait
+      delay: "{{ delay }}"
+    - alias: Restore Sonos Snapshot
+      service: sonos.restore
       data_template:
         entity_id: "{{ sonos_entity }}"
+
+sonos_play:
+  alias: "Sonos Play File"
+  sequence:
+    - alias: Store Sonos Snapshot
+      service: sonos.snapshot
+      data_template:
+        entity_id: "{{ sonos_entity }}"
+    - alias: Unjoin speaker
+      service: sonos.unjoin
+      data_template:
+        entity_id: "{{ sonos_entity }}"
+    - alias: Set Volume
+      service: media_player.volume_set
+      data_template:
+        entity_id: "{{ sonos_entity }}"
+        volume_level: "{{ volume }}"
+    - alias: Play Content
+      service: media_player.play_media
+      data_template:
+        entity_id: "{{ sonos_entity }}"
+        media_content_id: "https://hass.c6.montesg.xyz/local/sounds/done_for_you.mp3"
+        media_content_type: music
+    - alias: Wait
+      delay: "{{ delay }}"
+    - alias: Restore Sonos Snapshot
+      service: sonos.restore
+      data_template:
+        entity_id: "{{ sonos_entity }}"
+
 
 vacuum_kitchen:
   alias: "Vacuum Kitchen"

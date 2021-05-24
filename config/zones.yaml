@@ -28,6 +28,12 @@
   radius: 350
   icon: mdi:school
 
+- name: Universitätsspital Sorroundings
+  latitude: 47.37628540251555
+  longitude: 8.550804555416109
+  radius: 550
+  passive: true
+
 - name: Schule Leutschenbach
   latitude: 47.413457848195065
   longitude: 8.56254491955042
