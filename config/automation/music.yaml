@@ -1,0 +1,38 @@
+---
+- alias: Play Music When Day Starts
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.in_working_hours
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: binary_sensor.someone_home
+      state: "on"
+  action:
+    - service: media_player.media_play
+      data:
+        entity_id: media_player.office
+
+- alias: Play Music When Entering Home
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.someone_home
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: binary_sensor.in_working_hours
+      state: "on"
+  action:
+    - service: media_player.media_play
+      data:
+        entity_id: media_player.office
+
+- alias: Pause Music When Leaving Home
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.someone_home
+      to: "off"
+  action:
+    - service: media_player.media_pause
+      data:
+        entity_id: media_player.office

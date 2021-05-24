@@ -1,46 +1,4 @@
 ---
-- alias: Switch On Music Start Working Hours
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.in_working_hours
-      to: 'on'
-  condition:
-    - condition: state
-      entity_id: binary_sensor.someone_home
-      state: 'on'
-  action:
-    - service: media_player.media_play
-      data:
-        entity_id: media_player.office
-
-- alias: Switch On Music Entering During Working Hours
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.someone_home
-      to: 'on'
-  condition:
-    - condition: state
-      entity_id: binary_sensor.in_working_hours
-      state: 'on'
-  action:
-    - service: media_player.media_play
-      data:
-        entity_id: media_player.office
-
-- alias: Switch Off Music Leaving During Working Hours
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.someone_home
-      to: 'off'
-  condition:
-    - condition: state
-      entity_id: binary_sensor.in_working_hours
-      state: 'on'
-  action:
-    - service: media_player.media_pause
-      data:
-        entity_id: media_player.office
-
 - alias: Notify When Judith Leaves Work
   trigger:
     - platform: zone
@@ -50,10 +8,10 @@
   condition:
     - condition: state
       entity_id: binary_sensor.someone_home
-      state: 'on'
+      state: "on"
     - condition: state
       entity_id: binary_sensor.workday_sensor
-      state: 'on'
+      state: "on"
   action:
     service: notify.mobile_app_iphone_alberto
     data:
@@ -62,9 +20,12 @@
 
 - alias: Pause Music on Work Meeting
   trigger:
-    platform: state
-    entity_id: binary_sensor.albertomontes_macbookpro_camera_in_use
-    to: 'on'
+    - platform: state
+      entity_id: binary_sensor.albertomontes_macbookpro_camera_in_use
+      to: "on"
+    - platform: state
+      entity_id: calendar.work_google
+      to: "on"
   action:
     - service: media_player.media_pause
       data:
@@ -74,11 +35,11 @@
   trigger:
     platform: state
     entity_id: binary_sensor.albertomontes_macbookpro_camera_in_use
-    to: 'off'
+    to: "off"
   condition:
     - condition: state
       entity_id: binary_sensor.in_working_hours
-      state: 'on'
+      state: "on"
   action:
     - service: media_player.media_play
       data:

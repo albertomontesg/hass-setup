@@ -15,9 +15,9 @@ cards:
           - input_datetime.working_hours_end
           - binary_sensor.in_working_hours
           - type: divider
-          - automation.switch_on_music_start_working_hours
-          - automation.switch_on_music_entering_during_working_hours
-          - automation.switch_off_music_leaving_during_working_hours
+          - automation.play_music_when_day_starts
+          - automation.play_music_when_entering_home
+          - automation.pause_music_when_leaving_home
           - type: divider
           - automation.notify_when_judith_leaves_work
           - type: divider

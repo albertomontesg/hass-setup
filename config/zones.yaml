@@ -4,10 +4,22 @@
   longitude: 8.530288
   radius: 30
 
+- name: Garage
+  latitude: 47.41520611097569
+  longitude: 8.53038423942053
+  radius: 22
+  icon: mdi:garage-variant
+
 - name: Google Hurliman
   latitude: 47.365102
   longitude: 8.525183
   radius: 200
+  icon: mdi:google
+
+- name: Google Europalle
+  latitude: 47.37839178964209
+  longitude: 8.534958319942236
+  radius: 100
   icon: mdi:google
 
 - name: Universitätsspital
