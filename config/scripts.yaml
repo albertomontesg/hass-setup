@@ -6,10 +6,6 @@ sonos_say:
       service: sonos.snapshot
       data_template:
         entity_id: "{{ sonos_entity }}"
-    - alias: Unjoin speaker
-      service: sonos.unjoin
-      data_template:
-        entity_id: "{{ sonos_entity }}"
     - alias: Set Volume
       service: media_player.volume_set
       data_template:
@@ -32,10 +28,6 @@ sonos_play:
   sequence:
     - alias: Store Sonos Snapshot
       service: sonos.snapshot
-      data_template:
-        entity_id: "{{ sonos_entity }}"
-    - alias: Unjoin speaker
-      service: sonos.unjoin
       data_template:
         entity_id: "{{ sonos_entity }}"
     - alias: Set Volume
