@@ -1,0 +1,44 @@
+---
+vacuum_kitchen:
+  alias: "Vacuum Kitchen"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: [21]
+vacuum_sofa_area:
+  alias: "Vacuum Sofa Area"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: [17]
+vacuum_bedroom:
+  alias: "Vacuum Bedrom"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: [16]
+vacuum_corridor:
+  alias: "Vacuum Corridor"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: [19]
+vacuum_dispatch:
+  alias: "Vacuum Dispatch"
+  sequence:
+    - service: script.turn_on
+      data_template:
+        entity_id: >-
+          {% if room|lower in ("kitchen", "the kitchen") %}
+            script.vacuum_kitchen
+          {% elif room|lower in ("sofa area", "the sofa area") %}
+            script.vacuum_sofa_area
+          {% elif room|lower in ("bedroom", "the bedroom") %}
+            script.vacuum_bedroom
+          {% elif room|lower in ("corridor", "the corridor") %}
+            script.vacuum_kitchen
+          {% endif %}

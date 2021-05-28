@@ -75,14 +75,19 @@
   trigger:
     - platform: state
       entity_id: media_player.living_room_tv
-      to: "playing"
+      to: "on"
     - platform: state
       entity_id: media_player.bedroom_tv
       to: "playing"
   condition:
-    - condition: state
-      entity_id: media_player.living_room
-      state: "playing"
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: media_player.living_room
+          state: "playing"
+        - condition: state
+          entity_id: media_player.bedroom
+          state: "playing"
   action:
     - service: media_player.media_pause
       data:
