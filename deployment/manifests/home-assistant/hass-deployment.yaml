@@ -31,11 +31,11 @@ spec:
           command:
             - sh
             - -c
-            - 'until pg_isready -h postgres -p 5432 -U postgresadmin
-              -d homeassistant; do echo waiting for database; sleep 2; done;'
+            - "until pg_isready -h postgres -p 5432 -U postgresadmin
+              -d homeassistant; do echo waiting for database; sleep 2; done;"
       containers:
         - name: home-assistant
-          image: "homeassistant/raspberrypi3-64-homeassistant:2021.5.5"
+          image: "homeassistant/raspberrypi3-64-homeassistant:2021.6.2"
           imagePullPolicy: IfNotPresent
           ports:
             - name: api
