@@ -72,6 +72,7 @@
         entity_id: light.bed_led
 
 - alias: Pause Music on Content in TV
+  id: pause_music_on_content_in_tv
   trigger:
     - platform: state
       entity_id: media_player.living_room_tv
@@ -94,6 +95,7 @@
         entity_id: media_player.living_room
 
 - alias: Pause Music on Leaving Home
+  id: pause_music_on_leaving_home
   trigger:
     - platform: state
       entity_id: binary_sensor.someone_home
