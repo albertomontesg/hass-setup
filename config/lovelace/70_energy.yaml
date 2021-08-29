@@ -4,6 +4,10 @@ title: Energy
 panel: false
 icon: "mdi:flash"
 cards:
+  - type: energy-date-selection
+  - type: energy-usage-graph
+  - type: energy-distribution
+    link_dashboard: true
   - type: vertical-stack
     cards:
       - type: custom:mini-graph-card

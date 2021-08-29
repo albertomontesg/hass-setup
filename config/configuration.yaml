@@ -175,7 +175,7 @@ mqtt:
   port: 1883
   username: !secret mqtt_username
   password: !secret mqtt_password
-  discovery: false
+  discovery: true
   # Required for zigbee2mqtt
   birth_message:
     topic: "hass/status"
@@ -205,3 +205,5 @@ google:
 wake_on_lan:
 
 prometheus:
+
+energy:
