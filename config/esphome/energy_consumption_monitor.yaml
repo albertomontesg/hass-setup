@@ -207,7 +207,50 @@ sensor:
   # kWh
   - platform: total_daily_energy
     name: ${disp_name} Total kWh
+    state_class: "measurement"
     power_id: totalWatts
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+  - platform: total_daily_energy
+    name: ${disp_name} CT1 kWh
+    state_class: "measurement"
+    power_id: ct1Watts
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+  - platform: total_daily_energy
+    name: ${disp_name} CT2 kWh
+    state_class: "measurement"
+    power_id: ct2Watts
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+  - platform: total_daily_energy
+    name: ${disp_name} CT3 kWh
+    state_class: "measurement"
+    power_id: ct3Watts
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+  - platform: total_daily_energy
+    name: ${disp_name} CT4 kWh
+    state_class: "measurement"
+    power_id: ct4Watts
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+  - platform: total_daily_energy
+    name: ${disp_name} CT5 kWh
+    state_class: "measurement"
+    power_id: ct5Watts
+    filters:
+      - multiply: 0.001
+    unit_of_measurement: kWh
+  - platform: total_daily_energy
+    name: ${disp_name} CT6 kWh
+    state_class: "measurement"
+    power_id: ct6Watts
     filters:
       - multiply: 0.001
     unit_of_measurement: kWh
