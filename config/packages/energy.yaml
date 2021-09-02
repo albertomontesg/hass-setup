@@ -1,23 +1,23 @@
 ---
 sensor:
-  - platform: mqtt
-    name: "Volts"
-    state_topic: "energy_meter/appartment/sensor/energy_metter_volts_a/state"
-    availability_topic: "energy_meter/appartment/status"
-    unit_of_measurement: "Volts"
-  - platform: mqtt
-    name: "Frequency"
-    state_topic: "energy_meter/appartment/sensor/energy_metter_freq_a/state"
-    availability_topic: "energy_meter/appartment/status"
-    unit_of_measurement: "Hz"
-  - platform: mqtt
-    name: "Total Amps"
-    state_topic: "energy_meter/appartment/sensor/energy_metter_total_amps/state"
-    availability_topic: "energy_meter/appartment/status"
-    unit_of_measurement: "Amps"
-  - platform: mqtt
-    name: "Total Watts"
-    # yamllint disable-line rule:line-length
-    state_topic: "energy_meter/appartment/sensor/energy_metter_total_watts/state"
-    availability_topic: "energy_meter/appartment/status"
-    unit_of_measurement: "Watts"
+  - platform: statistics
+    entity_id: sensor.energy_meter_total_kwh
+    name: Energy Total kWh
+  - platform: statistics
+    entity_id: sensor.energy_meter_ct1_kwh
+    name: Energy CT1 kWh
+  - platform: statistics
+    entity_id: sensor.energy_meter_ct2_kwh
+    name: Energy CT2 kWh
+  - platform: statistics
+    entity_id: sensor.energy_meter_ct3_kwh
+    name: Energy CT3 kWh
+  - platform: statistics
+    entity_id: sensor.energy_meter_ct4_kwh
+    name: Energy CT4 kWh
+  - platform: statistics
+    entity_id: sensor.energy_meter_ct5_kwh
+    name: Energy CT5 kWh
+  - platform: statistics
+    entity_id: sensor.energy_meter_ct6_kwh
+    name: Energy CT6 kWh
