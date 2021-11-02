@@ -1,10 +1,10 @@
 ---
 light:
-  - platform: flux_led_custom
-    devices:
-      10.4.1.120:
-        name: sofa_led
-        mode: "rgb"
+  # - platform: flux_led_custom
+  #   devices:
+  #     10.4.1.120:
+  #       name: sofa_led
+  #       mode: "rgb"
   # - platform: flux_led_custom
   #   devices:
   #     172.16.1.90:
@@ -38,32 +38,3 @@ light:
       - "finish_effect"
       - "stop_effect"
 
-  - platform: mqtt
-    name: Dining Room
-    state_topic: "switches/dining_room/switch/dining_room_light/state"
-    command_topic: "switches/dining_room/switch/dining_room_light/command"
-    availability_topic: "switches/dining_room/status"
-
-  - platform: mqtt
-    name: Living Room
-    state_topic: "switches/living_room/switch/living_room_light/state"
-    command_topic: "switches/living_room/switch/living_room_light/command"
-    availability_topic: "switches/living_room/status"
-
-  - platform: mqtt
-    name: Bedroom
-    state_topic: "switches/bedroom/switch/bedroom_light/state"
-    command_topic: "switches/bedroom/switch/bedroom_light/command"
-    availability_topic: "switches/bedroom/status"
-
-  - platform: mqtt
-    name: Office
-    state_topic: "switches/office/switch/office_light/state"
-    command_topic: "switches/office/switch/office_light/command"
-    availability_topic: "switches/office/status"
-
-  - platform: mqtt
-    name: Corridor
-    state_topic: "switches/corridor/switch/corridor_light/state"
-    command_topic: "switches/corridor/switch/corridor_light/command"
-    availability_topic: "switches/corridor/status"

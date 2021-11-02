@@ -99,4 +99,4 @@ cards:
           - sensor.energy_meter_total_watts
           - sensor.energy_meter_total_kwh
           - switch.energy_meter_restart
-          - sensor.energy_meter_wifi
+          - sensor.energy_meter_wifi_signal_strength

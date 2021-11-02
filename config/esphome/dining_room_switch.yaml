@@ -1,7 +1,8 @@
 ---
 substitutions:
- device_name: dining_room
- upper_device_name: Dining Room
- device_ip: "10.4.2.30"
+  name: dining-room
+  device_name: dining_room
+  upper_device_name: Dining Room
+  device_ip: "10.4.2.30"
 
 <<: !include templates/sonoff_mini.yaml

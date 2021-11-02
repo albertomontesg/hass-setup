@@ -16,7 +16,7 @@ substitutions:
   voltage_cal: "14517"
 
 esphome:
-  name: energy_consumption_monitor
+  name: energy-consumption-monitor
   platform: ESP32
   board: nodemcu-32s
 
@@ -42,15 +42,16 @@ captive_portal:
 logger:
 
 ota:
+  password: !secret esphome_ota_password
+
+api:
+  password: !secret esphome_api_password
+  encryption:
+    key: !secret esphome_api_encryption_key
+
 
 web_server:
   port: 80
-
-mqtt:
-  broker: 10.6.8.3
-  username: !secret mqtt_username
-  password: !secret mqtt_password
-  topic_prefix: energy_meter/apartment
 
 spi:
   clk_pin: 18
@@ -59,8 +60,10 @@ spi:
 
 sensor:
   - platform: wifi_signal
-    name: ${disp_name} WiFi
+    name: ${disp_name} WiFi Signal Strength
     update_interval: 60s
+  - platform: uptime
+    name: ${disp_name} Uptime
   # IC1
   - platform: atm90e32
     cs_pin: 5
@@ -163,6 +166,7 @@ sensor:
     unit_of_measurement: W
     icon: "mdi:flash-circle"
     update_interval: ${update_time}
+    internal: true
   - platform: template
     name: ${disp_name} CT5 Watts
     id: ct5Watts
@@ -171,6 +175,7 @@ sensor:
     unit_of_measurement: W
     icon: "mdi:flash-circle"
     update_interval: ${update_time}
+    internal: true
   - platform: template
     name: ${disp_name} CT6 Watts
     id: ct6Watts
@@ -179,6 +184,7 @@ sensor:
     unit_of_measurement: W
     icon: "mdi:flash-circle"
     update_interval: ${update_time}
+    internal: true
   # Total Amps
   - platform: template
     name: ${disp_name} Total Amps
@@ -207,57 +213,67 @@ sensor:
   # kWh
   - platform: total_daily_energy
     name: ${disp_name} Total kWh
-    state_class: "measurement"
+    device_class: "energy"
+    state_class: "total_increasing"
     power_id: totalWatts
     filters:
       - multiply: 0.001
     unit_of_measurement: kWh
   - platform: total_daily_energy
     name: ${disp_name} CT1 kWh
-    state_class: "measurement"
+    device_class: "energy"
+    state_class: "total_increasing"
     power_id: ct1Watts
     filters:
       - multiply: 0.001
     unit_of_measurement: kWh
   - platform: total_daily_energy
     name: ${disp_name} CT2 kWh
-    state_class: "measurement"
+    device_class: "energy"
+    state_class: "total_increasing"
     power_id: ct2Watts
     filters:
       - multiply: 0.001
     unit_of_measurement: kWh
   - platform: total_daily_energy
     name: ${disp_name} CT3 kWh
-    state_class: "measurement"
+    device_class: "energy"
+    state_class: "total_increasing"
     power_id: ct3Watts
     filters:
       - multiply: 0.001
     unit_of_measurement: kWh
   - platform: total_daily_energy
     name: ${disp_name} CT4 kWh
-    state_class: "measurement"
+    device_class: "energy"
+    state_class: "total_increasing"
     power_id: ct4Watts
     filters:
       - multiply: 0.001
     unit_of_measurement: kWh
+    internal: true
   - platform: total_daily_energy
     name: ${disp_name} CT5 kWh
-    state_class: "measurement"
+    device_class: "energy"
+    state_class: "total_increasing"
     power_id: ct5Watts
     filters:
       - multiply: 0.001
     unit_of_measurement: kWh
+    internal: true
   - platform: total_daily_energy
     name: ${disp_name} CT6 kWh
-    state_class: "measurement"
+    device_class: "energy"
+    state_class: "total_increasing"
     power_id: ct6Watts
     filters:
       - multiply: 0.001
     unit_of_measurement: kWh
+    internal: true
 
 switch:
   - platform: restart
     name: ${disp_name} Restart
 time:
-  - platform: sntp
-    id: sntp_time
+  - platform: homeassistant
+    id: homeassistant_time
