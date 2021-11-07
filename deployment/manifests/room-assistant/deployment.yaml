@@ -27,7 +27,7 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: room-assistant
-          image: mkerix/room-assistant:2.9.0
+          image: mkerix/room-assistant:2.19.1
           imagePullPolicy: Always
           securityContext:
             capabilities:
