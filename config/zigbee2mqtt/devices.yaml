@@ -1,27 +1,27 @@
 ---
 "0x00158d0002b546af":
-  friendly_name: living_room_sensor
+  friendly_name: living_room
   temperature_precision: 1
   humidity_precision: 1
   pressure_precision: 1
   retain: true
   debounce: 1
 "0x00158d00036bd864":
-  friendly_name: main_bathroom_sensor
+  friendly_name: main_bathroom
   temperature_precision: 1
   humidity_precision: 1
   pressure_precision: 1
   retain: true
   debounce: 1
 "0x00158d0002b54dce":
-  friendly_name: bedroom_sensor
+  friendly_name: bedroom
   temperature_precision: 1
   humidity_precision: 1
   pressure_precision: 1
   retain: true
   debounce: 1
 "0x00158d00036bd476":
-  friendly_name: outdoor_sensor
+  friendly_name: outdoor
   temperature_precision: 1
   humidity_precision: 1
   pressure_precision: 1
@@ -29,19 +29,19 @@
   debounce: 1
 
 "0x000d6ffffe46f955":
-  friendly_name: dinning_table_light_1
+  friendly_name: dinning_table_1
 "0x000d6ffffe529ec7":
-  friendly_name: dinning_table_light_2
+  friendly_name: dinning_table_2
 "0x000d6ffffe62f264":
-  friendly_name: dinning_table_light_3
+  friendly_name: dinning_table_3
 "0x000d6ffffe4b01bb":
-  friendly_name: dinning_table_light_4
+  friendly_name: dinning_table_4
 "0x000d6ffffe52a044":
-  friendly_name: dinning_table_light_5
+  friendly_name: dinning_table_5
 
 "0x00158d0006a0cd1e":
-  friendly_name: living_room_occupancy
-  occupancy_timeout: 300
+  friendly_name: living_room_presence
+  occupancy_timeout: 600
 
 "0xbc33acfffe2b49c5":
   friendly_name: bedroom_repeater

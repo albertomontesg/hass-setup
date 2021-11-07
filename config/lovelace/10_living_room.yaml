@@ -17,13 +17,19 @@ cards:
           power: true
           icon: true
   - type: vertical-stack
+    title: Presence
+    cards:
+      - type: glance
+        entities:
+          - binary_sensor.living_room_occupancy
+  - type: vertical-stack
     title: Lights
     cards:
       - type: entities
         show_header_toggle: false
         entities:
           - light.living_room
-          - light.sofa_led
+          # - light.sofa_led
           # - light.tv_led
           - type: divider
           - light.dining_room

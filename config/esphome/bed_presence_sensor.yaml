@@ -1,6 +1,7 @@
 ---
 esphome:
   name: bed-presence-sensor
+  comment: Bed Pressence Sensor
   platform: ESP32
   board: nodemcu-32s
 

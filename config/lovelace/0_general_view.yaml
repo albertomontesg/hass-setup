@@ -69,7 +69,7 @@ cards:
         show_header_toggle: false
         entities:
           - light.living_room
-          - light.sofa_led
+          # - light.sofa_led
           # - light.tv_led
           - type: divider
           - light.dining_room

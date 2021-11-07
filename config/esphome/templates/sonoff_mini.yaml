@@ -1,6 +1,7 @@
 ---
 esphome:
   name: ${name}-switch
+  comment: ${upper_device_name} Switch
   platform: ESP8266
   board: esp01_1m
   build_path: /build/${device_name}_switch
@@ -49,7 +50,7 @@ binary_sensor:
   - platform: gpio
     pin: GPIO00
     id: reset
-    internal: true  # hides reset switch from HomeAssistant
+    internal: true # hides reset switch from HomeAssistant
     filters:
       - invert:
       - delayed_off: 10ms
@@ -61,7 +62,7 @@ binary_sensor:
   # the 13 lines below toggle the main relay on command
   - platform: gpio
     name: relay_toggle
-    internal: true  # hides relay toggle from HomeAssistant
+    internal: true # hides relay toggle from HomeAssistant
     pin: GPIO04
     id: gpio_light_id
     on_press:
@@ -103,7 +104,7 @@ light:
   - platform: monochromatic
     name: ${upper_device_name} Switch Blue LED
     output: blue_led
-    internal: true  # hides the Blue LED from Homeassistant
+    internal: true # hides the Blue LED from Homeassistant
 
 switch:
   - platform: restart

@@ -71,8 +71,8 @@ cards:
             name: Bedroom Temperature
           - entity: sensor.main_bathroom_sensor_battery
             name: Main Bathroom Temperature
-          - entity: sensor.outside_sensor_battery
-            name: Outside Temperature
+          - entity: sensor.outdoor_sensor_battery
+            name: Outdoor Temperature
           - entity: sensor.living_room_occupancy_sensor_battery
             name: Living Room Occupancy
   - type: vertical-stack

@@ -1,6 +1,7 @@
 ---
 esphome:
   name: corridor-switch
+  comment: Corridor Switch
   platform: ESP8266
   board: esp01_1m
 
@@ -59,7 +60,6 @@ status_led:
   pin:
     number: GPIO13
     inverted: true
-
 
 output:
   - platform: gpio
