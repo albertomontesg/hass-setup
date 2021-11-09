@@ -1,0 +1,7 @@
+---
+- sensor.bedroom_temperature
+- sensor.bedroom_humidity
+- light.bedroom
+- media_player.bedroom
+- media_player.bedroom_tv
+- script.vacuum_bedroom

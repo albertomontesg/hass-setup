@@ -12,39 +12,21 @@ light.living_room:
   homebridge_name: Living Room Light
 light.office:
   homebridge_name: Office Light
-light.sofa_led:
-  friendly_name: Sofa LED
-  homebridge_name: Sofa LED
-light.tv_led:
-  friendly_name: TV LED
-  homebridge_name: TV LED
 
 media_player.living_room:
   friendly_name: Sonos Living Room
+  homebridge_name: Living Room Sonos
 media_player.bedroom:
   friendly_name: Sonos Bedroom
+  homebridge_name: Bedroom Sonos
 media_player.office:
   friendly_name: Sonos Office
-
-binary_sensor.workday_sensor:
-  homebridge_hidden: true
-binary_sensor.in_working_hours:
-  homebridge_hidden: true
+  homebridge_name: Office Sonos
 
 fan.office:
   friendly_name: Office Fan
   homebridge_name: Office Fan
 
-sensor.inside_temperature:
-  homebridge_hidden: true
-sensor.inside_humidity:
-  homebridge_hidden: true
-
-device_tracker.iphone_alberto_bt:
-  friendly_name: iPhone Alberto BT
-device_tracker.apple_watch_alberto_bt:
-  friendly_name: Apple Watch Alberto BT
-device_tracker.iphone_judith_bt:
-  friendly_name: iPhone Judith BT
-device_tracker.apple_watch_judith_bt:
-  friendly_name: Apple Watch Judith BT
+climate.office:
+  friendly_name: Office Climate
+  homebridge_name: Office Climate

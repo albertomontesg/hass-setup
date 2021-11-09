@@ -1,0 +1,7 @@
+---
+- sensor.office_temperature
+- sensor.office_humidity
+- light.office
+- fan.office
+- climate.office
+- media_player.office

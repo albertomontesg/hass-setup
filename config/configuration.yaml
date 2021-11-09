@@ -110,32 +110,7 @@ homekit:
   - name: Home Assistant
     entity_config: !include assistants/homekit.yaml
     filter:
-      exclude_domains:
-        - automation
-      exclude_entity_globs:
-        - device_tracker.*
-        - sensor.dark_sky*
-        - sensor.prusa_mk3s_*
-        - sensor.tesla_*
-        - sensor.outside_*
-        - binary_sensor.prusa_mk3s_*
-        - input_boolean.zigbee2mqtt_*
-        - script.zigbee2mqtt_*
-        - switch.zigbee2mqtt_*
-        - switch.energy_meter_*
-        - switch.office_fan_*
-        - binary_sensor.albertomontes_macbookpro_*
-      exclude_entities:
-        - sensor.inside_temperature
-        - script.sonos_say
-        - script.vacuum_dispatch
-        - media_player.all_tvs
-        - binary_sensor.in_working_hours
-        - binary_sensor.workday_sensor
-        - binary_sensor.bedroom_repeater_update_available
-        - binary_sensor.updater
-        - light.dining_table
-        - media_player.living_room_tv
+      include_entities: !include_dir_merge_list ./homekit
   - name: Living Room TV
     port: 21065
     mode: accessory

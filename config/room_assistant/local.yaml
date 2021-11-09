@@ -15,3 +15,12 @@ bluetoothLowEnergy:
   timeout: 60
   allowlist:
     - "2BFEEB0F-ECB6-4C44-AFF3-CDCA9BC905A0"
+    - "B51159D1-FB64-46D7-B868-6A23969C3E2C"
+  tagOverrides:
+    2BFEEB0F-ECB6-4C44-AFF3-CDCA9BC905A0:
+      id: alberto-iphone
+      name: Alberto iPhone BLE
+
+    B51159D1-FB64-46D7-B868-6A23969C3E2C:
+      id: judith-iphone
+      name: Judith iPhone BLE

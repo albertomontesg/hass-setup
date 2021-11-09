@@ -14,7 +14,7 @@ vacuum_sofa_area:
         entity_id: vacuum.xiaomi_vacuum_cleaner
         segments: [17]
 vacuum_bedroom:
-  alias: "Vacuum Bedrom"
+  alias: "Vacuum Bedroom"
   sequence:
     - service: xiaomi_miio.vacuum_clean_segment
       data_template:

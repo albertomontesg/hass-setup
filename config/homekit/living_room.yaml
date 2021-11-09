@@ -1,0 +1,7 @@
+---
+- sensor.living_room_temperature
+- sensor.living_room_humidity
+- sensor.living_room_illuminance_lux
+- binary_sensor.living_room_occupancy
+- media_player.living_room
+- light.living_room
