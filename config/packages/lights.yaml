@@ -1,0 +1,30 @@
+---
+light:
+  - platform: template
+    lights:
+      dining_room_templated:
+        friendly_name: Dining Room Light
+        value_template: "{{ states('light.dining_room') }}"
+        temperature_template: >-
+          {{ state_attr('light.dining_table', 'color_temp') }}
+        color_template: >-
+          ({{ state_attr('light.dining_table', 'color')['x'] }},
+          {{ state_attr('light.dining_table', 'color')['y'] }})
+        turn_on:
+          service: light.turn_on
+          data:
+            entity_id: light.dining_room
+        turn_off:
+          service: light.turn_off
+          data:
+            entity_id: light.dining_room
+        set_level:
+          service: light.turn_on
+          data:
+            entity_id: light.dining_table
+            brightness: "{{ brightness }}"
+        set_temperature:
+          service: light.turn_on
+          data:
+            entity_id: light.dining_table
+            color_temp: "{{ color_temp }}"

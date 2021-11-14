@@ -1,4 +1,4 @@
 ---
-- light.dining_room
+- light.dining_room_templated
 - vacuum.xiaomi_vacuum_cleaner
 - input_boolean.vacuum_clean_when_leave_home

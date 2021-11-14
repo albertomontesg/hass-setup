@@ -72,8 +72,8 @@ cards:
           # - light.sofa_led
           # - light.tv_led
           - type: divider
-          - light.dining_room
-          - light.dining_table
+          - entity: light.dining_room_templated
+            name: "Dining Room"
           - type: divider
           - light.corridor
           - type: divider
