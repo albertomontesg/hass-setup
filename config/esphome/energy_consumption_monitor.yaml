@@ -53,6 +53,8 @@ api:
 web_server:
   port: 80
 
+prometheus:
+
 spi:
   clk_pin: 18
   miso_pin: 19

@@ -38,6 +38,8 @@ api:
 web_server:
   port: 80
 
+prometheus:
+
 sensor:
   - platform: wifi_signal
     name: ${upper_device_name} Switch WiFi Signal Strength

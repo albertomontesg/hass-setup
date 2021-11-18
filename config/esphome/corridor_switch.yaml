@@ -37,6 +37,8 @@ api:
 web_server:
   port: 80
 
+prometheus:
+
 sensor:
   - platform: wifi_signal
     name: Corridor Switch Wifi Signal Strength
