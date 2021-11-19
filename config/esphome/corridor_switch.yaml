@@ -82,4 +82,5 @@ light:
 switch:
   - platform: restart
     name: "Corridor Switch Restart"
+    id: restart_switch
     icon: "mdi:restart"

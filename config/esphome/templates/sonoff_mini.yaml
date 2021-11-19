@@ -58,8 +58,8 @@ binary_sensor:
       - delayed_off: 10ms
     # the 3 lines below toggle the main relay on press of reset button
     on_press:
-      - light.toggle:
-          id: light_id
+      then:
+        - light.toggle: light_id
 
   # the 13 lines below toggle the main relay on command
   - platform: gpio
@@ -67,14 +67,21 @@ binary_sensor:
     internal: true # hides relay toggle from HomeAssistant
     pin: GPIO04
     id: gpio_light_id
-    on_press:
+    on_state:
       then:
-        - light.toggle:
-            id: light_id
-    on_release:
-      then:
-        - light.toggle:
-            id: light_id
+        - light.toggle: light_id
+    on_multi_click:
+      - timing:
+          - ON for at most 1.0s
+          - OFF for at most 1.0s
+          - ON for at most 1.0s
+          - OFF for at most 1.0s
+          - ON for at most 1.0s
+          - OFF for at most 1.0s
+          - ON for at most 1.0s
+          - OFF for at most 1.0s
+        then:
+          - switch.turn_on: restart_switch
 
   # the 2 lines below create a status entity in HomeAssistant.
   - platform: status
@@ -111,4 +118,5 @@ light:
 switch:
   - platform: restart
     name: "${upper_device_name} Switch Restart"
+    id: restart_switch
     icon: "mdi:restart"
