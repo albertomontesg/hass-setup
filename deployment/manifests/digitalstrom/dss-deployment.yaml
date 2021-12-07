@@ -1,0 +1,45 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: digitalstrom-config
+  labels:
+    app: digitalstrom
+    component: bridge
+  namespace: home-automation
+data:
+  DIGITALSTROM_HOST: 192.168.1.70
+  DIGITALSTROM_USERNAME: dssadmin
+  DIGITALSTROM_PASSWORD: 0hZ5wmGWofF5yWyJDi43
+  MQTT_URL: tcp://mqtt:1883
+  MQTT_USERNAME: mosquitto
+  MQTT_PASSWORD: 6hwxKrRnWT4MP64MoNrF
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: digitalstrom
+  labels:
+    app: digitalstrom
+    component: bridge
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: digitalstrom
+      component: bridge
+  template:
+    metadata:
+      labels:
+        app: digitalstrom
+        component: bridge
+      namespace: home-automation
+    spec:
+      containers:
+        - name: digitalstrom
+          image: gaetancollaud/digitalstrom-mqtt:latest
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: digitalstrom-config
