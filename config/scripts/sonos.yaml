@@ -47,3 +47,28 @@ sonos_play:
       service: sonos.restore
       data_template:
         entity_id: "{{ sonos_entity }}"
+
+sonos_play_bell:
+  alias: "Sonos Play Bell"
+  sequence:
+    - alias: Store Sonos Snapshot
+      service: sonos.snapshot
+      data_template:
+        entity_id: "{{ sonos_entity }}"
+    - alias: Set Volume
+      service: media_player.volume_set
+      data_template:
+        entity_id: "{{ sonos_entity }}"
+        volume_level: "{{ volume }}"
+    - alias: Play Content
+      service: media_player.play_media
+      data_template:
+        entity_id: "{{ sonos_entity }}"
+        media_content_id: "https://hass.c6.montesg.xyz/local/sounds/notification_bell.mp3"
+        media_content_type: music
+    - alias: Wait
+      delay: "00:00:05"
+    - alias: Restore Sonos Snapshot
+      service: sonos.restore
+      data_template:
+        entity_id: "{{ sonos_entity }}"

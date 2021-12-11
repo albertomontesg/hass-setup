@@ -1,0 +1,10 @@
+ios:
+  actions:
+    - name: Ask for Help
+      background_color: "#000000"
+      label:
+        text: "Ask for help"
+        color: "#ffffff"
+      icon:
+        icon: bell_circle
+        color: "#ffffff"

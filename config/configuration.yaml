@@ -130,8 +130,6 @@ google_assistant:
 # Home Assistant mobile app
 mobile_app:
 
-ios:
-
 panel_iframe:
   configurator:
     title: Configurator

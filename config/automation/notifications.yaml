@@ -44,3 +44,21 @@
       data:
         title: "Your ride is arriving!"
         message: "Expect it to be at the door in 2 minutes."
+
+- alias: Notification Bell
+  id: notification_bell
+  trigger:
+    - platform: event
+      event_type: ios.action_fired
+      event_data:
+        actionName: Ask for Help
+  condition:
+    - alias: Someone Home
+      condition: state
+      entity_id: binary_sensor.someone_home
+      state: "on"
+  action:
+    - service: script.sonos_play_bell
+      data:
+        sonos_entity: media_player.sonos_speakers
+        volume: 0.2

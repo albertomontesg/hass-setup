@@ -1,7 +1,10 @@
 ---
-sonos:
-  media_player:
-    hosts:
-      - !secret sonos_bedroom_ip
-      - !secret sonos_living_room_ip
-      - !secret sonos_office_ip
+media_player:
+  - platform: group
+    name: Sonos Speakers
+    entities:
+      - media_player.dining_room
+      - media_player.kids_room
+      - media_player.living_room
+      - media_player.main_bedroom
+      - media_player.office
