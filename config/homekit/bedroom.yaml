@@ -2,6 +2,7 @@
 - sensor.bedroom_temperature
 - sensor.bedroom_humidity
 - light.bedroom
+- light.bed_led_strip
 - media_player.bedroom
 - media_player.bedroom_tv
 - script.vacuum_bedroom
