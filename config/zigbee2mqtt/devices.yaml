@@ -51,9 +51,17 @@
 
 "0x00178801011bfef8":
   friendly_name: Kitchen LED Strip Ceiling
-
+  homeassistant:
+    light:
+      icon: mdi:led-strip-variant
 "0x0017880100cb1a50":
   friendly_name: Kitchen LED Strip Floor Wall
+  homeassistant:
+    light:
+      icon: mdi:led-strip-variant
 
 "0x0017880100cb1a57":
   friendly_name: Kitchen LED Strip Floor Island
+  homeassistant:
+    light:
+      icon: mdi:led-strip-variant

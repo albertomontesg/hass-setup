@@ -20,6 +20,9 @@ advanced:
   ikea_ota_use_test_url: true
   # Check for Trafdri LEDs that act as routers for availability.
   availability_timeout: 60
+  # Home Assistant specific configuration.
+  homeassistant_legacy_entity_attributes: false
+  homeassistant_legacy_triggers: false
 
 device_options:
   retain: true
