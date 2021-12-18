@@ -65,7 +65,7 @@ binary_sensor:
           - ON for at most 1s
           - OFF for at least 0.2s
         then:
-          - light.toggle: light1
+          - light.toggle: led_light
       - timing:
           - ON for at least 4s
         then:
@@ -75,6 +75,14 @@ button:
   - platform: restart
     id: restart_switch
     name: "${friendly_name} Restart"
+  - platform: template
+    id: identify_button
+    name: "${friendly_name} Identification Blink"
+    # TODO: use system when supported.
+    entity_category: config
+    on_press:
+      then:
+        - script.execute: identification_blink
 
 output:
   - platform: esp8266_pwm
@@ -90,7 +98,19 @@ output:
 light:
   - platform: rgb
     name: "${friendly_name}"
-    id: light1
+    id: led_light
+    icon: mdi:led-strip-variant
     red: red_output
     green: green_output
     blue: blue_output
+
+script:
+  - id: identification_blink
+    then:
+      - repeat:
+          count: 3
+          then:
+            - light.toggle: led_light
+            - delay: 1s
+            - light.toggle: led_light
+            - delay: 1s

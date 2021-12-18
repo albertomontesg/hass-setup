@@ -1,9 +1,14 @@
 ---
 "1":
-  friendly_name: dining_table
+  friendly_name: Living Room Bulbs
   devices:
     - "0x000d6ffffe46f955"
     - "0x000d6ffffe52a044"
     - "0x000d6ffffe4b01bb"
     - "0x000d6ffffe62f264"
     - "0x000d6ffffe529ec7"
+"2":
+  friendly_name: Kitchen LED Strip Floor
+  devices:
+    - "0x0017880100cb1a50"
+    - "0x0017880100cb1a57"

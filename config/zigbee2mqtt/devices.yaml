@@ -1,27 +1,27 @@
 ---
 "0x00158d0002b546af":
-  friendly_name: living_room
+  friendly_name: Living Room
   temperature_precision: 1
   humidity_precision: 1
   pressure_precision: 1
   retain: true
   debounce: 1
 "0x00158d00036bd864":
-  friendly_name: main_bathroom
+  friendly_name: Main Bathroom
   temperature_precision: 1
   humidity_precision: 1
   pressure_precision: 1
   retain: true
   debounce: 1
 "0x00158d0002b54dce":
-  friendly_name: bedroom
+  friendly_name: Bedroom
   temperature_precision: 1
   humidity_precision: 1
   pressure_precision: 1
   retain: true
   debounce: 1
 "0x00158d00036bd476":
-  friendly_name: outdoor
+  friendly_name: Outdoor
   temperature_precision: 1
   humidity_precision: 1
   pressure_precision: 1
@@ -29,19 +29,31 @@
   debounce: 1
 
 "0x000d6ffffe46f955":
-  friendly_name: dinning_table_1
+  friendly_name: Living Room Bulb 1
 "0x000d6ffffe529ec7":
-  friendly_name: dinning_table_2
+  friendly_name: Living Room Bulb 2
 "0x000d6ffffe62f264":
-  friendly_name: dinning_table_3
+  friendly_name: Living Room Bulb 3
 "0x000d6ffffe4b01bb":
-  friendly_name: dinning_table_4
+  friendly_name: Living Room Bulb 4
 "0x000d6ffffe52a044":
-  friendly_name: dinning_table_5
+  friendly_name: Living Room Bulb 5
 
 "0x00158d0006a0cd1e":
-  friendly_name: living_room_presence
+  friendly_name: Living Room Presence
   occupancy_timeout: 600
 
 "0xbc33acfffe2b49c5":
-  friendly_name: kitchen_repeater
+  friendly_name: Kitchen Repeater
+
+"0x00178801103985a9":
+  friendly_name: Hue Dimmer Switch
+
+"0x00178801011bfef8":
+  friendly_name: Kitchen LED Strip Ceiling
+
+"0x0017880100cb1a50":
+  friendly_name: Kitchen LED Strip Floor Wall
+
+"0x0017880100cb1a57":
+  friendly_name: Kitchen LED Strip Floor Island
