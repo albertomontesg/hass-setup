@@ -1,0 +1,8 @@
+---
+substitutions:
+  name: office
+  device_name: office
+  upper_device_name: Office
+  device_ip: "10.4.2.50"
+
+<<: !include templates/sonoff_mini.yaml

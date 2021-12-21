@@ -1,0 +1,38 @@
+sensor:
+  - platform: ade7953
+    irq_pin: GPIO16 # Prevent overheating by setting this
+    voltage:
+      name: ${friendly_name} Voltage
+    # On the Shelly 2.5 channels are mixed ch1=B ch2=A
+    current_a:
+      name: ${friendly_name_1} Current
+    current_b:
+      name: ${friendly_name_2} Current
+    active_power_a:
+      name: ${friendly_name_1} Active Power
+      # active_power_a is normal, so don't multiply by -1
+    active_power_b:
+      name: ${friendly_name_2} Active Power
+      # active_power_b is inverted, so multiply by -1
+      filters:
+        - multiply: -1
+    update_interval: 10s
+
+output:
+  - platform: gpio
+    pin: GPIO4
+    id: relay_1
+  - platform: gpio
+    pin: GPIO15
+    id: relay_2
+
+light:
+  - platform: binary
+    name: ${friendly_name_1}
+    output: relay_1
+    id: light_1
+
+  - platform: binary
+    name: ${friendly_name_2}
+    output: relay_2
+    id: light_2

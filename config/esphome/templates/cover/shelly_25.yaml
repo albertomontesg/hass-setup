@@ -1,0 +1,71 @@
+---
+sensor:
+  - platform: ade7953
+    irq_pin: GPIO16
+    voltage:
+      name: ${friendly_name} Main Voltage
+      internal: true
+      filters:
+        - throttle: 5s
+    current_a:
+      name: ${friendly_name} Open Current
+      id: open_current
+      internal: true
+    current_b:
+      name: ${friendly_name} Close Current
+      id: close_current
+      internal: true
+    active_power_a:
+      name: ${friendly_name} Open Power
+    active_power_b:
+      name: ${friendly_name} Close Power
+      # active_power_b is inverted, so multiply by -1
+      filters:
+        - multiply: -1
+    update_interval: 0.5s
+
+switch:
+  - platform: gpio
+    id: open_relay
+    name: ${friendly_name} Open Relay
+    pin: GPIO15
+    restore_mode: RESTORE_DEFAULT_OFF
+    interlock: &interlock [open_relay, close_relay]
+    interlock_wait_time: 200ms
+
+  - platform: gpio
+    id: close_relay
+    name: ${friendly_name} Close Relay
+    pin: GPIO4
+    restore_mode: RESTORE_DEFAULT_OFF
+    interlock: *interlock
+    interlock_wait_time: 200ms
+
+  - platform: shutdown
+    id: shutdown_button
+    name: ${friendly_name} Shutdown
+
+cover:
+  - platform: current_based
+    name: ${friendly_name}
+    id: blind
+
+    open_sensor: open_current
+    open_moving_current_threshold: 0.5
+    open_duration: 55s
+    open_action:
+      - switch.turn_on: open_relay
+    close_sensor: close_current
+    close_moving_current_threshold: 0.5
+    close_duration: 54s
+    close_action:
+      - switch.turn_on: close_relay
+    stop_action:
+      - switch.turn_off: close_relay
+      - switch.turn_off: open_relay
+    obstacle_rollback: 30%
+    start_sensing_delay: 0.8s
+    malfunction_detection: true
+    malfunction_action:
+      then:
+        - logger.log: "Malfunction detected. Relay welded."

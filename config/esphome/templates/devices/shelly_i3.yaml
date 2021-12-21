@@ -1,0 +1,9 @@
+esphome:
+  name: ${name}
+  platform: ESP8266
+  board: esp01_1m
+
+button:
+  - platform: restart
+    id: restart_button
+    name: "${friendly_name} Restart"

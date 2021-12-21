@@ -1,0 +1,12 @@
+---
+substitutions:
+  name: light-actuator-1
+  friendly_name: Light Actuator 1
+  device_ip: 10.4.2.52
+  friendly_name_1: Office Light
+  friendly_name_2: Undefined Light
+
+packages:
+  device: !include templates/devices/shelly_25.yaml
+  common: !include templates/common.yaml
+  light: !include templates/light/shelly_25.yaml

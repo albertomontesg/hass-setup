@@ -1,0 +1,10 @@
+---
+substitutions:
+  name: office-cover
+  friendly_name: Office Cover
+  device_ip: 10.4.2.51
+
+packages:
+  device: !include templates/devices/shelly_25.yaml
+  common: !include templates/common.yaml
+  cover: !include templates/cover/shelly_25.yaml
