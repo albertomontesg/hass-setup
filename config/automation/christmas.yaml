@@ -1,0 +1,26 @@
+---
+- alias: Switch On Christmas Lights
+  id: switch_on_christmas_lights
+  trigger:
+    - platform: sun
+      event: sunset
+  action:
+    - alias: Switch On Lights
+      service: light.turn_on
+      target:
+        entity_id:
+          - light.christmas_balcony
+          - light.christmas_tree
+- alias: Switch Off Christmas Lights
+  id: switch_off_christmas_lights
+  trigger:
+    - platform: time
+      # Military time format. This trigger will fire at 3:32 PM
+      at: "00:00:00"
+  action:
+    - alias: Switch Off Lights
+      service: light.turn_off
+      target:
+        entity_id:
+          - light.christmas_balcony
+          - light.christmas_tree
