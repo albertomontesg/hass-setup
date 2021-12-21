@@ -1,7 +1,4 @@
 ---
-light.bed_led:
-  friendly_name: Bed LED
-  homebridge_name: Llit LED
 light.bedroom:
   homebridge_name: Bedroom Light
 light.corridor:
@@ -30,3 +27,11 @@ fan.office:
 climate.office:
   friendly_name: Office Climate
   homebridge_name: Office Climate
+
+light.dna_lamp:
+  icon: "mdi:floor-lamp"
+light.christmas_tree:
+  icon: "mdi:pine-tree"
+
+light.christmas_balcony:
+  icon: "mdi:string-lights"

@@ -109,6 +109,7 @@
     update_available:
       name: Kitchen Repeater Update Available
 
+# Philips Hue Dimmer and LED strips
 "0x00178801103985a9":
   friendly_name: hue_dimmer_switch
   homeassistant:
@@ -150,3 +151,34 @@
       icon: mdi:led-strip-variant
     update_available:
       name: Kitchen LED Strip Floor Island Update Available
+
+# Ikea Tradfri Control Outlet
+"0xcc86ecfffe98e1f2":
+  friendly_name: dna_lamp
+  homeassistant:
+    device:
+      name: DNA Lamp
+    switch:
+      name: DNA Lamp
+    power_on_behavior:
+      name: DNA Lamp Power on Behavior
+
+"0xcc86ecfffe951e11":
+  friendly_name: plug_switch_1
+  homeassistant:
+    device:
+      name: Plug Switch 1
+    switch:
+      name: Plug Switch 1
+    power_on_behavior:
+      name: Plug Switch 1 Power on Behavior
+
+"0xcc86ecfffe9fc60b":
+  friendly_name: plug_switch_2
+  homeassistant:
+    device:
+      name: Plug Switch 2
+    switch:
+      name: Plug Switch 2
+    power_on_behavior:
+      name: Plug Switch 2 Power on Behavior

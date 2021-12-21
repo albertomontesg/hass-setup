@@ -40,3 +40,12 @@ light:
       - light.kitchen_led_strip_ceiling
       - light.kitchen_led_strip_floor
       - light.bed_led_strip
+  - platform: switch
+    name: DNA Lamp
+    entity_id: switch.dna_lamp
+  - platform: switch
+    name: Christmas Tree
+    entity_id: switch.plug_switch_1
+  - platform: switch
+    name: Christmas Balcony
+    entity_id: switch.plug_switch_2
