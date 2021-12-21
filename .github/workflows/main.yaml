@@ -75,7 +75,7 @@ jobs:
       - name: Run esphome on all files
         # yamllint disable rule:line-length
         run: |
-          for file in $(find ./config/esphome -type f -name "*.yaml" -not -name "secrets.yaml" -not -path "*/templates/*"); do esphome config "${file}"; done
+          for file in $(find ./config/esphome -type f -name "*.yaml" -not -name "secrets.yaml" -maxdepth 1); do esphome config "${file}"; done
 
   kubernetes_deployments:
     name: 🧹 kubeval
