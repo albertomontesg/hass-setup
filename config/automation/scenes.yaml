@@ -1,0 +1,22 @@
+---
+- alias: Good Morning
+  id: good_morning
+  trigger:
+    - platform: sun
+      event: sunrise
+  action:
+    - alias: Activate Scene
+      service: scene.turn_on
+      target:
+        entity_id: scene.daylight
+
+- alias: Good Evening
+  id: good_evening
+  trigger:
+    - platform: sun
+      event: sunset
+  action:
+    - alias: Activate Scene
+      service: scene.turn_on
+      target:
+        entity_id: scene.evening

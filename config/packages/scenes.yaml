@@ -1,0 +1,65 @@
+---
+scene:
+  - name: Daylight
+    icon: "mdi:white-balance-sunny"
+    entities:
+      cover.bedroom:
+        state: closed
+        current_position: 0
+        current_tilt_position: 100
+      cover.dining_room:
+        state: open
+        current_position: 100
+      cover.office:
+        state: open
+        current_position: 100
+      cover.living_room:
+        state: open
+        current_position: 100
+      cover.kid_s_room:
+        state: open
+        current_position: 100
+      light.led_strips: off
+      light.bedroom: off
+      light.dining_room: off
+      light.hallway: off
+      light.kitchen: off
+      light.kitchen_focus: off
+      light.living_room: off
+      light.office: off
+      light.kid_s_room: off
+  - name: Evening
+    icon: "mdi:weather-sunset-down"
+    entities:
+      cover.bedroom:
+        state: closed
+        current_position: 0
+        current_tilt_position: 0
+      cover.dining_room:
+        state: closed
+        current_position: 0
+        current_tilt_position: 100
+      cover.office:
+        state: closed
+        current_position: 0
+        current_tilt_position: 0
+      cover.living_room:
+        state: closed
+        current_position: 0
+        current_tilt_position: 100
+      cover.kid_s_room:
+        state: closed
+        current_position: 0
+        current_tilt_position: 0
+  - name: Night
+    icon: "mdi:moon-waning-crescent"
+    entities:
+      light.bedroom: off
+      light.dining_room: off
+      light.hallway: off
+      light.kitchen: off
+      light.kitchen_focus: off
+      light.living_room: off
+      light.office: off
+      light.kid_s_room: off
+      media_player.living_room_tv: off
