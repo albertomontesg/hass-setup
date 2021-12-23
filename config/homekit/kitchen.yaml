@@ -1,4 +1,6 @@
 ---
 - script.vacuum_kitchen
+- light.kitchen
+- light.kitchen_focus
 - light.kitchen_led_strip_ceiling
 - light.kitchen_led_strip_floor

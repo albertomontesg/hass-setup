@@ -1,3 +1,7 @@
 ---
 - sensor.main_bathroom_temperature
 - sensor.main_bathroom_humidity
+- light.bathroom
+- light.bathroom_mirror
+- light.ensuite_bathroom
+- light.ensuite_bathroom_mirror
