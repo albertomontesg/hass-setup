@@ -9,14 +9,15 @@ metadata:
   namespace: home-automation
 data:
   mosquitto.conf: |
-    pid_file /var/run/mosquitto.pid
+    # pid_file /var/run/mosquitto.pid
     persistence true
     persistence_location /mosquitto/data
     user mosquitto
     password_file /mosquitto/config/passwd
-    port 1883
+    listener 1883
     log_dest file /mosquitto/log/mosquitto.log
     log_dest stdout
+    allow_anonymous true
   passwd: |
     mosquitto:$6$Qcx7PZCAS3CmVq0O$1Vqht/m00W1DauUYjdx5slQyfLT8lqhQAgHCJcyrz+dqhBH5uCaOELMxO9FXd2uEOhRf+rBGzKPCTBMwKxIrxw==
 
@@ -49,7 +50,7 @@ spec:
     spec:
       containers:
         - name: mqtt
-          image: eclipse-mosquitto:1.6.9
+          image: eclipse-mosquitto:2.0.14
           imagePullPolicy: IfNotPresent
           ports:
             - name: mqtt

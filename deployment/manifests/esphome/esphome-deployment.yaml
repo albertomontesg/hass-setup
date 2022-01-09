@@ -28,13 +28,13 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: esphome
-          image: "esphome/esphome-armv7:2021.12.2"
+          image: "esphome/esphome-armv7:2021.12.1"
           imagePullPolicy: Always
           command:
             - "esphome"
           args:
-            - "/config/esphome"
             - "dashboard"
+            - "/config/esphome"
           ports:
             - name: http
               containerPort: 6052
@@ -42,6 +42,12 @@ spec:
             - name: ota
               containerPort: 6123
               protocol: TCP
+            # - name: ota-1
+            #   containerPort: 3232
+            #   protocol: TCP
+            # - name: ota-2
+            #   containerPort: 8266
+            #   protocol: TCP
           env:
             - name: ESPHOME_DASHBOARD_USE_PING
               value: "true"

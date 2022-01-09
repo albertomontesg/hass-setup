@@ -23,7 +23,7 @@ spec:
       containers:
         - name: teslamate-db
           image: postgres:12-alpine
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - name: db
               containerPort: 5432
