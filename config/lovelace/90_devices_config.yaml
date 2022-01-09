@@ -35,62 +35,47 @@ cards:
         hour24: true
         points_per_hour: 1
         decimals: 1
-  - type: vertical-stack
-    title: Zigbee2mqtt
-    cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: sensor.zigbee2mqtt_bridge_state
-          - entity: sensor.zigbee2mqtt_version
-          - entity: sensor.coordinator_version
-          - entity: input_select.zigbee2mqtt_log_level
-          - type: divider
-          - entity: switch.zigbee2mqtt_main_join
-          - entity: input_number.zigbee2mqtt_join_minutes
-          - entity: timer.zigbee_permit_join
-          - type: divider
-          - entity: input_text.zigbee2mqtt_old_name
-          - entity: input_text.zigbee2mqtt_new_name
-          - entity: script.zigbee2mqtt_rename
-          - type: divider
-          - entity: input_text.zigbee2mqtt_remove
-          - entity: input_boolean.zigbee2mqtt_force_remove
-          - entity: script.zigbee2mqtt_remove
-          - type: divider
-          - type: custom:zigbee2mqtt-networkmap
-            entity: sensor.zigbee2mqtt_networkmap
+  # - type: vertical-stack
+  #   title: Zigbee2mqtt
+  #   cards:
+  #     - type: entities
+  #       show_header_toggle: false
+  #       entities:
+  #         - entity: sensor.zigbee2mqtt_bridge_state
+  #         - entity: sensor.zigbee2mqtt_version
+  #         - entity: sensor.coordinator_version
+  #         - entity: input_select.zigbee2mqtt_log_level
+  #         - type: divider
+  #         - entity: switch.zigbee2mqtt_main_join
+  #         - entity: input_number.zigbee2mqtt_join_minutes
+  #         - entity: timer.zigbee_permit_join
+  #         - type: divider
+  #         - entity: input_text.zigbee2mqtt_old_name
+  #         - entity: input_text.zigbee2mqtt_new_name
+  #         - entity: script.zigbee2mqtt_rename
+  #         - type: divider
+  #         - entity: input_text.zigbee2mqtt_remove
+  #         - entity: input_boolean.zigbee2mqtt_force_remove
+  #         - entity: script.zigbee2mqtt_remove
+  #         - type: divider
+  #         - type: custom:zigbee2mqtt-networkmap
+  #           entity: sensor.zigbee2mqtt_networkmap
   - type: vertical-stack
     title: Sensors Batteries
     cards:
-      - type: custom:battery-state-card
-        entities:
-          - entity: sensor.living_room_sensor_battery
-            name: Living Room Temperature
-          - entity: sensor.bedroom_sensor_battery
-            name: Bedroom Temperature
-          - entity: sensor.main_bathroom_sensor_battery
-            name: Main Bathroom Temperature
-          - entity: sensor.outdoor_sensor_battery
-            name: Outdoor Temperature
-          - entity: sensor.living_room_occupancy_sensor_battery
-            name: Living Room Occupancy
+      - type: custom:auto-entities
+        card:
+          type: custom:battery-state-card
+        filter:
+          include:
+            - entity_id: sensor.*_sensor_battery
+            - entity_id: sensor.*_switch_battery
   - type: vertical-stack
-    title: Sensors Link Quality
+    title: Device Status
     cards:
-      - type: entities
-        # show_header_toggle: false
-        entities:
-          # TODO(albertomontes): uncomment custom type when fixed.
-          - entity: sensor.living_room_sensor_link_quality
-            name: Living Room Temperature
-          - entity: sensor.bedroom_sensor_link_quality
-            name: Bedroom Temperature
-          - entity: sensor.main_bathroom_sensor_link_quality
-            name: Main Bathroom Temperature
-          - entity: sensor.outside_sensor_link_quality
-            name: Outside Temperature
-          - entity: sensor.living_room_occupancy_sensor_link_quality
-            name: Living Room Occupancy
-          - entity: sensor.bedroom_repeater_link_quality
-            name: Bedroom Repeater
+      - type: custom:auto-entities
+        card:
+          type: entities
+        filter:
+          include:
+            - entity_id: binary_sensor.*_status

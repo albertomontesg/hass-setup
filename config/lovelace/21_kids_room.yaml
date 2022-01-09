@@ -1,0 +1,29 @@
+---
+title: Kid's Room
+icon: mdi:bed-outline
+panel: false
+path: kids_room
+cards:
+  - type: vertical-stack
+    title: Media
+    cards:
+      - type: custom:mini-media-player
+        entity: media_player.kids_room
+        artwork: cover
+        hide:
+          power: true
+          icon: true
+  - type: vertical-stack
+    title: Lights
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - light.kid_s_room
+  - type: vertical-stack
+    title: Cover
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - cover.kid_s_room

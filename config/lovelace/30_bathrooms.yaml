@@ -4,19 +4,27 @@ icon: mdi:shower
 panel: false
 path: bathrooms
 cards:
+  - type: vertical-stack
+    title: Lights
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - light.bathroom
+          - light.bathroom_mirror
   - type: horizontal-stack
     title: Climate
     cards:
       - type: custom:mini-graph-card
         entities:
-          - sensor.main_bathroom_temperature
+          - sensor.bathroom_temperature
         name: Temperature
         animate: true
         hour24: true
         decimals: 0
       - type: custom:mini-graph-card
         entities:
-          - sensor.main_bathroom_humidity
+          - sensor.bathroom_humidity
         name: Humidity
         animate: true
         hour24: true

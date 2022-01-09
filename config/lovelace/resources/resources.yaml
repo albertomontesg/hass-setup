@@ -1,7 +1,7 @@
 ---
-- url: /hacsfiles/atomic_calendar/atomic_calendar.js
-  type: module
 - url: /hacsfiles/garbage-collection-card/garbage-collection-card.js
+  type: module
+- url: /hacsfiles/lovelace-auto-entities/auto-entities.js
   type: module
 - url: /hacsfiles/lovelace-card-tools/card-tools.js
   type: module

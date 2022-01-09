@@ -109,6 +109,13 @@ light:
 cover:
   - platform: mqtt
     name: Living Room
+    state_topic: "digitalstrom/devices/Wohnen_Store/shadePositionOutside/state"
+    state_closed: "0.00"
+    state_open: "100.00"
+    command_topic: "digitalstrom/devices/Wohnen_Store/shadePositionOutside/command"
+    payload_close: "0.00"
+    payload_open: "100.00"
+    payload_stop:
     position_topic: "digitalstrom/devices/Wohnen_Store/shadePositionOutside/state"
     set_position_topic: "digitalstrom/devices/Wohnen_Store/shadePositionOutside/command"
     position_template: "{{ value | int }}"
@@ -118,6 +125,13 @@ cover:
     retain: true
   - platform: mqtt
     name: Bedroom
+    state_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadePositionOutside/state"
+    state_closed: "0.00"
+    state_open: "100.00"
+    command_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadePositionOutside/command"
+    payload_close: "0.00"
+    payload_open: "100.00"
+    payload_stop:
     position_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadePositionOutside/state"
     set_position_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadePositionOutside/command"
     position_template: "{{ value | int }}"
@@ -127,6 +141,13 @@ cover:
     retain: true
   - platform: mqtt
     name: Kid's Room
+    state_topic: "digitalstrom/devices/Zimmer_2_Store/shadePositionOutside/state"
+    state_closed: "0.00"
+    state_open: "100.00"
+    command_topic: "digitalstrom/devices/Zimmer_2_Store/shadePositionOutside/command"
+    payload_close: "0.00"
+    payload_open: "100.00"
+    payload_stop:
     position_topic: "digitalstrom/devices/Zimmer_2_Store/shadePositionOutside/state"
     set_position_topic: "digitalstrom/devices/Zimmer_2_Store/shadePositionOutside/command"
     position_template: "{{ value | int }}"
@@ -136,6 +157,13 @@ cover:
     retain: true
   - platform: mqtt
     name: Office
+    state_topic: "digitalstrom/devices/Office_Cover/shadePositionOutside/state"
+    state_closed: "0.00"
+    state_open: "100.00"
+    command_topic: "digitalstrom/devices/Office_Cover/shadePositionOutside/command"
+    payload_close: "0.00"
+    payload_open: "100.00"
+    payload_stop:
     position_topic: "digitalstrom/devices/Office_Cover/shadePositionOutside/state"
     set_position_topic: "digitalstrom/devices/Office_Cover/shadePositionOutside/command"
     position_template: "{{ value | int }}"
@@ -145,6 +173,13 @@ cover:
     retain: true
   - platform: mqtt
     name: Dining Room
+    state_topic: "digitalstrom/devices/Essen_Store/shadePositionOutside/state"
+    state_closed: "0.00"
+    state_open: "100.00"
+    command_topic: "digitalstrom/devices/Essen_Store/shadePositionOutside/command"
+    payload_close: "0.00"
+    payload_open: "100.00"
+    payload_stop:
     position_topic: "digitalstrom/devices/Essen_Store/shadePositionOutside/state"
     set_position_topic: "digitalstrom/devices/Essen_Store/shadePositionOutside/command"
     position_template: "{{ value | int }}"

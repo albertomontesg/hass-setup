@@ -43,8 +43,5 @@ light:
     name: DNA Lamp
     entity_id: switch.dna_lamp
   - platform: switch
-    name: Christmas Tree
-    entity_id: switch.plug_switch_1
-  - platform: switch
-    name: Christmas Balcony
+    name: South Balcony Floor
     entity_id: switch.plug_switch_2

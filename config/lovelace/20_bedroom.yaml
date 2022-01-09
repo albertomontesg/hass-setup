@@ -11,7 +11,7 @@ cards:
         entity: media_player.bedroom_tv
         artwork: full-cover
       - type: custom:mini-media-player
-        entity: media_player.bedroom
+        entity: media_player.main_bedroom
         artwork: cover
         hide:
           power: true
@@ -23,16 +23,19 @@ cards:
         show_header_toggle: false
         entities:
           - light.bedroom
-          # - light.bed_led
+          - light.bed_led_strip
+          - type: divider
+          - light.ensuite_bathroom
+          - light.ensuite_bathroom_mirror
+          - type: divider
+          - light.dressing_room
   - type: vertical-stack
-    title: Bed
+    title: Cover
     cards:
       - type: entities
+        show_header_toggle: false
         entities:
-          - binary_sensor.alberto_in_bed
-          - binary_sensor.judith_in_bed
-          - binary_sensor.anyone_in_bed
-          - binary_sensor.everybody_in_bed
+          - cover.bedroom
   - type: horizontal-stack
     title: Climate
     cards:

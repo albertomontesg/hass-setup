@@ -3,11 +3,13 @@ title: Home
 views:
   - !include lovelace/0_general_view.yaml
   - !include lovelace/10_living_room.yaml
+  - !include lovelace/11_kitchen_dining_room.yaml
   - !include lovelace/20_bedroom.yaml
+  - !include lovelace/21_kids_room.yaml
   - !include lovelace/30_bathrooms.yaml
   - !include lovelace/40_office.yaml
   - !include lovelace/50_car.yaml
-  - !include lovelace/70_energy.yaml
+  # - !include lovelace/70_energy.yaml
   - !include lovelace/81_cleaning.yaml
   - !include lovelace/90_devices_config.yaml
   - !include lovelace/91_automations.yaml

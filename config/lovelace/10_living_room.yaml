@@ -17,23 +17,23 @@ cards:
           power: true
           icon: true
   - type: vertical-stack
-    title: Presence
-    cards:
-      - type: glance
-        entities:
-          - binary_sensor.living_room_occupancy
-  - type: vertical-stack
     title: Lights
     cards:
       - type: entities
         show_header_toggle: false
         entities:
           - light.living_room
-          # - light.sofa_led
-          # - light.tv_led
+          - light.dna_lamp
           - type: divider
-          - entity: light.dining_room_templated
-            name: "Dining Room"
+          - light.south_balcony
+          - light.south_balcony_floor
+  - type: vertical-stack
+    title: Cover
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - cover.living_room
   - type: horizontal-stack
     title: Climate
     cards:
@@ -51,3 +51,9 @@ cards:
         animate: true
         hour24: true
         decimals: 0
+  - type: vertical-stack
+    title: Presence
+    cards:
+      - type: glance
+        entities:
+          - binary_sensor.living_room_occupancy

@@ -8,7 +8,7 @@ cards:
     entities:
       - person.judith
       - person.alberto
-  - type: custom:weather-card
+  - type: weather-forecast
     name: Weather
     entity: weather.weather
 
@@ -45,22 +45,20 @@ cards:
       - type: custom:mini-graph-card
         entities:
           - sensor.inside_temperature
-          - entity: sensor.outside_temperature
+          - entity: sensor.outdoor_temperature
             name: Outside
         name: Temperature
         animate: true
         hour24: true
-        points_per_hour: 1
         decimals: 0
       - type: custom:mini-graph-card
         entities:
           - sensor.inside_humidity
-          - entity: sensor.outside_humidity
+          - entity: sensor.outdoor_humidity
             name: Outside
         name: Humidity
         animate: true
         hour24: true
-        points_per_hour: 1
         decimals: 0
   - type: vertical-stack
     title: Lights
@@ -69,18 +67,34 @@ cards:
         show_header_toggle: false
         entities:
           - light.living_room
-          # - light.sofa_led
-          # - light.tv_led
           - type: divider
-          - entity: light.dining_room_templated
-            name: "Dining Room"
+          - light.dining_room
           - type: divider
-          - light.corridor
+          - light.hallway
           - type: divider
           - light.bedroom
-          # - light.bed_led
+          - light.bed_led_strip
           - type: divider
           - light.office
+          - type: divider
+          - light.kid_s_room
+          - type: divider
+          - light.bathroom
+  - type: vertical-stack
+    title: Covers
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - cover.living_room
+          - type: divider
+          - cover.dining_room
+          - type: divider
+          - cover.bedroom
+          - type: divider
+          - cover.office
+          - type: divider
+          - cover.kid_s_room
   - type: vertical-stack
     title: Cleaning
     cards:
@@ -94,8 +108,31 @@ cards:
   - type: vertical-stack
     title: Waste
     cards:
-      - type: entities
-        entities:
-          - sensor.cardboard_waste
-          - sensor.paper_waste
-          - sensor.textile_waste
+      - type: custom:garbage-collection-card
+        entity: sensor.cardboard_waste
+      - type: custom:garbage-collection-card
+        entity: sensor.paper_waste
+  - type: horizontal-stack
+    title: Scenes
+    cards:
+      - type: custom:button-card
+        entity: scene.daylight
+        tap_action:
+          action: call-service
+          service: scene.turn_on
+          service_data:
+            entity_id: scene.daylight
+      - type: custom:button-card
+        entity: scene.evening
+        tap_action:
+          action: call-service
+          service: scene.turn_on
+          service_data:
+            entity_id: scene.evening
+      - type: custom:button-card
+        entity: scene.night
+        tap_action:
+          action: call-service
+          service: scene.turn_on
+          service_data:
+            entity_id: scene.night

@@ -1,0 +1,36 @@
+---
+title: Kitchen Dining Room
+icon: mdi:silverware
+panel: false
+path: kitchen_dining_room
+cards:
+  - type: vertical-stack
+    title: Media
+    cards:
+      - type: custom:mini-media-player
+        entity: media_player.dining_room
+        artwork: cover
+        hide:
+          power: true
+          icon: true
+  - type: vertical-stack
+    title: Lights
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - light.kitchen
+          - light.kitchen_focus
+          - light.kitchen_led_strip_ceiling
+          - light.kitchen_led_strip_floor
+          - type: divider
+          - light.dining_room
+          - type: divider
+          - light.north_balcony
+  - type: vertical-stack
+    title: Cover
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - cover.dining_room
