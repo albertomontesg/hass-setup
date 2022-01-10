@@ -187,3 +187,63 @@ cover:
     tilt_command_topic: "digitalstrom/devices/Essen_Store/shadeOpeningAngleOutside/command"
     tilt_status_template: "{{ value | int }}"
     retain: true
+
+sensor:
+  - platform: mqtt
+    name: Energy Meter Kitchen/Bathrooms
+    state_topic: "digitalstrom/circuits/kitchen_bathroom/EnergyWs/state"
+    unit_of_measurement: "kWh"
+    device_class: energy
+    state_class: total_increasing
+    value_template: "{{ value | float / (3600*1000) | round(3) }}"
+  - platform: mqtt
+    name: Energy Meter Private Rooms
+    state_topic: "digitalstrom/circuits/private_rooms/EnergyWs/state"
+    unit_of_measurement: "kWh"
+    device_class: energy
+    state_class: total_increasing
+    value_template: "{{ value | float / (3600*1000) | round(3) }}"
+  - platform: mqtt
+    name: Energy Meter Common Area
+    state_topic: "digitalstrom/circuits/common_area/EnergyWs/state"
+    unit_of_measurement: "kWh"
+    device_class: energy
+    state_class: total_increasing
+    value_template: "{{ value | float / (3600*1000) | round(3) }}"
+
+  - platform: mqtt
+    name: Power Consumption Kitchen/Bathrooms
+    state_topic: "digitalstrom/circuits/kitchen_bathroom/consumptionW/state"
+    unit_of_measurement: "W"
+    device_class: power
+  - platform: mqtt
+    name: Power Consumption Private Rooms
+    state_topic: "digitalstrom/circuits/private_rooms/consumptionW/state"
+    unit_of_measurement: "W"
+    device_class: power
+  - platform: mqtt
+    name: Power Consumption Common Area
+    state_topic: "digitalstrom/circuits/common_area/consumptionW/state"
+    unit_of_measurement: "W"
+    device_class: power
+
+template:
+  - sensor:
+      - name: "Energy Meter Total"
+        unit_of_measurement: "kWh"
+        device_class: energy
+        state_class: total_increasing
+        state: >
+          {% set meter_1 = states('sensor.energy_meter_kitchen_bathrooms') | float %}
+          {% set meter_2 = states('sensor.energy_meter_private_rooms') | float %}
+          {% set meter_3 = states('sensor.energy_meter_common_area') | float %}
+          {{ meter_1 + meter_2 + meter_3 | round(3) }}
+
+      - name: "Power Consumption Total"
+        unit_of_measurement: "W"
+        device_class: power
+        state: >
+          {% set power_1 = states('sensor.power_consumption_kitchen_bathrooms') | int %}
+          {% set power_2 = states('sensor.power_consumption_private_rooms') | int %}
+          {% set power_3 = states('sensor.power_consumption_common_area') | int %}
+          {{ power_1 + power_2 + power_3 }}
