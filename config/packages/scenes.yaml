@@ -37,15 +37,15 @@ scene:
         current_tilt_position: 0
       cover.dining_room:
         state: closed
-        current_position: 0
+        current_position: 20
         current_tilt_position: 100
       cover.office:
         state: closed
         current_position: 0
-        current_tilt_position: 0
+        current_tilt_position: 100
       cover.living_room:
         state: closed
-        current_position: 0
+        current_position: 10
         current_tilt_position: 100
       cover.kid_s_room:
         state: closed
@@ -55,6 +55,7 @@ scene:
     icon: "mdi:moon-waning-crescent"
     entities:
       light.bedroom: off
+      light.bed_led_strip: on
       light.dining_room: off
       light.hallway: off
       light.kitchen: off
