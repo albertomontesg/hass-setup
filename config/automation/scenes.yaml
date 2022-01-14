@@ -2,8 +2,10 @@
 - alias: Good Morning
   id: good_morning
   trigger:
-    - platform: sun
-      event: sunrise
+    - platform: numeric_state
+      entity_id: sun.sun
+      attribute: elevation
+      above: -6.0
   action:
     - alias: Activate Scene
       service: scene.turn_on
@@ -13,8 +15,11 @@
 - alias: Good Evening
   id: good_evening
   trigger:
-    - platform: sun
-      event: sunset
+    - platform: numeric_state
+      entity_id: sun.sun
+      attribute: elevation
+      # Use civil twilight threshold: https://en.wikipedia.org/wiki/Twilight.
+      below: -6.0
   action:
     - alias: Activate Scene
       service: scene.turn_on

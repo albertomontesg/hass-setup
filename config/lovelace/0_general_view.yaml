@@ -4,13 +4,22 @@ icon: mdi:home
 panel: false
 path: home
 cards:
+  - type: horizontal-stack
+    cards:
+      - type: markdown
+        content: "# {{ states('sensor.time') }}"
+      - type: markdown
+        content: "# {{ states('sensor.date') }}"
   - type: glance
     entities:
       - person.judith
       - person.alberto
-  - type: weather-forecast
-    name: Weather
-    entity: weather.weather
+  - type: vertical-stack
+    title: Weather
+    cards:
+      - type: weather-forecast
+        name: Weather
+        entity: weather.weather
 
   - type: vertical-stack
     title: Media
