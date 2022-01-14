@@ -1,0 +1,8 @@
+---
+browser_mod:
+  devices:
+    0c49f2a8-e9c02fb2:
+      name: wall_tablet
+      camera: true
+  disable:
+    - all
