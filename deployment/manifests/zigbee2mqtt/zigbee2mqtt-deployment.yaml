@@ -65,4 +65,4 @@ spec:
             path: /dev/ttyUSB0
       nodeSelector:
         beta.kubernetes.io/arch: arm64
-        device: zigbee
+        zigbee: "true"
