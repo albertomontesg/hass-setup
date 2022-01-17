@@ -52,6 +52,23 @@ cards:
             animate: true
             hour24: true
             decimals: 1
+  - type: horizontal-stack
+    title: Scenes
+    cards:
+      - type: custom:button-card
+        entity: scene.working_in_office
+        tap_action:
+          action: call-service
+          service: scene.turn_on
+          service_data:
+            entity_id: scene.working_in_office
+      - type: custom:button-card
+        entity: scene.sun_in_office
+        tap_action:
+          action: call-service
+          service: scene.turn_on
+          service_data:
+            entity_id: scene.sun_in_office
   # - title: Prusa MK3S
   #   type: vertical-stack
   #   cards:

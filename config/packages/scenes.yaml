@@ -66,3 +66,22 @@ scene:
       light.office_wall_lines: off
       light.kid_s_room: off
       media_player.living_room_tv: off
+  - name: Working in Office
+    icon: "mdi:chair-rolling"
+    entities:
+      light.office: off
+      light.office_wall_lines: on
+      media_player.office:
+        state: playing
+        volume_level: 0.1
+      cover.office:
+        state: open
+        current_position: 100
+
+  - name: Sun in Office
+    icon: "mdi:weather-sunset"
+    entities:
+      cover.office:
+        state: open
+        current_position: 40
+        current_tilt_position: 50
