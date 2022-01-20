@@ -77,6 +77,7 @@ cards:
         entities:
           - light.living_room
           - type: divider
+          - light.kitchen
           - light.dining_room
           - type: divider
           - light.hallway

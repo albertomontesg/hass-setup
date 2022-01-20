@@ -41,9 +41,14 @@
     - condition: state
       entity_id: input_boolean.vacuum_clean_when_leave_home
       state: "on"
-    - condition: state
+    - alias: Vacuum Unused
+      condition: state
       entity_id: vacuum.xiaomi_vacuum_cleaner
       state: docked
+    - alias: At reasonable hour
+      condition: time
+      after: "10:00:00"
+      before: "19:00:00"
   action:
     - service: vacuum.start
       data:
