@@ -24,4 +24,5 @@ cards:
               subtitle: Sensors
       - type: entities
         entities:
+          - input_boolean.vacuum_clean_when_leave_home
           - input_select.vacuum_room
