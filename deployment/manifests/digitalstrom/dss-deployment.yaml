@@ -8,7 +8,7 @@ metadata:
     component: bridge
   namespace: home-automation
 data:
-  DIGITALSTROM_HOST: 192.168.1.70
+  DIGITALSTROM_HOST: 192.168.1.201
   DIGITALSTROM_USERNAME: dssadmin
   DIGITALSTROM_PASSWORD: 0hZ5wmGWofF5yWyJDi43
   MQTT_URL: tcp://mqtt:1883

@@ -34,15 +34,15 @@ light:
 
   - platform: mqtt
     name: Dressing Room
-    command_topic: "digitalstrom/devices/Ankleide_Deckenleuchte/brightness/command"
-    state_topic: "digitalstrom/devices/Ankleide_Deckenleuchte/brightness/state"
+    command_topic: "digitalstrom/devices/Dressing_Room_Light/brightness/command"
+    state_topic: "digitalstrom/devices/Dressing_Room_Light/brightness/state"
     payload_on: "100.00"
     payload_off: "0.00"
 
   - platform: mqtt
     name: Kid's Room
-    command_topic: "digitalstrom/devices/Zimmer_2_Deckenleuchte/brightness/command"
-    state_topic: "digitalstrom/devices/Zimmer_2_Deckenleuchte/brightness/state"
+    command_topic: "digitalstrom/devices/Kids_Room_Light/brightness/command"
+    state_topic: "digitalstrom/devices/Kids_Room_Light/brightness/state"
     payload_on: "100.00"
     payload_off: "0.00"
 
@@ -62,22 +62,22 @@ light:
 
   - platform: mqtt
     name: Living Room Switch
-    command_topic: "digitalstrom/devices/Wohnen_Deckenleuchte/brightness/command"
-    state_topic: "digitalstrom/devices/Wohnen_Deckenleuchte/brightness/state"
+    command_topic: "digitalstrom/devices/Living_Room_Light/brightness/command"
+    state_topic: "digitalstrom/devices/Living_Room_Light/brightness/state"
     payload_on: "100.00"
     payload_off: "0.00"
 
   - platform: mqtt
     name: North Balcony
-    command_topic: "digitalstrom/devices/Loggia_Ost_Leuchte/brightness/command"
-    state_topic: "digitalstrom/devices/Loggia_Ost_Leuchte/brightness/state"
+    command_topic: "digitalstrom/devices/North_Balcony_Light/brightness/command"
+    state_topic: "digitalstrom/devices/North_Balcony_Light/brightness/state"
     payload_on: "100.00"
     payload_off: "0.00"
 
   - platform: mqtt
     name: South Balcony
-    command_topic: "digitalstrom/devices/Loggia_West_Leuchte/brightness/command"
-    state_topic: "digitalstrom/devices/Loggia_West_Leuchte/brightness/state"
+    command_topic: "digitalstrom/devices/South_Balcony_Light/brightness/command"
+    state_topic: "digitalstrom/devices/South_Balcony_Light/brightness/state"
     payload_on: "100.00"
     payload_off: "0.00"
 
@@ -96,31 +96,31 @@ light:
 
   - platform: mqtt
     name: Ensuite Bathroom
-    command_topic: "digitalstrom/devices/Dusche_Deckenleuchte/brightness/command"
-    state_topic: "digitalstrom/devices/Dusche_Deckenleuchte/brightness/state"
+    command_topic: "digitalstrom/devices/Ensuite_Bathroom_Light/brightness/command"
+    state_topic: "digitalstrom/devices/Ensuite_Bathroom_Light/brightness/state"
     payload_on: "100.00"
     payload_off: "0.00"
   - platform: mqtt
     name: Ensuite Bathroom Mirror
-    command_topic: "digitalstrom/devices/Dusche_Spiegel/brightness/command"
-    state_topic: "digitalstrom/devices/Dusche_Spiegel/brightness/state"
+    command_topic: "digitalstrom/devices/Ensuite_Bathroom_Mirror_Light/brightness/command"
+    state_topic: "digitalstrom/devices/Ensuite_Bathroom_Mirror_Light/brightness/state"
     payload_on: "100.00"
     payload_off: "0.00"
 cover:
   - platform: mqtt
     name: Living Room
-    state_topic: "digitalstrom/devices/Wohnen_Store/shadePositionOutside/state"
+    state_topic: "digitalstrom/devices/Living_Room_Cover/shadePositionOutside/state"
     state_closed: "0.00"
     state_open: "100.00"
-    command_topic: "digitalstrom/devices/Wohnen_Store/shadePositionOutside/command"
+    command_topic: "digitalstrom/devices/Living_Room_Cover/shadePositionOutside/command"
     payload_close: "0.00"
     payload_open: "100.00"
     payload_stop:
-    position_topic: "digitalstrom/devices/Wohnen_Store/shadePositionOutside/state"
-    set_position_topic: "digitalstrom/devices/Wohnen_Store/shadePositionOutside/command"
+    position_topic: "digitalstrom/devices/Living_Room_Cover/shadePositionOutside/state"
+    set_position_topic: "digitalstrom/devices/Living_Room_Cover/shadePositionOutside/command"
     position_template: "{{ value | int }}"
-    tilt_status_topic: "digitalstrom/devices/Wohnen_Store/shadeOpeningAngleOutside/state"
-    tilt_command_topic: "digitalstrom/devices/Wohnen_Store/shadeOpeningAngleOutside/command"
+    tilt_status_topic: "digitalstrom/devices/Living_Room_Cover/shadeOpeningAngleOutside/state"
+    tilt_command_topic: "digitalstrom/devices/Living_Room_Cover/shadeOpeningAngleOutside/command"
     tilt_status_template: "{{ value | int }}"
     retain: true
   - platform: mqtt
@@ -141,18 +141,18 @@ cover:
     retain: true
   - platform: mqtt
     name: Kid's Room
-    state_topic: "digitalstrom/devices/Zimmer_2_Store/shadePositionOutside/state"
+    state_topic: "digitalstrom/devices/Kids_Room_Cover/shadePositionOutside/state"
     state_closed: "0.00"
     state_open: "100.00"
-    command_topic: "digitalstrom/devices/Zimmer_2_Store/shadePositionOutside/command"
+    command_topic: "digitalstrom/devices/Kids_Room_Cover/shadePositionOutside/command"
     payload_close: "0.00"
     payload_open: "100.00"
     payload_stop:
-    position_topic: "digitalstrom/devices/Zimmer_2_Store/shadePositionOutside/state"
-    set_position_topic: "digitalstrom/devices/Zimmer_2_Store/shadePositionOutside/command"
+    position_topic: "digitalstrom/devices/Kids_Room_Cover/shadePositionOutside/state"
+    set_position_topic: "digitalstrom/devices/Kids_Room_Cover/shadePositionOutside/command"
     position_template: "{{ value | int }}"
-    tilt_status_topic: "digitalstrom/devices/Zimmer_2_Store/shadeOpeningAngleOutside/state"
-    tilt_command_topic: "digitalstrom/devices/Zimmer_2_Store/shadeOpeningAngleOutside/command"
+    tilt_status_topic: "digitalstrom/devices/Kids_Room_Cover/shadeOpeningAngleOutside/state"
+    tilt_command_topic: "digitalstrom/devices/Kids_Room_Cover/shadeOpeningAngleOutside/command"
     tilt_status_template: "{{ value | int }}"
     retain: true
   - platform: mqtt
@@ -173,18 +173,18 @@ cover:
     retain: true
   - platform: mqtt
     name: Dining Room
-    state_topic: "digitalstrom/devices/Essen_Store/shadePositionOutside/state"
+    state_topic: "digitalstrom/devices/Dining_Room_Cover/shadePositionOutside/state"
     state_closed: "0.00"
     state_open: "100.00"
-    command_topic: "digitalstrom/devices/Essen_Store/shadePositionOutside/command"
+    command_topic: "digitalstrom/devices/Dining_Room_Cover/shadePositionOutside/command"
     payload_close: "0.00"
     payload_open: "100.00"
     payload_stop:
-    position_topic: "digitalstrom/devices/Essen_Store/shadePositionOutside/state"
-    set_position_topic: "digitalstrom/devices/Essen_Store/shadePositionOutside/command"
+    position_topic: "digitalstrom/devices/Dining_Room_Cover/shadePositionOutside/state"
+    set_position_topic: "digitalstrom/devices/Dining_Room_Cover/shadePositionOutside/command"
     position_template: "{{ value | int }}"
-    tilt_status_topic: "digitalstrom/devices/Essen_Store/shadeOpeningAngleOutside/state"
-    tilt_command_topic: "digitalstrom/devices/Essen_Store/shadeOpeningAngleOutside/command"
+    tilt_status_topic: "digitalstrom/devices/Dining_Room_Cover/shadeOpeningAngleOutside/state"
+    tilt_command_topic: "digitalstrom/devices/Dining_Room_Cover/shadeOpeningAngleOutside/command"
     tilt_status_template: "{{ value | int }}"
     retain: true
 
