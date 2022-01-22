@@ -97,6 +97,12 @@
       attribute: elevation
       below: 22.0
       above: 5.0
+    - alias: Sun Shining
+      condition: state
+      entity_id: weather.weather
+      state:
+        - sunny
+        - partlycloudy
   action:
     - alias: Set Cover Position
       service: cover.set_cover_position
