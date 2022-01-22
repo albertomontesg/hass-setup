@@ -1,47 +1,131 @@
 ---
-- alias: Pause Music on Work Meeting
-  id: pause_music_on_meeting
+- alias: Work Start
+  id: work_start
   trigger:
     - platform: state
-      entity_id: binary_sensor.albertomontes_macbookpro_camera_in_use
+      entity_id: binary_sensor.alberto_working
+      to: "on"
+  condition:
+    - alias: Working Day
+      condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: "on"
+  action:
+    - alias: Turn Wall Light
+      service: light.turn_on
+      target:
+        entity_id: light.office_wall_lines
+    - alias: Play Music
+      service: media_player.media_play
+      target:
+        entity_id: media_player.office
+    - alias: Set Volume
+      service: media_player.volume_set
+      data:
+        volume_level: 0.1
+      target:
+        entity_id: media_player.office
+
+- alias: Work Stop
+  id: work_stop
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.alberto_working
+      to: "off"
+  condition:
+    - alias: Working day
+      condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: "on"
+  action:
+    - alias: Turn Wall Light
+      service: light.turn_off
+      target:
+        entity_id: light.office_wall_lines
+    - alias: Play Music
+      service: media_player.media_pause
+      target:
+        entity_id: media_player.office
+
+- alias: Work Pause Music on Meeting
+  id: work_pause_music_on_meeting
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.alberto_in_working_meeting
       to: "on"
   action:
     - alias: Pause Music
       service: media_player.media_pause
-      data:
+      target:
         entity_id: media_player.office
 
-- alias: Resume Music After Work Meeting
-  id: resume_music_after_meeting
+- alias: Work Resume Music after Meeting
+  id: work_resume_music_after_meeting
   trigger:
-    platform: state
-    entity_id: binary_sensor.albertomontes_macbookpro_camera_in_use
-    to: "off"
+    - platform: state
+      entity_id: binary_sensor.alberto_in_working_meeting
+      to: "off"
   condition:
-    - alias: Working Hours
+    - alias: Working
       condition: state
-      entity_id: binary_sensor.in_working_hours
+      entity_id: binary_sensor.alberto_working
       state: "on"
   action:
     - alias: Play Music
       service: media_player.media_play
-      data:
+      target:
         entity_id: media_player.office
 
-- alias: Notification on Work Meeting
-  id: notification_on_work_meeting
+- alias: Work Close Cover
+  id: work_close_cover
   trigger:
     - platform: state
-      entity_id: calendar.work_google
+      entity_id: binary_sensor.alberto_working
       to: "on"
+    - platform: numeric_state
+      entity_id: sun.sun
+      attribute: elevation
+      below: 22.0
   condition:
-    - alias: Working Hours
+    - alias: Working
       condition: state
-      entity_id: binary_sensor.in_working_hours
+      entity_id: binary_sensor.alberto_working
+      state: "on"
+    - alias: Sun Position
+      condition: numeric_state
+      entity_id: sun.sun
+      attribute: elevation
+      below: 22.0
+      above: 5.0
+  action:
+    - alias: Set Cover Position
+      service: cover.set_cover_position
+      target:
+        entity_id: cover.office
+      data:
+        position: 30
+    - alias: Set Cover Tilt
+      service: cover.set_cover_tilt_position
+      target:
+        entity_id: cover.office
+      data:
+        tilt_position: 50
+- alias: Work Open Cover
+  id: work_Open_cover
+  trigger:
+    - platform: numeric_state
+      entity_id: sun.sun
+      attribute: elevation
+      below: 5.0
+  condition:
+    - alias: Working day
+      condition: state
+      entity_id: binary_sensor.workday_sensor
       state: "on"
   action:
-    - service: script.sonos_play
+    - alias: Set Cover Tilt
+      service: cover.set_cover_tilt_position
+      target:
+        entity_id: cover.office
       data:
-        sonos_entity: media_player.office
-        volume: 0.5
-        delay: "00:00:00"
+        tilt_position: 100

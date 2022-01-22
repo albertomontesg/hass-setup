@@ -52,23 +52,13 @@ cards:
             animate: true
             hour24: true
             decimals: 1
-  - type: horizontal-stack
-    title: Scenes
+  - type: vertical-stack
+    title: Working
     cards:
-      - type: custom:button-card
-        entity: scene.working_in_office
-        tap_action:
-          action: call-service
-          service: scene.turn_on
-          service_data:
-            entity_id: scene.working_in_office
-      - type: custom:button-card
-        entity: scene.sun_in_office
-        tap_action:
-          action: call-service
-          service: scene.turn_on
-          service_data:
-            entity_id: scene.sun_in_office
+      - type: glance
+        entities:
+          - binary_sensor.alberto_working
+          - binary_sensor.alberto_in_working_meeting
   # - title: Prusa MK3S
   #   type: vertical-stack
   #   cards:

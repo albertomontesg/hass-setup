@@ -3,35 +3,21 @@ binary_sensor:
   - platform: workday
     country: CH
     province: ZH
-  - platform: template
-    sensors:
-      in_working_hours:
-        friendly_name: In Working Hours
-        icon_template: mdi:clock
-        value_template: >-
-          {{
-            is_state('binary_sensor.workday_sensor', 'on') and
-            (
-              states('sensor.time') >= (
-                state_attr('input_datetime.working_hours_start', 'timestamp') |
-                int |
-                timestamp_custom('%H:%M', False)
-              )
-            ) and (
-              states('sensor.time') <= (
-                state_attr('input_datetime.working_hours_end', 'timestamp') |
-                int |
-                timestamp_custom('%H:%M', False)
-              )
-            )
-          }}
 
-input_datetime:
-  working_hours_start:
-    name: "Working Hours Start"
-    has_date: false
-    has_time: true
-  working_hours_end:
-    name: "Working Hours End"
-    has_date: false
-    has_time: true
+template:
+  binary_sensor:
+    - name: Alberto Working
+      state: "{{ states('binary_sensor.albertomontes_macbookpro_active') }}"
+      delay_off: "00:10:00"
+      icon: "mdi:briefcase"
+      device_class: occupancy
+    - name: Alberto in Working Meeting
+      state: >-
+        {{
+          is_state('binary_sensor.albertomontes_macbookpro_camera_in_use', 'on')
+          and
+          is_state('binary_sensor.albertomontes_macbookpro_microphone_in_use', 'on')
+        }}
+      delay_off: "00:05:00"
+      icon: "mdi:video"
+      device_class: occupancy
