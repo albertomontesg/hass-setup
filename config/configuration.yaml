@@ -82,9 +82,17 @@ recorder:
 influxdb:
   host: influxdb
   port: 8086
-  database: homeassistant
-  username: !secret influxdb_username
-  password: !secret influxdb_password
+  api_version: 2
+  ssl: false
+  token: !secret influxdb_token
+  organization: "6b9b9e3d4e053f28"
+  bucket: Home Assistant
+  tags:
+    source: Hass
+    location: Dufaux-Strasse
+  tags_attributes:
+    - friendly_name
+  default_measurement: units
   include:
     domains:
       - sensor
@@ -93,6 +101,10 @@ influxdb:
       - device_tracker
       - cover
       - sun
+      - switch
+      - climate
+      - fan
+      - weather
 
 # Text to speech
 tts:

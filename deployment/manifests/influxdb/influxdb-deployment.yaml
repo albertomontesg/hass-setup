@@ -35,8 +35,8 @@ spec:
     spec:
       containers:
         - name: influxdb
-          image: influxdb:1.7.9
-          imagePullPolicy: IfNotPresent
+          image: influxdb:2.1-alpine
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8086
@@ -44,8 +44,10 @@ spec:
             - configMapRef:
                 name: influxdb-env
           volumeMounts:
-            - mountPath: /var/lib/influxdb
+            - mountPath: /var/lib/influxdb2
               name: influxdb-data
+            - mountPath: /etc/influxdb2
+              name: influxdb-config
           readinessProbe:
             httpGet:
               path: /ping
@@ -64,5 +66,8 @@ spec:
         - name: influxdb-data
           persistentVolumeClaim:
             claimName: influxdb-pvc
+        - name: influxdb-config
+          persistentVolumeClaim:
+            claimName: influxdb-config-pvc
       nodeSelector:
         beta.kubernetes.io/arch: arm64

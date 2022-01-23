@@ -17,3 +17,30 @@ spec:
   selector:
     app: influxdb
     component: db
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: influxdb
+  labels:
+    app: influxdb
+    component: db
+  namespace: home-automation
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: "Host(`influxdb.hass.c6.montesg.xyz`)"
+      kind: Rule
+      services:
+        - kind: Service
+          name: influxdb
+          namespace: home-automation
+          passHostHeader: true
+          port: 8086
+  tls:
+    certResolver: le
+    options:
+      name: mutual-auth
+      namespace: traefik
+
