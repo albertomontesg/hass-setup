@@ -9,7 +9,7 @@ metadata:
   namespace: home-automation
 data:
   POSTGRES_DB: homeassistant
-  POSTGRES_USER: postgresadmin
+  POSTGRES_USER: hass
   POSTGRES_PASSWORD: gfdble34bu23g4y4fd
 ---
 apiVersion: apps/v1
@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:11.7-alpine
+          image: postgres:14-alpine
           imagePullPolicy: Always
           ports:
             - name: db
@@ -51,7 +51,7 @@ spec:
               command:
                 - sh
                 - -c
-                - exec pg_isready -h localhost -U postgresadmin -d homeassistant
+                - exec pg_isready -h localhost -U hass -d homeassistant
             initialDelaySeconds: 10
             periodSeconds: 5
             timeoutSeconds: 5
