@@ -9,7 +9,7 @@ cards:
       - type: markdown
         content: "# {{ states('sensor.time') }}"
       - type: markdown
-        content: "# {{ states('sensor.date') }}"
+        content: "## {{ states('sensor.date') }}"
   - type: glance
     entities:
       - person.judith

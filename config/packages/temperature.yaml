@@ -5,13 +5,13 @@ sensor:
     name: Mold Indicator Bedroom
     indoor_temp_sensor: sensor.bedroom_temperature
     indoor_humidity_sensor: sensor.bedroom_humidity
-    outdoor_temp_sensor: sensor.outside_temperature
+    outdoor_temp_sensor: sensor.outdoor_temperature
     calibration_factor: 1.0
   - platform: mold_indicator
     name: Mold Indicator Living Room
     indoor_temp_sensor: sensor.living_room_temperature
     indoor_humidity_sensor: sensor.living_room_humidity
-    outdoor_temp_sensor: sensor.outside_temperature
+    outdoor_temp_sensor: sensor.outdoor_temperature
     calibration_factor: 1.0
 
   # Average Climate values for all the inside house.

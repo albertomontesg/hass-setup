@@ -1,0 +1,27 @@
+---
+- alias: Kitchen Thermomix Light
+  id: kitchen_thermomix_light
+  trigger:
+    - platform: state
+      entity_id: device_tracker.thermomix
+      to: ~
+  action:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: device_tracker.thermomix
+              state: home
+          sequence:
+            - alias: Turn On Light
+              service: light.turn_on
+              target:
+                entity_id: light.kitchen_focus
+        - conditions:
+            - condition: state
+              entity_id: device_tracker.thermomix
+              state: away
+          sequence:
+            - alias: Turn Off Light
+              service: light.turn_off
+              target:
+                entity_id: light.kitchen_focus
