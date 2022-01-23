@@ -9,6 +9,7 @@ views:
   - !include lovelace/30_bathrooms.yaml
   - !include lovelace/40_office.yaml
   - !include lovelace/50_car.yaml
+  - !include lovelace/60_guests.yaml
   # - !include lovelace/70_energy.yaml
   - !include lovelace/81_cleaning.yaml
   - !include lovelace/90_devices_config.yaml

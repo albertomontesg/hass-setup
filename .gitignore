@@ -31,3 +31,6 @@ state.json
 # Deployments
 **/manifests/**/*secrets.yaml
 .vscode
+
+# Containing secrets.
+wifi_qr_code.png

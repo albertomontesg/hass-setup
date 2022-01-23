@@ -1,0 +1,28 @@
+---
+path: guests
+title: Guests
+panel: false
+icon: "mdi:account-multiple-plus"
+cards:
+  - type: vertical-stack
+    title: Guests
+    cards:
+      - type: glance
+        entities:
+          - entity: input_boolean.guests_visiting
+            tap_action:
+              action: toggle
+          - binary_sensor.guests_presence
+
+  - type: vertical-stack
+    title: WiFi
+    cards:
+      - type: picture
+        image: "/local/images/wifi_qr_code.png"
+
+  - type: vertical-stack
+    title: Visitors Parking
+    cards:
+      - type: iframe
+        url: "https://app.parkon.ch/Portal/60oxch"
+        aspect_ratio: "2:3"
