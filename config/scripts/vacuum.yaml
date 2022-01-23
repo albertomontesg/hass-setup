@@ -1,44 +1,89 @@
 ---
-vacuum_kitchen:
+vacuum_to_empty_bin:
+  alias: "Vacuum to Empty Bin"
+  icon: "mdi:delete-empty"
+  sequence:
+    - service: xiaomi_miio.vacuum_goto
+      target:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+      data:
+        x_coord: "22900"
+        y_coord: "28000"
+vacuum_room_kitchen:
   alias: "Vacuum Kitchen"
+  icon: mdi:silverware
   sequence:
     - service: xiaomi_miio.vacuum_clean_segment
       data_template:
         entity_id: vacuum.xiaomi_vacuum_cleaner
-        segments: [21]
-vacuum_sofa_area:
-  alias: "Vacuum Sofa Area"
-  sequence:
-    - service: xiaomi_miio.vacuum_clean_segment
-      data_template:
-        entity_id: vacuum.xiaomi_vacuum_cleaner
-        segments: [17]
-vacuum_bedroom:
-  alias: "Vacuum Bedroom"
-  sequence:
-    - service: xiaomi_miio.vacuum_clean_segment
-      data_template:
-        entity_id: vacuum.xiaomi_vacuum_cleaner
-        segments: [16]
-vacuum_corridor:
-  alias: "Vacuum Corridor"
+        segments: [22]
+vacuum_room_living_room:
+  alias: "Vacuum Living Room"
+  icon: mdi:sofa
   sequence:
     - service: xiaomi_miio.vacuum_clean_segment
       data_template:
         entity_id: vacuum.xiaomi_vacuum_cleaner
         segments: [19]
+vacuum_room_main_bedroom:
+  alias: "Vacuum Main Bedroom"
+  icon: mdi:bed-empty
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: [20]
+vacuum_room_hallway:
+  alias: "Vacuum Hallway"
+  icon: "mdi:wardrobe"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: [23]
+vacuum_room_office:
+  alias: "Vacuum Office"
+  icon: mdi:chair-rolling
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: [1]
+vacuum_room_kids_room:
+  alias: "Vacuum Kid's Room"
+  icon: mdi:bed-outline
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: [16]
+vacuum_room_bathroom:
+  alias: "Vacuum Bathroom"
+  icon: mdi:shower
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: [21]
+
 vacuum_dispatch:
   alias: "Vacuum Dispatch"
   sequence:
     - service: script.turn_on
       data_template:
         entity_id: >-
-          {% if room|lower in ("kitchen", "the kitchen") %}
-            script.vacuum_kitchen
-          {% elif room|lower in ("sofa area", "the sofa area") %}
-            script.vacuum_sofa_area
-          {% elif room|lower in ("bedroom", "the bedroom") %}
-            script.vacuum_bedroom
-          {% elif room|lower in ("corridor", "the corridor") %}
-            script.vacuum_kitchen
+          {% if room | lower in ("kitchen", "the kitchen") %}
+            script.vacuum_room_kitchen
+          {% elif room | lower in ("living room", "the living room") %}
+            script.vacuum_room_living_room
+          {% elif room | lower in ("main bedroom", "the main bedroom") %}
+            script.vacuum_room_main_bedroom
+          {% elif room | lower in ("hallway", "the hallway") %}
+            script.vacuum_room_hallway
+          {% elif room | lower in ("office", "the office") %}
+            script.vacuum_room_office
+          {% elif room | lower in ("kid's room", "the kid's room") %}
+            script.vacuum_room_kids_room
+          {% elif room | lower in ("bathroom", "the bathroom") %}
+            script.vacuum_room_bathroom
           {% endif %}

@@ -5,24 +5,29 @@ panel: false
 path: cleaning
 cards:
   - type: vertical-stack
+    title: Robot
     cards:
-      - type: custom:vacuum-card
+      - type: custom:xiaomi-vacuum-card
         entity: vacuum.xiaomi_vacuum_cleaner
-        stats:
-          default:
-            - attribute: filter_left
-              unit: hours
-              subtitle: Filter
-            - attribute: side_brush_left
-              unit: hours
-              subtitle: Side brush
-            - attribute: main_brush_left
-              unit: hours
-              subtitle: Main brush
-            - attribute: sensor_dirty_left
-              unit: hours
-              subtitle: Sensors
-      - type: entities
+        name: Vacuum
+  - type: horizontal-stack
+    title: Configuration
+    cards:
+      - type: glance
         entities:
-          - input_boolean.vacuum_clean_when_leave_home
-          - input_select.vacuum_room
+          - entity: input_boolean.vacuum_clean_when_leave_home
+            tap_action:
+              action: toggle
+          - entity: script.vacuum_to_empty_bin
+            show_state: false
+            tap_action:
+              action: toggle
+  - type: vertical-stack
+    title: Clean Room
+    cards:
+      - type: custom:auto-entities
+        card:
+          type: entities
+        filter:
+          include:
+            - entity_id: script.vacuum_room_.*

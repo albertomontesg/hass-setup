@@ -1,5 +1,6 @@
 ---
 - alias: Start Cleaning Room
+  id: vacuum_start_cleaning_room
   trigger:
     - platform: state
       entity_id: input_select.vacuum_room
@@ -14,25 +15,30 @@
         option: "Select Input"
 # Notify when Vacuum robot starts and ends.
 - alias: Vacuum Robot Starts
+  id: vacuum_robot_starts
   trigger:
     - platform: state
       entity_id: vacuum.xiaomi_vacuum_cleaner
-      to: cleaning
+      attribute: status
+      to: "Cleaning"
   action:
     service: notify.mobile_app_both_iphones
     data:
       message: "Vacuum Robot started cleaning"
 - alias: Vacuum Robot Ends
+  id: vacuum_robot_ends
   trigger:
     - platform: state
       entity_id: vacuum.xiaomi_vacuum_cleaner
-      from: cleaning
+      attribute: status
+      from: "Cleaning"
   action:
-    service: notify.mobile_app_both_iphones
-    data:
-      message: "Vacuum Robot ended cleaning"
+    - service: notify.mobile_app_both_iphones
+      data:
+        message: "Vacuum Robot ended cleaning"
 # Scheduled cleaning when leaving.
 - alias: Started Cleaning when Leaving
+  id: vacuum_started_clean_when_leaving
   trigger:
     - platform: state
       entity_id: binary_sensor.someone_home
@@ -56,3 +62,17 @@
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.vacuum_clean_when_leave_home
+- alias: Vacuum Go To Bin After Cleaning
+  id: vacuum_go_to_bin_after_cleaning
+  trigger:
+    - platform: state
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      to: docked
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.xiaomi_vacuum_cleaner_last_clean_duration
+      above: 300 # 5 minutes
+  action:
+    - service: script.turn_on
+      target:
+        entity_id: script.vacuum_to_empty_bin

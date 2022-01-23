@@ -11,9 +11,12 @@ input_select:
     options:
       - Select Input
       - Kitchen
-      - Sofa Area
-      - Bedroom
-      - Corridor
+      - Living Room
+      - Main Bedroom
+      - Hallway
+      - Office
+      - Kid's Room
+      - Bathroom
     initial: Select Input
 
 input_boolean:
