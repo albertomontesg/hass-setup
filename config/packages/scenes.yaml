@@ -27,7 +27,6 @@ scene:
       light.kitchen_focus: off
       light.living_room: off
       light.office: off
-      light.office_wall_lines: off
       light.kid_s_room: off
   - name: Evening
     icon: "mdi:weather-sunset-down"
