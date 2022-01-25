@@ -8,7 +8,7 @@ template:
   binary_sensor:
     - name: Alberto Working
       state: "{{ states('binary_sensor.albertomontes_macbookpro_active') }}"
-      delay_off: "00:10:00"
+      delay_off: "00:05:00"
       icon: "mdi:briefcase"
       device_class: occupancy
     - name: Alberto in Working Meeting
@@ -18,6 +18,6 @@ template:
           and
           is_state('binary_sensor.albertomontes_macbookpro_microphone_in_use', 'on')
         }}
-      delay_off: "00:05:00"
+      delay_off: "00:02:00"
       icon: "mdi:video"
       device_class: occupancy
