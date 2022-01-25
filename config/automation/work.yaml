@@ -68,6 +68,51 @@
       target:
         entity_id: media_player.office
 
+- alias: Work Close Light
+  id: work_close_light
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.alberto_working
+      to: "on"
+    - platform: sun
+      event: sunrise
+  condition:
+    - alias: Working
+      condition: state
+      entity_id: binary_sensor.alberto_working
+      state: "on"
+    - alias: Sun already up
+      condition: state
+      entity_id: sun.sun
+      state: "above_horizon"
+  action:
+    - alias: Close Light
+      service: light.turn_off
+      target:
+        entity_id: light.office
+- alias: Work Open Light
+  id: work_close_light
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.alberto_working
+      to: "on"
+    - platform: sun
+      event: sunset
+  condition:
+    - alias: Working
+      condition: state
+      entity_id: binary_sensor.alberto_working
+      state: "on"
+    - alias: Sun gone
+      condition: state
+      entity_id: sun.sun
+      state: "below_horizon"
+  action:
+    - alias: Open Light
+      service: light.turn_on
+      target:
+        entity_id: light.office
+
 - alias: Work Close Cover
   id: work_close_cover
   trigger:

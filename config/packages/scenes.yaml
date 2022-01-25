@@ -19,15 +19,6 @@ scene:
       cover.kid_s_room:
         state: open
         current_position: 100
-      light.led_strips: off
-      light.bedroom: off
-      light.dining_room: off
-      light.hallway: off
-      light.kitchen: off
-      light.kitchen_focus: off
-      light.living_room: off
-      light.office: off
-      light.kid_s_room: off
   - name: Evening
     icon: "mdi:weather-sunset-down"
     entities:
