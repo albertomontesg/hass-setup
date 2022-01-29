@@ -19,7 +19,7 @@
         - conditions:
             - condition: state
               entity_id: device_tracker.thermomix
-              state: away
+              state: not_home
           sequence:
             - alias: Turn Off Light
               service: light.turn_off
