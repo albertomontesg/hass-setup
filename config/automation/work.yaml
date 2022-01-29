@@ -173,8 +173,8 @@
       state: "on"
   action:
     - alias: Set Cover Tilt
-      service: cover.set_cover_tilt_position
+      service: cover.set_cover_position
       target:
         entity_id: cover.office
       data:
-        tilt_position: 100
+        position: 100
