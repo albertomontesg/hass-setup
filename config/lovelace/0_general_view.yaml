@@ -76,6 +76,7 @@ cards:
         show_header_toggle: false
         entities:
           - light.living_room
+          - light.dna_lamp
           - type: divider
           - light.kitchen
           - light.dining_room
