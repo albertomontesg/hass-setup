@@ -15,10 +15,16 @@ cards:
     cards:
       - type: glance
         entities:
-          - entity: input_boolean.vacuum_clean_when_leave_home
+          - name: Clean When Leaving
+            entity: input_boolean.vacuum_clean_when_leave_home
             tap_action:
               action: toggle
-          - entity: script.vacuum_to_empty_bin
+          - name: Clean on Monday
+            entity: automation.vacuum_clean_on_monday
+            tap_action:
+              action: toggle
+          - name: To Empty Bin
+            entity: script.vacuum_to_empty_bin
             show_state: false
             tap_action:
               action: toggle

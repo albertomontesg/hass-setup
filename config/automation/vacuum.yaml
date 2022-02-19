@@ -13,6 +13,20 @@
       entity_id: input_select.vacuum_room
       data_template:
         option: "Select Input"
+# Every monday start cleaning
+- alias: Vacuum Clean on Monday
+  id: vacuum_clean_monday
+  trigger:
+    - platform: time
+      at: "10:00:00"
+  condition:
+    - condition: time
+      weekday:
+        - mon
+  action:
+    - service: vacuum.start
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
 # Notify when Vacuum robot starts and ends.
 - alias: Vacuum Robot Notify
   id: vacuum_robot_notify
