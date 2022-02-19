@@ -7,17 +7,23 @@ binary_sensor:
 template:
   binary_sensor:
     - name: Alberto Working
-      state: "{{ states('binary_sensor.albertomontes_macbookpro_active') }}"
-      delay_off: "00:05:00"
+      state: >-
+        {{
+          is_state('binary_sensor.macbook_pro_google_active', 'on')
+          and
+          not is_state('device_tracker.macbook_pro_google', 'away') 
+        }}
+      delay_off: "00:02:00"
       icon: "mdi:briefcase"
       device_class: occupancy
     - name: Alberto in Working Meeting
       state: >-
         {{
-          is_state('binary_sensor.albertomontes_macbookpro_camera_in_use', 'on')
-          and
-          is_state('binary_sensor.albertomontes_macbookpro_microphone_in_use', 'on')
+          is_state('binary_sensor.macbook_pro_google_camera_in_use', 'on')
+          or
+          is_state('binary_sensor.macbook_pro_google_microphone_in_use', 'on')
+          or
+          is_state('binary_sensor.macbook_pro_google_audio_output_in_use', 'on')
         }}
-      delay_off: "00:02:00"
       icon: "mdi:video"
       device_class: occupancy
