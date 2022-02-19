@@ -101,7 +101,7 @@
         {{ (
           as_timestamp(now()) - 
           as_timestamp(states('sensor.xiaomi_vacuum_cleaner_last_clean_end'))
-          ) < 120
+          ) < 300
         }}
   action:
     - service: script.turn_on
