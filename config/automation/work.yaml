@@ -10,6 +10,10 @@
       condition: state
       entity_id: binary_sensor.workday_sensor
       state: "on"
+    - alias: No guests at home
+      condition: state
+      entity_id: binary_sensor.guests_presence
+      state: "off"
   action:
     - alias: Set Working Scene
       service: scene.apply
@@ -62,6 +66,10 @@
       condition: state
       entity_id: binary_sensor.alberto_working
       state: "on"
+    - alias: No guests at home
+      condition: state
+      entity_id: binary_sensor.guests_presence
+      state: "off"
   action:
     - alias: Play Music
       service: media_player.media_play
@@ -85,6 +93,10 @@
       condition: state
       entity_id: sun.sun
       state: "above_horizon"
+    - alias: No guests at home
+      condition: state
+      entity_id: binary_sensor.guests_presence
+      state: "off"
   action:
     - alias: Close Light
       service: light.turn_off
