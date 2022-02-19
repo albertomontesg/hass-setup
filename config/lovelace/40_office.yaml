@@ -53,12 +53,16 @@ cards:
             hour24: true
             decimals: 1
   - type: vertical-stack
-    title: Working
+    title: Alberto Working
     cards:
       - type: glance
         entities:
-          - binary_sensor.alberto_working
-          - binary_sensor.alberto_in_working_meeting
+          - name: Is Working?
+            entity: binary_sensor.alberto_working
+          - name: Hours
+            entity: sensor.alberto_working_hours
+          - name: In a Meeting
+            entity: binary_sensor.alberto_in_working_meeting
   # - title: Prusa MK3S
   #   type: vertical-stack
   #   cards:
