@@ -1,8 +1,10 @@
 ---
-webostv:
-  host: !secret living_room_tv_ip
-  name: Living Room TV
-  turn_on_action:
-    service: wake_on_lan.send_magic_packet
-    data:
-      mac: !secret living_room_tv_mac
+automation:
+  - alias: "Turn On Living Room TV with WakeOnLan"
+    trigger:
+      - platform: webostv.turn_on
+        entity_id: media_player.living_room_tv
+    action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: !secret living_room_tv_mac
