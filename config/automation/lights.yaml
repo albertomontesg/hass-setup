@@ -1,0 +1,33 @@
+---
+- alias: Kids Room Remote Light
+  id: kids_room_remote_light
+  trigger:
+    - platform: device
+      domain: mqtt
+      device_id: d9f85ecd03f26c88cfe9efa1e816a9a8
+      type: action
+      subtype: on-press
+      discovery_id: 0x00178801103985a9 action_on-press
+    - platform: device
+      domain: mqtt
+      device_id: d9f85ecd03f26c88cfe9efa1e816a9a8
+      type: action
+      subtype: off-press
+      discovery_id: 0x00178801103985a9 action_off-press
+    - platform: device
+      domain: mqtt
+      device_id: d9f85ecd03f26c88cfe9efa1e816a9a8
+      type: action
+      subtype: up-press
+      discovery_id: 0x00178801103985a9 action_up-press
+    - platform: device
+      domain: mqtt
+      device_id: d9f85ecd03f26c88cfe9efa1e816a9a8
+      type: action
+      subtype: down-press
+      discovery_id: 0x00178801103985a9 action_down-press
+  action:
+    - alias: Toggle Lights
+      service: light.toggle
+      target:
+        entity_id: light.kid_s_room
