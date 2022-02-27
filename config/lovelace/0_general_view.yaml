@@ -147,3 +147,10 @@ cards:
           service: scene.turn_on
           service_data:
             entity_id: scene.night
+      - type: custom:button-card
+        entity: scene.gaming
+        tap_action:
+          action: call-service
+          service: scene.turn_on
+          service_data:
+            entity_id: scene.gaming

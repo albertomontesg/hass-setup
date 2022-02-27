@@ -56,3 +56,10 @@ scene:
       light.office_wall_lines: off
       light.kid_s_room: off
       media_player.living_room_tv: off
+
+  - name: Gaming
+    icon: "mdi:google-controller"
+    entities:
+      media_player.living_room_tv:
+        state: "on"
+        source: "Stadia"
