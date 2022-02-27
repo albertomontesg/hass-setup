@@ -10,10 +10,10 @@
       condition: state
       entity_id: binary_sensor.workday_sensor
       state: "on"
-    - alias: No guests at home
+    - alias: Working In Office
       condition: state
-      entity_id: binary_sensor.guests_presence
-      state: "off"
+      entity_id: binary_sensor.alberto_working_in_office
+      state: "on"
   action:
     - alias: Set Working Scene
       service: scene.apply
@@ -66,10 +66,10 @@
       condition: state
       entity_id: binary_sensor.alberto_working
       state: "on"
-    - alias: No guests at home
+    - alias: Working In Office
       condition: state
-      entity_id: binary_sensor.guests_presence
-      state: "off"
+      entity_id: binary_sensor.alberto_working_in_office
+      state: "on"
   action:
     - alias: Play Music
       service: media_player.media_play
@@ -93,10 +93,10 @@
       condition: state
       entity_id: sun.sun
       state: "above_horizon"
-    - alias: No guests at home
+    - alias: Working In Office
       condition: state
-      entity_id: binary_sensor.guests_presence
-      state: "off"
+      entity_id: binary_sensor.alberto_working_in_office
+      state: "on"
   action:
     - alias: Close Light
       service: light.turn_off
@@ -119,6 +119,10 @@
       condition: state
       entity_id: sun.sun
       state: "below_horizon"
+    - alias: Working In Office
+      condition: state
+      entity_id: binary_sensor.alberto_working_in_office
+      state: "on"
   action:
     - alias: Open Light
       service: light.turn_on
@@ -147,6 +151,10 @@
       attribute: elevation
       below: 23.0
       above: 5.0
+    - alias: Working In Office
+      condition: state
+      entity_id: binary_sensor.alberto_working_in_office
+      state: "on"
     # Make sure to be in the afternoon to avoid actioning in the morning.
     - alias: Afternoon
       condition: time
@@ -182,6 +190,10 @@
     - alias: Working day
       condition: state
       entity_id: binary_sensor.workday_sensor
+      state: "on"
+    - alias: Working In Office
+      condition: state
+      entity_id: binary_sensor.alberto_working_in_office
       state: "on"
   action:
     - alias: Set Cover Tilt
