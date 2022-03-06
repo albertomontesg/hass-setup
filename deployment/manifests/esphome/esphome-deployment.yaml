@@ -76,6 +76,8 @@ spec:
         - ip: "88.198.170.159"
           hostnames:
             - "api.registry.platformio.org"
+      nodeSelector:
+        beta.kubernetes.io/arch: arm
 ---
 apiVersion: v1
 kind: Service
