@@ -1,0 +1,8 @@
+---
+switch:
+  - platform: gpio
+    name: ${friendly_name}
+    pin: GPIO15
+    id: shelly_relay
+    icon: "mdi:electric-switch"
+    restore_mode: RESTORE_DEFAULT_ON

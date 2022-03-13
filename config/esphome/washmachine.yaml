@@ -1,0 +1,12 @@
+---
+substitutions:
+  name: washmachine
+  device_name: Washmachine Switch
+  friendly_name: Washmachine
+  device_ip: 10.4.2.61
+  max_temp: "85.0"
+# Check for board device. This config is for 1PM and not Pro 1PM.
+# packages:
+#   common: !include templates/common.yaml
+#   device: !include templates/devices/shelly_1pm.yaml
+#   switch: !include templates/switch/shelly_1pm.yaml

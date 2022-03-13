@@ -16,6 +16,12 @@
    wget -qO- "http://${SHELLY_IP_ADDRESS}/ota?url=http://dl.dasker.eu/firmware/mg2tasmota-ShellyI3.zip"
    ```
 
+   or for Shelly 1PM:
+
+   ```
+   wget -qO- "http://${SHELLY_IP_ADDRESS}/ota?url=http://dl.dasker.eu/firmware/mg2tasmota-Shelly1PM.zip"
+   ```
+
 1. Allow different firmware to be uploaded to Tasmota.
 
    ```shell

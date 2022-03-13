@@ -15,6 +15,7 @@ Ip Ranges:
     *   Dinning Room: 30
     *   Living Room: 40
     *   Office: 50
+    *   Bathroom: 60
 *   `10.4.3.0/24`: Chromecast
 *   `10.4.5.0/24`: General Sensors
 *   `10.4.6.0/24`: Utility

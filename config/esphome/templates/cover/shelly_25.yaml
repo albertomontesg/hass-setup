@@ -8,64 +8,73 @@ sensor:
       filters:
         - throttle: 5s
     current_a:
-      name: ${friendly_name} Open Current
+      name: ${friendly_name} Close Current
       id: open_current
       internal: true
     current_b:
-      name: ${friendly_name} Close Current
+      name: ${friendly_name} Open Current
       id: close_current
       internal: true
     active_power_a:
-      name: ${friendly_name} Open Power
-    active_power_b:
       name: ${friendly_name} Close Power
+      filters:
+        - multiply: +1
+        - lambda: if (x < 0.4) return 0; else return x;
+    active_power_b:
+      name: ${friendly_name} Open Power
       # active_power_b is inverted, so multiply by -1
       filters:
         - multiply: -1
-    update_interval: 0.5s
+        - lambda: if (x < 0.4) return 0; else return x;
+    update_interval: 5s
 
 switch:
   - platform: gpio
     id: open_relay
     name: ${friendly_name} Open Relay
-    pin: GPIO15
+    pin: GPIO4
     restore_mode: RESTORE_DEFAULT_OFF
     interlock: &interlock [open_relay, close_relay]
     interlock_wait_time: 200ms
+    internal: true
 
   - platform: gpio
     id: close_relay
     name: ${friendly_name} Close Relay
-    pin: GPIO4
+    pin: GPIO15
     restore_mode: RESTORE_DEFAULT_OFF
     interlock: *interlock
     interlock_wait_time: 200ms
-
-  - platform: shutdown
-    id: shutdown_button
-    name: ${friendly_name} Shutdown
+    internal: true
 
 cover:
-  - platform: current_based
+  - platform: time_based
     name: ${friendly_name}
-    id: blind
-
-    open_sensor: open_current
-    open_moving_current_threshold: 0.5
-    open_duration: 55s
+    id: shades
     open_action:
       - switch.turn_on: open_relay
-    close_sensor: close_current
-    close_moving_current_threshold: 0.5
-    close_duration: 54s
+    open_duration: 28s
     close_action:
       - switch.turn_on: close_relay
+    close_duration: 27s
     stop_action:
-      - switch.turn_off: close_relay
       - switch.turn_off: open_relay
-    obstacle_rollback: 30%
-    start_sensing_delay: 0.8s
-    malfunction_detection: true
-    malfunction_action:
+      - switch.turn_off: close_relay
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO5
+    name: "Close input"
+    internal: true
+    on_state:
       then:
-        - logger.log: "Malfunction detected. Relay welded."
+        - cover.close: shades
+  - platform: gpio
+    pin:
+      number: GPIO13
+    name: "Open Input"
+    internal: true
+    on_state:
+      then:
+        - cover.open: shades

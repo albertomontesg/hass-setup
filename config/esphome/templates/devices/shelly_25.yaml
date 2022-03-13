@@ -2,6 +2,7 @@ esphome:
   name: ${name}
   platform: ESP8266
   board: esp01_1m
+  comment: "Shelly 2.5"
 
 i2c:
   sda: GPIO12
@@ -40,6 +41,12 @@ sensor:
     id: temp_analog_reading
     pin: A0
     update_interval: 10s
+    internal: true
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO16
+    name: "ade7953 IRQ pin"
     internal: true
 
 status_led:

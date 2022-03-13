@@ -1,0 +1,52 @@
+---
+substitutions:
+  name: balcony-shades
+  device_name: Balcony Shades
+  friendly_name: Balcony Shades
+  device_ip: 10.4.2.41
+  max_temp: "85.0"
+
+# output 1: close
+# output 2: open
+
+# Alternative firmware to allow OTA. The firmware for this device easily takes
+# more space than half the ROM in the device (1MiB) which makes impossible
+# directly OTA update. For that reason, uncomment after this comment to generate
+# a minimal version that would only allow for OTA.
+
+esphome:
+  name: ${name}
+  platform: ESP8266
+  board: esp01_1m
+  comment: "Shelly 2.5"
+
+wifi:
+  ssid: !secret wifi_iot_name
+  password: !secret wifi_iot_password
+
+  manual_ip:
+    static_ip: ${device_ip}
+    gateway: 10.4.0.1
+    subnet: 255.255.0.0
+    dns1: 1.1.1.1
+    dns2: 8.8.8.8
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "${device_name} Hotspot"
+    password: !secret ap_fallback_password
+
+ota:
+  password: !secret esphome_ota_password
+# output 1: close
+# output 2: open
+
+# Alternative firmware to allow OTA. The firmware for this device easily takes
+# more space than half the ROM in the device (1MiB) which makes impossible
+# directly OTA update. For that reason, uncomment after this comment to generate
+# a minimal version that would only allow for OTA.
+
+packages:
+  device: !include templates/devices/shelly_25.yaml
+  common: !include templates/common.yaml
+  cover: !include templates/cover/shelly_25.yaml
