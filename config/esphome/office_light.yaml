@@ -1,10 +1,11 @@
 ---
 substitutions:
-  name: light-actuator-1
-  friendly_name: Light Actuator 1
+  name: washmachine
+  friendly_name: Washmachine Switch
   device_ip: 10.4.2.52
-  friendly_name_1: Office Light
-  friendly_name_2: Undefined Light
+  friendly_name_1: Washmachine
+  friendly_name_2: Undefined
+  max_temp: "85.0"
 
 packages:
   device: !include templates/devices/shelly_25.yaml
