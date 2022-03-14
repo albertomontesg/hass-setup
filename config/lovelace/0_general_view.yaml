@@ -98,6 +98,7 @@ cards:
         show_header_toggle: false
         entities:
           - cover.living_room
+          - cover.balcony_shades
           - type: divider
           - cover.dining_room
           - type: divider

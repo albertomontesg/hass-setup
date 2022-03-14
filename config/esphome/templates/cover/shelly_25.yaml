@@ -67,14 +67,20 @@ binary_sensor:
       number: GPIO5
     name: "Close input"
     internal: true
-    on_state:
+    on_press:
       then:
         - cover.close: shades
+    on_release:
+      then:
+        - cover.stop: shades
   - platform: gpio
     pin:
       number: GPIO13
     name: "Open Input"
     internal: true
-    on_state:
+    on_press:
       then:
         - cover.open: shades
+    on_release:
+      then:
+        - cover.stop: shades

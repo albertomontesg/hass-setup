@@ -34,6 +34,8 @@ cards:
         show_header_toggle: false
         entities:
           - cover.living_room
+          - type: divider
+          - cover.balcony_shades
   - type: horizontal-stack
     title: Climate
     cards:
