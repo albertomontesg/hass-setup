@@ -7,9 +7,6 @@ light:
         value_template: "{{ states('light.living_room_switch') }}"
         temperature_template: >-
           {{ state_attr('light.living_room_bulbs', 'color_temp') }}
-        color_template: >-
-          ({{ state_attr('light.living_room_bulbs', 'color')['x'] }},
-          {{ state_attr('light.living_room_bulbs', 'color')['y'] }})
         turn_on:
           service: light.turn_on
           data:
