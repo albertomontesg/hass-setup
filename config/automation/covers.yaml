@@ -1,0 +1,55 @@
+---
+- alias: Balcony Close Shades
+  id: balcony_close_shades
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.someone_home
+      to: "on"
+    - platform: numeric_state
+      entity_id: sun.sun
+      attribute: elevation
+      below: 36.0
+  condition:
+    # Make sure all trigger states are met.
+    - alias: Someone Home
+      condition: state
+      entity_id: binary_sensor.someone_home
+      state: "on"
+    - alias: Sun Position
+      condition: numeric_state
+      entity_id: sun.sun
+      attribute: elevation
+      below: 36.0
+      above: 5.0
+    # Make sure to be in the afternoon to avoid actioning in the morning.
+    - alias: Afternoon
+      condition: time
+      after: "12:00:00"
+    # Additional condition to perform it only when sunny outside.
+    - alias: Sun Shining
+      condition: state
+      entity_id: weather.weather
+      state:
+        - sunny
+        - partlycloudy
+  action:
+    - alias: Set Cover Position
+      service: cover.set_cover_position
+      target:
+        entity_id: cover.balcony_shades
+      data:
+        position: 30
+- alias: Balcony Open Shades
+  id: balcony_open_shades
+  trigger:
+    - platform: numeric_state
+      entity_id: sun.sun
+      attribute: elevation
+      below: 5.0
+  action:
+    - alias: Set Cover Position
+      service: cover.set_cover_position
+      target:
+        entity_id: cover.balcony_shades
+      data:
+        position: 100

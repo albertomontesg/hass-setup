@@ -6,6 +6,15 @@
       entity_id: sun.sun
       attribute: elevation
       above: -6.0
+    - platform: time
+      at: "07:30:00"
+  condition:
+    - condition: numeric_state
+      entity_id: sun.sun
+      attribute: elevation
+      above: -6.0
+    - condition: time
+      after: "07:30:00"
   action:
     - alias: Activate Scene
       service: scene.turn_on
