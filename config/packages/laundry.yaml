@@ -1,14 +1,16 @@
 ---
 template:
-  binary_sensor:
-    - name: Washing Machine Running
-      state: "{{ states('sensor.washmachine_power') | int > 4 }}"
-      delay_off: "00:01:00"
-      icon: "mdi:washing-machine"
-      device_class: running
+  - binary_sensor:
+      - name: Washing Machine Running
+        state: "{{ states('sensor.washmachine_power') | int > 4 }}"
+        delay_on: "00:01:00"
+        delay_off: "00:01:00"
+        icon: "mdi:washing-machine"
+        device_class: running
 
-    - name: Dryer Running
-      state: "{{ states('sensor.dryer_power') | int > 4 }}"
-      delay_off: "00:01:00"
-      icon: "mdi:tumble-dryer"
-      device_class: running
+      - name: Dryer Running
+        state: "{{ states('sensor.dryer_power') | int > 4 }}"
+        delay_on: "00:01:00"
+        delay_off: "00:01:00"
+        icon: "mdi:tumble-dryer"
+        device_class: running
