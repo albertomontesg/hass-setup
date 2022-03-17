@@ -1,0 +1,54 @@
+---
+- alias: Washing Machine Finished Notify
+  id: washing_machine_finished_notify
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.washing_machine_running
+      from: "on"
+      to: "off"
+  action:
+    - choose:
+        - alias: "If nobody at home wait until they arrive"
+          conditions:
+            - condition: state
+              entity_id: binary_sensor.someone_home
+              state: "off"
+          sequence:
+            - alias: "Wait for someone to arrive home"
+              wait_for_trigger:
+                - platform: state
+                  entity_id: binary_sensor.someone_home
+                  from: "off"
+                  to: "on"
+                  for: "00:01:00"
+    - alias: Notify
+      service: notify.mobile_app_both_iphones
+      data:
+        message: "Washing Machine Finished"
+
+- alias: Dryer Finished Notify
+  id: dryer_finished_notify
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.dryer_running
+      from: "on"
+      to: "off"
+  action:
+    - choose:
+        - alias: "If nobody at home wait until they arrive"
+          conditions:
+            - condition: state
+              entity_id: binary_sensor.someone_home
+              state: "off"
+          sequence:
+            - alias: "Wait for someone to arrive home"
+              wait_for_trigger:
+                - platform: state
+                  entity_id: binary_sensor.someone_home
+                  from: "off"
+                  to: "on"
+                  for: "00:01:00"
+    - alias: Notify
+      service: notify.mobile_app_both_iphones
+      data:
+        message: "Dryer Finished"
