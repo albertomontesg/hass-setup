@@ -20,7 +20,6 @@ home-assistant.log
 zigbee.db
 **/tts/
 **/themes/
-google_calendars.yaml
 
 # Zigbee2mqtt
 **/log/

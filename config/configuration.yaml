@@ -145,10 +145,6 @@ google_assistant:
 mobile_app:
 
 panel_iframe:
-  configurator:
-    title: Configurator
-    icon: mdi:code-braces
-    url: ///config.hass.c6.montesg.xyz/
   zigbee2mqttassistant:
     title: Zigbee2MQTT Assistant
     icon: mdi:router-wireless
@@ -185,10 +181,6 @@ logger:
 
 # System Health
 system_health:
-
-google:
-  client_id: !secret google_calendar_client_id
-  client_secret: !secret google_calendar_client_secret
 
 wake_on_lan:
 

@@ -18,11 +18,3 @@ sensor:
 
 # Track the sun
 sun:
-
-template:
-  - sensor:
-      - name: Wind Speed
-        state: "{{ state_attr('weather.weather', 'wind_speed') }}"
-        unit_of_measurement: "m/s"
-        state_class: measurement
-        icon: "mdi:weather-windy"
