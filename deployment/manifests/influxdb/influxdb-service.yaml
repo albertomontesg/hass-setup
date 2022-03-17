@@ -43,4 +43,3 @@ spec:
     options:
       name: mutual-auth
       namespace: traefik
-

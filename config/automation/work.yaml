@@ -19,7 +19,7 @@
       service: scene.apply
       data:
         entities:
-          light.office_wall_lines: on
+          light.office_wall_lines: "on"
           media_player.office:
             state: playing
             volume_level: 0.1
@@ -40,7 +40,7 @@
       service: scene.apply
       data:
         entities:
-          light.office_wall_lines: off
+          light.office_wall_lines: "off"
           media_player.office: paused
 
 - alias: Work Pause Music on Meeting

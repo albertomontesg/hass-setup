@@ -1,3 +1,4 @@
+---
 substitutions:
   name: "bed-led-strip"
   friendly_name: "Bed LED Strip"

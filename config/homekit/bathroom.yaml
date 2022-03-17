@@ -5,3 +5,5 @@
 - light.bathroom_mirror
 - light.ensuite_bathroom
 - light.ensuite_bathroom_mirror
+- sensor.washing_machine_running
+- sensor.dryer_running

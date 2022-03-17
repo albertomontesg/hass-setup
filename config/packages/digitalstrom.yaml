@@ -115,7 +115,7 @@ cover:
     command_topic: "digitalstrom/devices/Living_Room_Cover/shadePositionOutside/command"
     payload_close: "0.00"
     payload_open: "100.00"
-    payload_stop: null
+    payload_stop: "STOP"
     position_topic: "digitalstrom/devices/Living_Room_Cover/shadePositionOutside/state"
     set_position_topic: "digitalstrom/devices/Living_Room_Cover/shadePositionOutside/command"
     position_template: "{{ value | int }}"
@@ -131,7 +131,7 @@ cover:
     command_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadePositionOutside/command"
     payload_close: "0.00"
     payload_open: "100.00"
-    payload_stop: null
+    payload_stop: "STOP"
     position_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadePositionOutside/state"
     set_position_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadePositionOutside/command"
     position_template: "{{ value | int }}"
@@ -147,7 +147,7 @@ cover:
     command_topic: "digitalstrom/devices/Kids_Room_Cover/shadePositionOutside/command"
     payload_close: "0.00"
     payload_open: "100.00"
-    payload_stop: null
+    payload_stop: "STOP"
     position_topic: "digitalstrom/devices/Kids_Room_Cover/shadePositionOutside/state"
     set_position_topic: "digitalstrom/devices/Kids_Room_Cover/shadePositionOutside/command"
     position_template: "{{ value | int }}"
@@ -163,7 +163,7 @@ cover:
     command_topic: "digitalstrom/devices/Office_Cover/shadePositionOutside/command"
     payload_close: "0.00"
     payload_open: "100.00"
-    payload_stop: null
+    payload_stop: "STOP"
     position_topic: "digitalstrom/devices/Office_Cover/shadePositionOutside/state"
     set_position_topic: "digitalstrom/devices/Office_Cover/shadePositionOutside/command"
     position_template: "{{ value | int }}"
@@ -179,7 +179,7 @@ cover:
     command_topic: "digitalstrom/devices/Dining_Room_Cover/shadePositionOutside/command"
     payload_close: "0.00"
     payload_open: "100.00"
-    payload_stop: null
+    payload_stop: "STOP"
     position_topic: "digitalstrom/devices/Dining_Room_Cover/shadePositionOutside/state"
     set_position_topic: "digitalstrom/devices/Dining_Room_Cover/shadePositionOutside/command"
     position_template: "{{ value | int }}"

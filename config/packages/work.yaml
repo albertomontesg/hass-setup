@@ -24,7 +24,7 @@ template:
         device_class: occupancy
       - name: Alberto Working in Office
         state: >-
-          {{ 
+          {{
             (states('sensor.macbook_pro_google_displays') | int > 1)
             and
             (

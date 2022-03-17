@@ -45,17 +45,17 @@ scene:
   - name: Night
     icon: "mdi:moon-waning-crescent"
     entities:
-      light.bedroom: off
-      light.bed_led_strip: on
-      light.dining_room: off
-      light.hallway: off
-      light.kitchen: off
-      light.kitchen_focus: off
-      light.living_room: off
-      light.office: off
-      light.office_wall_lines: off
-      light.kid_s_room: off
-      media_player.living_room_tv: off
+      light.bedroom: "off"
+      light.bed_led_strip: "on"
+      light.dining_room: "off"
+      light.hallway: "off"
+      light.kitchen: "off"
+      light.kitchen_focus: "off"
+      light.living_room: "off"
+      light.office: "off"
+      light.office_wall_lines: "off"
+      light.kid_s_room: "off"
+      media_player.living_room_tv: "off"
 
   - name: Gaming
     icon: "mdi:google-controller"

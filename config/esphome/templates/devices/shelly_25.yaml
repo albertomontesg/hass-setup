@@ -1,3 +1,4 @@
+---
 esphome:
   name: ${name}
   platform: ESP8266
@@ -52,7 +53,7 @@ binary_sensor:
 status_led:
   pin:
     number: GPIO0
-    inverted: yes
+    inverted: true
 
 button:
   - platform: restart

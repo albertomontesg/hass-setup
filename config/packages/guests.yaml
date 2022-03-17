@@ -8,11 +8,11 @@ template:
   - binary_sensor:
       - name: Guests Presence
         state: >-
-          {% set guests_connected = states.device_tracker 
-            | selectattr('attributes.is_guest', 'eq', True) 
+          {% set guests_connected = states.device_tracker
+            | selectattr('attributes.is_guest', 'eq', True)
             | list
             | count > 0 %}
-          {{ 
+          {{
             is_state('input_boolean.guests_visiting', 'on') or
             guests_connected
           }}
