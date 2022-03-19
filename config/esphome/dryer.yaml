@@ -5,8 +5,9 @@ substitutions:
   friendly_name: Dryer
   device_ip: 10.4.2.62
   max_temp: "85.0"
-# Check for board device. This config is for 1PM and not Pro 1PM.
-# packages:
-#   common: !include templates/common.yaml
-#   device: !include templates/devices/shelly_1pm.yaml
-#   switch: !include templates/switch/shelly_1pm.yaml
+
+# FIXME: Check for board device. This config is for 1PM and not Pro 1PM.
+packages:
+  common: !include templates/common.yaml
+  device: !include templates/devices/shelly_1pm.yaml
+  switch: !include templates/switch/shelly_1pm.yaml
