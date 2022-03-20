@@ -51,6 +51,7 @@ cover:
   - platform: time_based
     name: ${friendly_name}
     id: shades
+    device_class: shade
     open_action:
       - switch.turn_on: open_relay
     open_duration: 28s

@@ -3,6 +3,7 @@ scene:
   - name: Daylight
     icon: "mdi:white-balance-sunny"
     entities:
+      light.bed_led_strip: "off"
       cover.bedroom:
         state: closed
         current_position: 0
