@@ -1,8 +1,7 @@
 ---
 switch:
-  - platform: gpio
+  - platform: output
+    id: relay
     name: ${friendly_name}
-    pin: GPIO15
-    id: shelly_relay
+    output: relay_output
     icon: "mdi:electric-switch"
-    restore_mode: RESTORE_DEFAULT_ON

@@ -8,6 +8,6 @@ substitutions:
 
 # FIXME: Check for board device. This config is for 1PM and not Pro 1PM.
 packages:
-  common: !include templates/common.yaml
-  device: !include templates/devices/shelly_1pm.yaml
+  common: !include templates/common_lite.yaml
+  device: !include templates/devices/shelly_plus_1pm.yaml
   switch: !include templates/switch/shelly_1pm.yaml
