@@ -1,3 +1,4 @@
 ---
 - light.kid_s_room
 - cover.kid_s_room
+- binary_sensor.kids_room_occupancy

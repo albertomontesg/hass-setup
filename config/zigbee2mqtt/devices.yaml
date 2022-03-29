@@ -88,6 +88,7 @@
   friendly_name: living_room_bulb_5
   homeassistant: null
 
+# Occupancy Sensors
 "0x00158d0006a0cd1e":
   friendly_name: living_room_occupancy_sensor
   occupancy_timeout: 600
@@ -101,6 +102,46 @@
     battery:
       name: Living Room Occupancy Sensor Battery
 
+"0x00158d0006a155e9":
+  friendly_name: dining_room_occupancy_sensor
+  occupancy_timeout: 600
+  homeassistant:
+    device:
+      name: Dining Room Occupancy Sensor
+    illuminance_lux:
+      name: Dining Room Illuminance Lux
+    occupancy:
+      name: Dining Room Occupancy
+    battery:
+      name: Dining Room Occupancy Sensor Battery
+
+"0x00158d0006a1590f":
+  friendly_name: bedroom_occupancy_sensor
+  occupancy_timeout: 600
+  homeassistant:
+    device:
+      name: Bedroom Occupancy Sensor
+    illuminance_lux:
+      name: Bedroom Illuminance Lux
+    occupancy:
+      name: Bedroom Occupancy
+    battery:
+      name: Bedroom Occupancy Sensor Battery
+
+"0x00158d00068a31f7":
+  friendly_name: kids_room_occupancy_sensor
+  occupancy_timeout: 600
+  homeassistant:
+    device:
+      name: Kids Room Occupancy Sensor
+    illuminance_lux:
+      name: Kids Room Illuminance Lux
+    occupancy:
+      name: Kids Room Occupancy
+    battery:
+      name: Kids Room Occupancy Sensor Battery
+
+# Repeater
 "0xbc33acfffe2b49c5":
   friendly_name: kitchen_repeater
   homeassistant:
@@ -164,7 +205,7 @@
       name: DNA Lamp Power on Behavior
 
 "0xcc86ecfffe951e11":
-  friendly_name: plug_switch_1
+  friendly_name: plug_switch_1_unused
   homeassistant:
     device:
       name: Plug Switch 1

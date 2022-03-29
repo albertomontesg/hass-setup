@@ -8,3 +8,4 @@
 - media_player.bedroom_tv
 - script.vacuum_bedroom
 - cover.bedroom
+- binary_sensor.bedroom_occupancy

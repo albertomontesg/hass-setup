@@ -3,3 +3,4 @@
 - vacuum.xiaomi_vacuum_cleaner
 - input_boolean.vacuum_clean_when_leave_home
 - cover.dining_room
+- binary_sensor.dining_room_occupancy

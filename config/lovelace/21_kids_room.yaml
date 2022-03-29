@@ -27,3 +27,9 @@ cards:
         show_header_toggle: false
         entities:
           - cover.kid_s_room
+  - type: vertical-stack
+    title: Presence
+    cards:
+      - type: glance
+        entities:
+          - binary_sensor.kids_room_occupancy
