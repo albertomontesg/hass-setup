@@ -21,10 +21,23 @@
                   from: "off"
                   to: "on"
                   for: "00:01:00"
-    - alias: Notify
-      service: notify.mobile_app_both_iphones
-      data:
-        message: "Washing Machine Finished"
+    - choose:
+        - alias: "Dryer still running"
+          conditions:
+            - condition: state
+              entity_id: binary_sensor.dryer_running
+              state: "on"
+          sequence:
+            - alias: Notify
+              service: notify.mobile_app_both_iphones
+              data:
+                title: "Washing Machine Finished"
+                message: "But dryer still running. Waiting..."
+      default:
+        - alias: Notify
+          service: notify.mobile_app_both_iphones
+          data:
+            title: "Washing Machine Finished"
 
 - alias: Dryer Finished Notify
   id: dryer_finished_notify
@@ -51,4 +64,4 @@
     - alias: Notify
       service: notify.mobile_app_both_iphones
       data:
-        message: "Dryer Finished"
+        title: "Dryer Finished"
