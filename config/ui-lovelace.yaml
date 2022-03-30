@@ -11,4 +11,5 @@ views:
   - !include lovelace/50_car.yaml
   - !include lovelace/60_guests.yaml
   - !include lovelace/81_cleaning.yaml
+  - !include lovelace/82_security.yaml
   - !include lovelace/90_devices_config.yaml

@@ -1,0 +1,24 @@
+---
+title: Security
+icon: mdi:shield-lock
+panel: false
+path: security
+cards:
+  - type: vertical-stack
+    title: Alarm
+    cards:
+      - type: alarm-panel
+        name: House Alarm
+        entity: alarm_control_panel.alarm
+  - type: vertical-stack
+    title: Motion Sensors
+    cards:
+      - type: glance
+        entities:
+          - binary_sensor.motion_at_home
+      - type: custom:auto-entities
+        card:
+          type: glance
+        filter:
+          include:
+            - entity_id: binary_sensor.*_occupancy
