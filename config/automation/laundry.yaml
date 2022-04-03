@@ -37,7 +37,7 @@
         - alias: Notify
           service: notify.mobile_app_both_iphones
           data:
-            title: "Washing Machine Finished"
+            message: "Washing Machine Finished"
 
 - alias: Dryer Finished Notify
   id: dryer_finished_notify
@@ -64,4 +64,4 @@
     - alias: Notify
       service: notify.mobile_app_both_iphones
       data:
-        title: "Dryer Finished"
+        message: "Dryer Finished"
