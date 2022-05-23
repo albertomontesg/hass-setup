@@ -1,5 +1,6 @@
 ---
 - alias: Notify Leaving Basketball Practice
+  id: notify_leaving_basketball_practice
   trigger:
     - platform: zone
       entity_id: person.alberto
@@ -14,9 +15,26 @@
       entity_id: binary_sensor.someone_home
       state: 'on'
   action:
-    - service: script.sonos_say
+    - alias: Notify Judith
+      service: notify.mobile_app_iphone_judith
       data:
-        sonos_entity: media_player.living_room
-        volume: 0.5
-        message: 'Alberto left training and is coming home.'
-        delay: '00:00:00'
+        title: "Alberto just left basketball practice!"
+        message: "He will be home soon."
+
+- alias: Notify Leaving Padel
+  id: notify_leaving_padel
+  trigger:
+    - platform: zone
+      entity_id: person.alberto
+      zone: zone.padel
+      event: leave
+  condition:
+    - condition: state
+      entity_id: binary_sensor.someone_home
+      state: 'on'
+  action:
+    - alias: Notify Judith
+      service: notify.mobile_app_iphone_judith
+      data:
+        title: "Alberto just left padel!"
+        message: "He will be home soon."

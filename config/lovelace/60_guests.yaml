@@ -26,3 +26,5 @@ cards:
       - type: iframe
         url: "https://app.parkon.ch/Portal/60oxch"
         aspect_ratio: "2:3"
+      - type: markdown
+        content: "Our car's plate: **ZH 497695**"

@@ -5,9 +5,8 @@ scene:
     entities:
       light.bed_led_strip: "off"
       cover.bedroom:
-        state: closed
-        current_position: 0
-        current_tilt_position: 100
+        state: open
+        current_position: 100
       cover.dining_room:
         state: open
         current_position: 100
@@ -27,18 +26,6 @@ scene:
         state: closed
         current_position: 0
         current_tilt_position: 0
-      cover.dining_room:
-        state: closed
-        current_position: 20
-        current_tilt_position: 100
-      cover.office:
-        state: closed
-        current_position: 0
-        current_tilt_position: 100
-      cover.living_room:
-        state: closed
-        current_position: 10
-        current_tilt_position: 100
       cover.kid_s_room:
         state: closed
         current_position: 0

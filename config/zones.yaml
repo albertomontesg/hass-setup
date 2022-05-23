@@ -45,3 +45,15 @@
   longitude: 8.4995948150754
   radius: 80
   icon: mdi:basketball
+
+- name: Kita
+  latitude: 47.42229903393202
+  longitude: 8.557671255402965
+  radius: 30
+  icon: mdi:baby-carriage
+
+- name: Padel
+  latitude: 47.401717120737466
+  longitude: 8.44644627897651
+  radius: 120
+  icon: mdi:tennis
