@@ -40,7 +40,7 @@ spec:
       containers:
         - name: digitalstrom
           image: gaetancollaud/digitalstrom-mqtt:latest
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
                 name: digitalstrom-config
