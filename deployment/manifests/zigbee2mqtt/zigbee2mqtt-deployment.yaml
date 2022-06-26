@@ -36,7 +36,7 @@ spec:
               name: usb-sniffer
       containers:
         - name: zigbee2mqtt
-          image: koenkk/zigbee2mqtt:1.24.0
+          image: koenkk/zigbee2mqtt:1.25.2
           imagePullPolicy: Always
           securityContext:
             privileged: true

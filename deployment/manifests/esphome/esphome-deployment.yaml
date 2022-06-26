@@ -28,7 +28,7 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: esphome
-          image: "esphome/esphome-armv7:2022.2.5"
+          image: "esphome/esphome-armv7:2022.6.2"
           imagePullPolicy: Always
           command:
             - "esphome"
