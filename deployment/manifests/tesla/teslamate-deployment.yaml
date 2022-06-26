@@ -75,3 +75,5 @@ spec:
         - name: teslamate-import
           persistentVolumeClaim:
             claimName: teslamate-pvc
+      nodeSelector:
+        beta.kubernetes.io/arch: arm64
