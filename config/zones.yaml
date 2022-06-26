@@ -4,11 +4,11 @@
   longitude: 8.562337074545214
   radius: 30
 
-- name: Garage
-  latitude: 47.42150063745285
-  longitude: 8.561688173795119
-  radius: 25
-  icon: mdi:garage-variant
+# - name: Garage
+#   latitude: 47.42150063745285
+#   longitude: 8.561688173795119
+#   radius: 25
+#   icon: mdi:garage-variant
 
 - name: Google Hurliman
   latitude: 47.365102

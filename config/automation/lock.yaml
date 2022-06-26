@@ -1,0 +1,57 @@
+---
+- alias: Lock When Leaving Home
+  id: lock_when_leaving_home
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.someone_home
+      from: "on"
+      to: "off"
+  action:
+    - choose:
+        - alias: Check if we have guests
+          conditions:
+            - condition: state
+              entity_id: binary_sensor.guests_presence
+              state: "on"
+          sequence:
+            - alias: "Define Variables"
+              variables:
+                # Including an id in the action allows us to identify this script run
+                # and not accidentally trigger for other notification actions
+                action_lock: "{{ 'LOCK_' ~ context.id }}"
+            - alias: "Send a notification"
+              service: notify.mobile_app_both_iphones
+              data:
+                title: Everybody left home.
+                message: Do you want to lock the door?
+                data:
+                  actions:
+                    - action: "{{ action_lock }}"
+                      title: "Yes"
+            - alias: "Wait for a response"
+              wait_for_trigger:
+                - platform: event
+                  event_type: mobile_app_notification_action
+                  event_data:
+                    # waiting for the specific action avoids accidentally continuing
+                    # for another script/automation's notification action
+                    action: "{{ action_lock }}"
+              timeout:
+                minutes: 5
+              continue_on_timeout: false
+            - alias: "Perform the action"
+              service: lock.lock
+              data:
+                entity_id: lock.entrance_door
+
+      default:
+        - alias: Lock Door
+          service: lock.lock
+          data:
+            entity_id: lock.entrance_door
+        - alias: "Send a notification"
+          service: notify.mobile_app_both_iphones
+          data:
+            title: Everybody left home.
+            message: Entrance door has been locked.

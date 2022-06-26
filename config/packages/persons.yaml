@@ -4,17 +4,15 @@ person:
     id: alberto
     user_id: 0f80b3bda7f948a8b420443b50c60a98
     device_trackers:
-      - device_tracker.iphone_alberto_2      # iPhone Unifi Integration
-      - device_tracker.iphone_alberto_3      # iPhone Unifi Integration
-      - device_tracker.iphone_alberto_4      # iPhone Unifi Integration
-      - device_tracker.apple_watch_alberto   # Apple Watch Unifi Integration
       - device_tracker.iphone_alberto        # iPhone iOS App
+      - device_tracker.iphone_alberto_2      # iPhone Unifi Integration
+      - device_tracker.apple_watch_alberto   # Apple Watch Unifi Integration
   - name: Judith
     id: judith
     user_id: dc7b63069c994d5b9acae23ea7e93e86
     device_trackers:
-      - device_tracker.iphone_judith_2      # iPhone Unifi Integration
       - device_tracker.iphone_judith        # iPhone iOS App
+      - device_tracker.iphone_judith_2      # iPhone Unifi Integration
 
 binary_sensor:
   - platform: template

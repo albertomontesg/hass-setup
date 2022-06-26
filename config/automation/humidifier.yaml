@@ -1,0 +1,13 @@
+---
+- alias: Notify When Humidifier Tank Empty
+  id: notify_when_humidifier_tank_empty
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.humidifier_out_of_water
+      to: "on"
+  action:
+    - alias: "Send a notification"
+      service: notify.mobile_app_both_iphones
+      data:
+        message: Humidifier water tank is empty!
