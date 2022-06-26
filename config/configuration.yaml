@@ -183,3 +183,5 @@ wake_on_lan:
 prometheus:
 
 energy:
+
+media_source:

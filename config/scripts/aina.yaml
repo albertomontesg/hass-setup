@@ -1,0 +1,34 @@
+---
+start_white_noise:
+  alias: Start White Noise For Aina
+  variables:
+    target_player: media_player.main_bedroom
+    target_volume: 0.25
+    # target_source: "ure Motivation, Sleepy Koala Music 😴 Bedtime Relaxing White Noise and Calming Piano, Today’s Easy Hits"
+  sequence:
+    # - service: media_player.select_source
+    #   data_template:
+    #     entity_id: "{{ target_player }}"
+    #     source: "{{ target_source }}"
+    - service: media_player.volume_set
+      data_template:
+        entity_id: "{{ target_player }}"
+        volume_level: "{{ target_volume }}"
+    - service: media_player.media_play
+      data_template:
+        entity_id: "{{ target_player }}"
+
+stop_white_noise:
+  alias: Stop White Noise For Aina
+  variables:
+    target_player: media_player.main_bedroom
+  sequence:
+    - service: script.fade_volume
+      data_template:
+        target_player: "{{ target_player }}"
+        target_volume: 0.0
+        duration: 120
+        curve: linear
+    - service: media_player.media_pause
+      data_template:
+        entity_id: "{{ target_player }}"

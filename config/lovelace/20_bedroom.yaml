@@ -16,6 +16,11 @@ cards:
         hide:
           power: true
           icon: true
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - script.start_white_noise
+          - script.stop_white_noise
   - type: vertical-stack
     title: Lights
     cards:
