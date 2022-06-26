@@ -45,6 +45,7 @@ cards:
           include:
             - entity_id: sensor.*_sensor_battery
             - entity_id: sensor.*_switch_battery
+            - entity_id: sensor.*_battery
   - type: vertical-stack
     title: Device Status
     cards:
@@ -54,3 +55,13 @@ cards:
         filter:
           include:
             - entity_id: binary_sensor.*_status
+  - type: vertical-stack
+    title: Devices Connectivity
+    cards:
+      - type: custom:auto-entities
+        card:
+          type: entities
+        filter:
+          include:
+            - entity_id: sensor.*_wifi_signal_strength
+            - entity_id: sensor.*_linkquality

@@ -42,9 +42,6 @@ http:
     # Cluster Network where Traefik proxy is running.
     - 10.0.0.0/8
 
-# Checks for available updates
-updater:
-
 # Discover some devices automatically
 discovery:
   ignore:
@@ -159,7 +156,6 @@ mqtt:
   port: 1883
   username: !secret mqtt_username
   password: !secret mqtt_password
-  discovery: true
   # Required for zigbee2mqtt
   birth_message:
     topic: "hass/status"

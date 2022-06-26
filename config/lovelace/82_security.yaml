@@ -4,6 +4,20 @@ icon: mdi:shield-lock
 panel: false
 path: security
 cards:
+  - type: horizontal-stack
+    title: Locks
+    cards:
+      - type: custom:button-card
+        entity: lock.entrance_door
+        tap_action:
+          action: more-info
+      - type: custom:button-card
+        entity: lock.street_door
+        tap_action:
+          action: call-service
+          service: lock.unlock
+          service_data:
+            entity_id: lock.street_door
   - type: vertical-stack
     title: Alarm
     cards:

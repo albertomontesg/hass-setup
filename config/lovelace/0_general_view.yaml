@@ -78,6 +78,8 @@ cards:
           - light.living_room
           - light.dna_lamp
           - type: divider
+          - light.bathroom
+          - type: divider
           - light.kitchen
           - light.dining_room
           - type: divider
@@ -89,8 +91,6 @@ cards:
           - light.office
           - type: divider
           - light.kid_s_room
-          - type: divider
-          - light.bathroom
   - type: vertical-stack
     title: Covers
     cards:
@@ -155,3 +155,7 @@ cards:
           service: scene.turn_on
           service_data:
             entity_id: scene.gaming
+      - type: custom:button-card
+        entity: lock.entrance_door
+        tap_action:
+          action: more-info

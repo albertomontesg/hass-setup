@@ -1,3 +1,5 @@
 ---
 vacuum.xiaomi_vacuum_cleaner:
   name: Vacuum Robot
+humidifier.main_bedroom:
+  linked_humidity_sensor: sensor.humidifier_current_humidity
