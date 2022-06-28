@@ -34,6 +34,7 @@ scene:
         current_position: 0
         current_tilt_position: 0
       light.bed_led_strip: "on"
+      light.kid_s_room: "on"
       script.start_white_noise: "on"
       humidifier.main_bedroom: "on"
 

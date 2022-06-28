@@ -7,6 +7,11 @@
       entity_id: binary_sensor.someone_home
       from: "on"
       to: "off"
+  condition:
+    - alias: In unlock state
+      condition: state
+      entity_id: lock.entrance_door
+      state: unlock
   action:
     - choose:
         - alias: Check if we have guests

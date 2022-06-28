@@ -28,9 +28,6 @@ cards:
         entity: media_player.living_room_tv
         artwork: full-cover
       - type: custom:mini-media-player
-        entity: media_player.bedroom_tv
-        artwork: full-cover
-      - type: custom:mini-media-player
         entity: media_player.living_room
         name: Sonos Speakers
         artwork: cover
@@ -43,8 +40,8 @@ cards:
           entities:
             - entity_id: media_player.living_room
               name: Living Room
-            - entity_id: media_player.bedroom
-              name: Bedroom
+            - entity_id: media_player.dining_room
+              name: Dinning Room
             - entity_id: media_player.office
               name: Office
 
