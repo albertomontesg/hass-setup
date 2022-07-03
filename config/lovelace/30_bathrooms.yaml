@@ -36,5 +36,11 @@ cards:
         entities:
           - name: Washing Machine
             entity: binary_sensor.washing_machine_running
+            tap_action:
+              action: navigate
+              navigation_path: "/config/devices/device/647b028956fd860b6ab3835f5f5fcf42"
           - name: Dryer
             entity: binary_sensor.dryer_running
+            tap_action:
+              action: navigate
+              navigation_path: "/config/devices/device/0cedba055e4825631a1b6ab8692c38b3"
