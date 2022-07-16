@@ -1,0 +1,23 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app: home-assistant
+    component: core
+  name: home-assistant
+  namespace: monitoring
+spec:
+  jobLabel: app
+  selector:
+    matchLabels:
+      app: home-assistant
+      component: core
+  namespaceSelector:
+    matchNames:
+      - home-automation
+  endpoints:
+    - port: api
+      interval: 30s
+      path: /api/prometheus
+      bearerTokenFile: /etc/prometheus/secrets/hass-token/token
