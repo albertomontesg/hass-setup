@@ -19,8 +19,7 @@ cards:
       - type: entities
         show_header_toggle: false
         entities:
-          - script.start_white_noise
-          - script.stop_white_noise
+          - switch.white_noise_music
   - type: vertical-stack
     title: Lights
     cards:

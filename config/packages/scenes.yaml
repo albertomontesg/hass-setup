@@ -35,7 +35,7 @@ scene:
         current_tilt_position: 0
       light.bed_led_strip: "on"
       light.kid_s_room: "on"
-      script.start_white_noise: "on"
+      switch.white_noise_music: "on"
       humidifier.main_bedroom: "on"
 
   - name: Night
@@ -53,7 +53,7 @@ scene:
       light.kid_s_room: "off"
       media_player.living_room_tv: "off"
       lock.entrance_door: locked
-      script.stop_white_noise: "on"
+      switch.white_noise_music: "off"
 
   - name: Gaming
     icon: "mdi:google-controller"

@@ -16,7 +16,7 @@ fade_volume:
       description: Volume the media play will be at the end of the fade duration.
       required: true
       default: 0.5
-      example: '0.5'
+      example: "0.5"
       selector:
         number:
           max: 1
@@ -28,7 +28,7 @@ fade_volume:
       description: Length of time in seconds the fade should take.
       required: true
       default: 5
-      example: '5'
+      example: "5"
       selector:
         number:
           mode: box
@@ -44,34 +44,36 @@ fade_volume:
       selector:
         select:
           options:
-          - logarithmic
-          - bezier
-          - linear
+            - logarithmic
+            - bezier
+            - linear
   variables:
     steps_per_second: 2
-    total_steps: '{{ (steps_per_second * duration) | int(0) }}'
-    start_volume: '{{ state_attr(target_player, ''volume_level'') | float(0) }}'
-    start_diff: '{{ (target_volume - start_volume) | float(0) }}'
+    total_steps: "{{ (steps_per_second * duration) | int(0) }}"
+    start_volume: "{{ state_attr(target_player, 'volume_level') | float(0) }}"
+    start_diff: "{{ (target_volume - start_volume) | float(0) }}"
   sequence:
-  - repeat:
-      while:
-      - condition: template
-        value_template: '{{ repeat.index < total_steps }}'
-      - condition: template
-        value_template: '{{ ((state_attr(target_player, "volume_level") - target_volume)
-          | abs) > 0.001 }}'
-      sequence:
-      - service: media_player.volume_set
-        data_template:
-          entity_id: '{{ target_player }}'
-          volume_level: "{% set t = repeat.index / total_steps %} {% if curve == 'logarithmic'\
-            \ %}\n  {{ (start_volume + (t / (1 + (1 - t))) * start_diff) | float(0)\
-            \ }}\n{% elif curve == 'bezier' %}\n  {{ (start_volume + (t * t * (3 -\
-            \ 2 * t)) * start_diff) | float(0) }}\n{% else %}\n  {{ (start_volume\
-            \ + t * start_diff) | float(0) }}\n{% endif %}\n"
-      - delay: '00:00:00.1'
-  - service: media_player.volume_set
-    data_template:
-      entity_id: '{{ target_player }}'
-      volume_level: '{{ target_volume }}'
+    - repeat:
+        while:
+          - condition: template
+            value_template: "{{ repeat.index < total_steps }}"
+          - condition: template
+            value_template:
+              '{{ ((state_attr(target_player, "volume_level") - target_volume)
+              | abs) > 0.001 }}'
+        sequence:
+          - service: media_player.volume_set
+            data_template:
+              entity_id: "{{ target_player }}"
+              volume_level:
+                "{% set t = repeat.index / total_steps %} {% if curve == 'logarithmic'\
+                \ %}\n  {{ (start_volume + (t / (1 + (1 - t))) * start_diff) | float(0)\
+                \ }}\n{% elif curve == 'bezier' %}\n  {{ (start_volume + (t * t * (3 -\
+                \ 2 * t)) * start_diff) | float(0) }}\n{% else %}\n  {{ (start_volume\
+                \ + t * start_diff) | float(0) }}\n{% endif %}\n"
+          - delay: "00:00:00.5"
+    - service: media_player.volume_set
+      data_template:
+        entity_id: "{{ target_player }}"
+        volume_level: "{{ target_volume }}"
   icon: mdi:tune-vertical

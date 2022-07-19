@@ -9,3 +9,4 @@
 - script.vacuum_bedroom
 - cover.bedroom
 - binary_sensor.bedroom_occupancy
+- switch.white_noise_music

@@ -1,0 +1,16 @@
+---
+switch:
+  - platform: template
+    switches:
+      white_noise_music:
+        friendly_name: "White Noise Music"
+        turn_on:
+          service: script.start_white_noise
+        turn_off:
+          service: script.stop_white_noise
+        icon_template: >-
+          {% if is_state('media_player.main_bedroom', 'playing') %}
+            mdi:music
+          {% else %}
+            mdi:music-off
+          {% endif %}
