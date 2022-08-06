@@ -33,7 +33,7 @@ scene:
         state: closed
         current_position: 0
         current_tilt_position: 0
-      light.bed_led_strip: "on"
+      # light.bed_led_strip: "on"
       light.kid_s_room: "on"
       switch.white_noise_music: "on"
       humidifier.main_bedroom: "on"
