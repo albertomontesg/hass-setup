@@ -21,6 +21,7 @@ data:
   passwd: |
     mosquitto:$6$Qcx7PZCAS3CmVq0O$1Vqht/m00W1DauUYjdx5slQyfLT8lqhQAgHCJcyrz+dqhBH5uCaOELMxO9FXd2uEOhRf+rBGzKPCTBMwKxIrxw==
 
+
 # Password generated with mosquitto_passwd command.
 ---
 apiVersion: apps/v1
@@ -68,7 +69,6 @@ spec:
               cpu: 100m
             limits:
               memory: "32Mi"
-              cpu: 100m
       volumes:
         - name: mqtt-data
           persistentVolumeClaim:
@@ -76,6 +76,8 @@ spec:
         - name: mqtt-config
           configMap:
             name: mqtt-config
+      nodeSelector:
+        beta.kubernetes.io/arch: arm64
 ---
 apiVersion: v1
 kind: Service

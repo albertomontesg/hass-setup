@@ -70,7 +70,6 @@ spec:
               cpu: 100m
             limits:
               memory: "32Mi"
-              cpu: 200m
       volumes:
         - name: config
           persistentVolumeClaim:
