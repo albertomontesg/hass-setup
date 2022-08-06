@@ -23,6 +23,8 @@ homeassistant:
       trusted_networks:
         - 192.168.1.0/24
 
+homeassistant_alerts:
+
 # Enables the frontend
 frontend:
   themes: !include_dir_merge_named themes
