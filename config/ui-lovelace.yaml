@@ -13,3 +13,4 @@ views:
   - !include lovelace/81_cleaning.yaml
   - !include lovelace/82_security.yaml
   - !include lovelace/90_devices_config.yaml
+  - !include lovelace/99_info.yaml

@@ -19,6 +19,11 @@ cards:
     cards:
       - type: picture
         image: "/local/images/wifi_qr_code.png"
+      - type: markdown
+        content: >-
+          **WiFi**: `hertz_guest`
+
+          **Password**: `sUYWtQs2XXIBoi1wehKl`
 
   - type: vertical-stack
     title: Visitors Parking

@@ -1,0 +1,101 @@
+---
+path: info
+title: General Information
+panel: false
+icon: "mdi:information"
+cards:
+  - type: vertical-stack
+    title: Echo the Dog
+    cards:
+      - type: markdown
+        content: >-
+          ### Food
+
+          There is more in the the kithcen balcony
+
+          Schedule:
+
+          * One dose at breakfast ~7h (can be later if you are still sleeping)
+
+          * The second one around 19h
+
+
+          One dose is filling the plastic cup until the green line.
+
+          ### Walk
+
+          If he pushes it usually means that he wants to poo. Try to find green areas for him to poo. It may take him some time.
+
+          There are red bags for the poo, at almost every bin in the street.
+
+          If you bring echo to any excursion, take some water for him in the water dispenser that you can find in Echo's closet.
+
+          ### Character
+
+          He is quite independent and sometimes go at its own at home. Let it do.
+
+          ### Vet
+
+          [Andreaspark-Tierärzte](https://goo.gl/maps/L2XMFqx3s2ttkJFo9).
+
+  - type: vertical-stack
+    title: Smart Lights
+    cards:
+      - type: markdown
+        content: >-
+          Some of the lights can only be controlled from the tablet.
+
+          If the bathroom light switch does not work, use the tablet to open the light. This should happen very sparsely.
+
+  - type: vertical-stack
+    title: Waste and Recycling
+    cards:
+      - type: markdown
+        content: >-
+          Normal waste goes to the bag under the sink. When full, bring it to the container machine located at the right when exiting the building. You need a credit card to scan, weight and pay for the amount of waste you have in the bag. This is how we pay the waste tax.
+
+          **Cartoon**, **paper**, **aluminum**, **PET** and **glass** is recycled and each one has a container in the Kitchen terrace. **Aluminum** and **glass** can be deposited in the station in front of the building. [More Information](https://www.opfikon.ch/_docn/2525839/Bedienungsanleitung_Presscontainer.pdf), [Calendar](https://www.opfikon.ch/_docn/3421552/Entsorgungskalender_2022.pdf).
+
+  - type: vertical-stack
+    title: Laundry
+    cards:
+      - type: markdown
+        content: >-
+          Dryer click the button on the left to select a fixed duration (usually 2:30h) to make sure it runs for that specific time.
+
+  - type: vertical-stack
+    title: Parking
+    cards:
+      - type: markdown
+        content: >-
+          We have a double parking slot, where our car will be parked behind. Feel free to park the car in front. The space is the O1. When entring the [parking](https://goo.gl/maps/C9ezhgMku9KVoLg37), at the end of the ramp, take the first corridor to the right, and then keep straight until you pass some wall that separate the parking into 2 sections. After passing the _door_, our parking space is the one in the right.
+
+          If you park the car outside in front, don't forget to register it at the [guest tab](/lovelace/guests) of the table by putting the license plate of the car.
+
+  - type: vertical-stack
+    title: Kitchen
+    cards:
+      - type: markdown
+        content: >-
+          Dishwasher tabs can be found next to the trash under the sink.
+
+  - type: vertical-stack
+    title: Cleaning
+    cards:
+      - type: markdown
+        content: >-
+          You can go to the [cleaning tab](/lovelace/cleaning) and ask the vacuum robot to clean some specific rooms, or make a generic clean. When finished, for convenience, it will place itself next the bin to empty the deposit. If the robot doesn't do it itself, you can always push the button "To Empty Bin" to make it go there.
+
+  - type: vertical-stack
+    title: TV
+    cards:
+      - type: markdown
+        content: >-
+          Feel free to use our TV and use any of the streaming services we have: Netflix, Amazon Prime,... Please use the guest profile if possible.
+
+  - type: vertical-stack
+    title: Others
+    cards:
+      - type: markdown
+        content: >-
+          You can find towels on the drawer from the main bedroom (where the TV stands) and check the second row of drawers.
