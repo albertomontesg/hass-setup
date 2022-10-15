@@ -42,7 +42,7 @@ scene:
     icon: "mdi:moon-waning-crescent"
     entities:
       light.bedroom: "off"
-      light.bed_led_strip: "on"
+      light.bed_led_strip: "off"
       light.dining_room: "off"
       light.hallway: "off"
       light.kitchen: "off"

@@ -88,9 +88,6 @@ cards:
           - light.office
           - type: divider
           - light.kid_s_room
-      - type: markdown
-        content: >-
-          # [Click for More Information](/lovelace/info)
   - type: vertical-stack
     title: Covers
     cards:
