@@ -1,7 +1,6 @@
 ---
 title: Security
 icon: mdi:shield-lock
-panel: false
 path: security
 cards:
   - type: horizontal-stack

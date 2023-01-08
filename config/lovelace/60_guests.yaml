@@ -1,7 +1,6 @@
 ---
 path: guests
 title: Guests
-panel: false
 icon: "mdi:account-multiple-plus"
 cards:
   - type: vertical-stack

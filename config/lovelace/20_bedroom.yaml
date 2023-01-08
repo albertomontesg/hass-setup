@@ -1,7 +1,6 @@
 ---
 title: Bedroom
 icon: mdi:bed-empty
-panel: false
 path: bedroom
 cards:
   - type: vertical-stack
@@ -16,10 +15,6 @@ cards:
         hide:
           power: true
           icon: true
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - switch.white_noise_music
   - type: vertical-stack
     title: Lights
     cards:
@@ -43,14 +38,6 @@ cards:
   - type: vertical-stack
     title: Climate
     cards:
-      - type: humidifier
-        entity: humidifier.main_bedroom
-        name: Humidifier
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - number.humidifier_mist_level
-          - binary_sensor.humidifier_out_of_water
       - type: horizontal-stack
         cards:
           - type: custom:mini-graph-card

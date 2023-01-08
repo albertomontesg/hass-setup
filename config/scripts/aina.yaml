@@ -2,7 +2,7 @@
 start_white_noise:
   alias: Start White Noise For Aina
   variables:
-    target_player: media_player.main_bedroom
+    target_player: media_player.kids_room
     target_volume: 0.18
     # target_source: "Pure Motivation, Sleepy Koala Music 😴 Bedtime Relaxing White Noise and Calming Piano, Today’s Easy Hits"
   sequence:
@@ -21,7 +21,7 @@ start_white_noise:
 stop_white_noise:
   alias: Stop White Noise For Aina
   variables:
-    target_player: media_player.main_bedroom
+    target_player: media_player.kids_room
   sequence:
     - service: script.fade_volume
       data_template:

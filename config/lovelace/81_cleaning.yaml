@@ -1,7 +1,6 @@
 ---
 title: Cleaning
 icon: mdi:spray-bottle
-panel: false
 path: cleaning
 cards:
   - type: vertical-stack

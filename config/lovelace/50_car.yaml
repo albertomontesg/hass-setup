@@ -1,7 +1,6 @@
 ---
 path: car
 title: Car
-panel: false
 icon: "mdi:car-connected"
 cards:
   - type: vertical-stack

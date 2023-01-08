@@ -1,7 +1,6 @@
 ---
 title: Kitchen Dining Room
 icon: mdi:silverware
-panel: false
 path: kitchen_dining_room
 cards:
   - type: vertical-stack

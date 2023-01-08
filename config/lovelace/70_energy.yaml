@@ -1,7 +1,6 @@
 ---
 path: energy
 title: Energy
-panel: false
 icon: "mdi:flash"
 cards:
   - type: energy-date-selection

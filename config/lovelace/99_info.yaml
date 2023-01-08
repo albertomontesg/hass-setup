@@ -1,7 +1,6 @@
 ---
 path: info
 title: General Information
-panel: false
 icon: "mdi:information"
 cards:
   - type: vertical-stack

@@ -1,7 +1,6 @@
 ---
 title: Bathrooms
 icon: mdi:shower
-panel: false
 path: bathrooms
 cards:
   - type: vertical-stack

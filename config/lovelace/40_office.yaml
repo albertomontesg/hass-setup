@@ -1,7 +1,6 @@
 ---
 title: Office
 icon: mdi:chair-rolling
-panel: false
 path: office
 cards:
   - type: vertical-stack

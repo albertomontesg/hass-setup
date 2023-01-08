@@ -9,7 +9,7 @@ switch:
         turn_off:
           service: script.stop_white_noise
         icon_template: >-
-          {% if is_state('media_player.main_bedroom', 'playing') %}
+          {% if is_state('media_player.kids_room', 'playing') %}
             mdi:music
           {% else %}
             mdi:music-off

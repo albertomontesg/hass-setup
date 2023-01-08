@@ -1,7 +1,6 @@
 ---
 title: Settings
 icon: mdi:cog
-panel: false
 path: settings
 cards:
   - type: vertical-stack
