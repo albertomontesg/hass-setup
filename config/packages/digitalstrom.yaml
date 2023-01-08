@@ -3,229 +3,204 @@
 # to change the devices with a more open solution (Shellys running ESPHome) but
 # for the moment, let's expose the entities into Home Assistant using the
 # digitalstrom-mqtt bridge.
-light:
-  - platform: mqtt
-    name: Kitchen
-    command_topic: "digitalstrom/devices/Kitchen_Light/brightness/command"
-    state_topic: "digitalstrom/devices/Kitchen_Light/brightness/state"
-    payload_on: "100.00"
-    payload_off: "0.00"
-    retain: true
-  - platform: mqtt
-    name: Kitchen Focus
-    command_topic: "digitalstrom/devices/Kitchen_Focus_Light/brightness/command"
-    state_topic: "digitalstrom/devices/Kitchen_Focus_Light/brightness/state"
-    payload_on: "100.00"
-    payload_off: "0.00"
+mqtt:
+  light:
+    - name: Kitchen
+      command_topic: "digitalstrom/devices/Kitchen_Light/brightness/command"
+      state_topic: "digitalstrom/devices/Kitchen_Light/brightness/state"
+      payload_on: "100.00"
+      payload_off: "0.00"
+      retain: true
+    - name: Kitchen Focus
+      command_topic: "digitalstrom/devices/Kitchen_Focus_Light/brightness/command"
+      state_topic: "digitalstrom/devices/Kitchen_Focus_Light/brightness/state"
+      payload_on: "100.00"
+      payload_off: "0.00"
 
-  - platform: mqtt
-    name: Office
-    command_topic: "digitalstrom/devices/Office_Light/brightness/command"
-    state_topic: "digitalstrom/devices/Office_Light/brightness/state"
-    payload_on: "100.00"
-    payload_off: "0.00"
+    - name: Office
+      command_topic: "digitalstrom/devices/Office_Light/brightness/command"
+      state_topic: "digitalstrom/devices/Office_Light/brightness/state"
+      payload_on: "100.00"
+      payload_off: "0.00"
 
-  - platform: mqtt
-    name: Bedroom
-    command_topic: "digitalstrom/devices/Main_Bedroom_Light/brightness/command"
-    state_topic: "digitalstrom/devices/Main_Bedroom_Light/brightness/state"
-    payload_on: "100.00"
-    payload_off: "0.00"
+    - name: Bedroom
+      command_topic: "digitalstrom/devices/Main_Bedroom_Light/brightness/command"
+      state_topic: "digitalstrom/devices/Main_Bedroom_Light/brightness/state"
+      payload_on: "100.00"
+      payload_off: "0.00"
 
-  - platform: mqtt
-    name: Dressing Room
-    command_topic: "digitalstrom/devices/Dressing_Room_Light/brightness/command"
-    state_topic: "digitalstrom/devices/Dressing_Room_Light/brightness/state"
-    payload_on: "100.00"
-    payload_off: "0.00"
+    - name: Dressing Room
+      command_topic: "digitalstrom/devices/Dressing_Room_Light/brightness/command"
+      state_topic: "digitalstrom/devices/Dressing_Room_Light/brightness/state"
+      payload_on: "100.00"
+      payload_off: "0.00"
 
-  - platform: mqtt
-    name: Kid's Room
-    command_topic: "digitalstrom/devices/Kids_Room_Light/brightness/command"
-    state_topic: "digitalstrom/devices/Kids_Room_Light/brightness/state"
-    payload_on: "100.00"
-    payload_off: "0.00"
+    - name: Kid's Room
+      command_topic: "digitalstrom/devices/Kids_Room_Light/brightness/command"
+      state_topic: "digitalstrom/devices/Kids_Room_Light/brightness/state"
+      payload_on: "100.00"
+      payload_off: "0.00"
 
-  - platform: mqtt
-    name: Hallway
-    command_topic: "digitalstrom/devices/Hallway_Light/brightness/command"
-    state_topic: "digitalstrom/devices/Hallway_Light/brightness/state"
-    payload_on: "100.00"
-    payload_off: "0.00"
+    - name: Hallway
+      command_topic: "digitalstrom/devices/Hallway_Light/brightness/command"
+      state_topic: "digitalstrom/devices/Hallway_Light/brightness/state"
+      payload_on: "100.00"
+      payload_off: "0.00"
 
-  - platform: mqtt
-    name: Dining Room
-    command_topic: "digitalstrom/devices/Dinning_Room_Light/brightness/command"
-    state_topic: "digitalstrom/devices/Dinning_Room_Light/brightness/state"
-    payload_on: "100.00"
-    payload_off: "0.00"
+    - name: Dining Room
+      command_topic: "digitalstrom/devices/Dinning_Room_Light/brightness/command"
+      state_topic: "digitalstrom/devices/Dinning_Room_Light/brightness/state"
+      payload_on: "100.00"
+      payload_off: "0.00"
 
-  - platform: mqtt
-    name: Living Room Switch
-    command_topic: "digitalstrom/devices/Living_Room_Light/brightness/command"
-    state_topic: "digitalstrom/devices/Living_Room_Light/brightness/state"
-    payload_on: "100.00"
-    payload_off: "0.00"
+    - name: Living Room Switch
+      command_topic: "digitalstrom/devices/Living_Room_Light/brightness/command"
+      state_topic: "digitalstrom/devices/Living_Room_Light/brightness/state"
+      payload_on: "100.00"
+      payload_off: "0.00"
 
-  - platform: mqtt
-    name: North Balcony
-    command_topic: "digitalstrom/devices/North_Balcony_Light/brightness/command"
-    state_topic: "digitalstrom/devices/North_Balcony_Light/brightness/state"
-    payload_on: "100.00"
-    payload_off: "0.00"
+    - name: North Balcony
+      command_topic: "digitalstrom/devices/North_Balcony_Light/brightness/command"
+      state_topic: "digitalstrom/devices/North_Balcony_Light/brightness/state"
+      payload_on: "100.00"
+      payload_off: "0.00"
 
-  - platform: mqtt
-    name: South Balcony
-    command_topic: "digitalstrom/devices/South_Balcony_Light/brightness/command"
-    state_topic: "digitalstrom/devices/South_Balcony_Light/brightness/state"
-    payload_on: "100.00"
-    payload_off: "0.00"
+    - name: South Balcony
+      command_topic: "digitalstrom/devices/South_Balcony_Light/brightness/command"
+      state_topic: "digitalstrom/devices/South_Balcony_Light/brightness/state"
+      payload_on: "100.00"
+      payload_off: "0.00"
 
-  - platform: mqtt
-    name: Bathroom
-    command_topic: "digitalstrom/devices/Bathroom_Light/brightness/command"
-    state_topic: "digitalstrom/devices/Bathroom_Light/brightness/state"
-    payload_on: "100.00"
-    payload_off: "0.00"
-  - platform: mqtt
-    name: Bathroom Mirror
-    command_topic: "digitalstrom/devices/Bathroom_Mirror_Light/brightness/command"
-    state_topic: "digitalstrom/devices/Bathroom_Mirror_Light/brightness/state"
-    payload_on: "100.00"
-    payload_off: "0.00"
+    - name: Bathroom
+      command_topic: "digitalstrom/devices/Bathroom_Light/brightness/command"
+      state_topic: "digitalstrom/devices/Bathroom_Light/brightness/state"
+      payload_on: "100.00"
+      payload_off: "0.00"
+    - name: Bathroom Mirror
+      command_topic: "digitalstrom/devices/Bathroom_Mirror_Light/brightness/command"
+      state_topic: "digitalstrom/devices/Bathroom_Mirror_Light/brightness/state"
+      payload_on: "100.00"
+      payload_off: "0.00"
 
-  - platform: mqtt
-    name: Ensuite Bathroom
-    command_topic: "digitalstrom/devices/Ensuite_Bathroom_Light/brightness/command"
-    state_topic: "digitalstrom/devices/Ensuite_Bathroom_Light/brightness/state"
-    payload_on: "100.00"
-    payload_off: "0.00"
-  - platform: mqtt
-    name: Ensuite Bathroom Mirror
-    command_topic: "digitalstrom/devices/Ensuite_Bathroom_Mirror_Light/brightness/command"
-    state_topic: "digitalstrom/devices/Ensuite_Bathroom_Mirror_Light/brightness/state"
-    payload_on: "100.00"
-    payload_off: "0.00"
-cover:
-  - platform: mqtt
-    name: Living Room
-    state_topic: "digitalstrom/devices/Living_Room_Cover/shadePositionOutside/state"
-    state_closed: "0.00"
-    state_open: "100.00"
-    command_topic: "digitalstrom/devices/Living_Room_Cover/shadePositionOutside/command"
-    payload_close: "0.00"
-    payload_open: "100.00"
-    payload_stop: "STOP"
-    position_topic: "digitalstrom/devices/Living_Room_Cover/shadePositionOutside/state"
-    set_position_topic: "digitalstrom/devices/Living_Room_Cover/shadePositionOutside/command"
-    position_template: "{{ value | int }}"
-    tilt_status_topic: "digitalstrom/devices/Living_Room_Cover/shadeOpeningAngleOutside/state"
-    tilt_command_topic: "digitalstrom/devices/Living_Room_Cover/shadeOpeningAngleOutside/command"
-    tilt_status_template: "{{ value | int }}"
-    retain: true
-  - platform: mqtt
-    name: Bedroom
-    state_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadePositionOutside/state"
-    state_closed: "0.00"
-    state_open: "100.00"
-    command_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadePositionOutside/command"
-    payload_close: "0.00"
-    payload_open: "100.00"
-    payload_stop: "STOP"
-    position_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadePositionOutside/state"
-    set_position_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadePositionOutside/command"
-    position_template: "{{ value | int }}"
-    tilt_status_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadeOpeningAngleOutside/state"
-    tilt_command_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadeOpeningAngleOutside/command"
-    tilt_status_template: "{{ value | int }}"
-    retain: true
-  - platform: mqtt
-    name: Kid's Room
-    state_topic: "digitalstrom/devices/Kids_Room_Cover/shadePositionOutside/state"
-    state_closed: "0.00"
-    state_open: "100.00"
-    command_topic: "digitalstrom/devices/Kids_Room_Cover/shadePositionOutside/command"
-    payload_close: "0.00"
-    payload_open: "100.00"
-    payload_stop: "STOP"
-    position_topic: "digitalstrom/devices/Kids_Room_Cover/shadePositionOutside/state"
-    set_position_topic: "digitalstrom/devices/Kids_Room_Cover/shadePositionOutside/command"
-    position_template: "{{ value | int }}"
-    tilt_status_topic: "digitalstrom/devices/Kids_Room_Cover/shadeOpeningAngleOutside/state"
-    tilt_command_topic: "digitalstrom/devices/Kids_Room_Cover/shadeOpeningAngleOutside/command"
-    tilt_status_template: "{{ value | int }}"
-    retain: true
-  - platform: mqtt
-    name: Office
-    state_topic: "digitalstrom/devices/Office_Cover/shadePositionOutside/state"
-    state_closed: "0.00"
-    state_open: "100.00"
-    command_topic: "digitalstrom/devices/Office_Cover/shadePositionOutside/command"
-    payload_close: "0.00"
-    payload_open: "100.00"
-    payload_stop: "STOP"
-    position_topic: "digitalstrom/devices/Office_Cover/shadePositionOutside/state"
-    set_position_topic: "digitalstrom/devices/Office_Cover/shadePositionOutside/command"
-    position_template: "{{ value | int }}"
-    tilt_status_topic: "digitalstrom/devices/Office_Cover/shadeOpeningAngleOutside/state"
-    tilt_command_topic: "digitalstrom/devices/Office_Cover/shadeOpeningAngleOutside/command"
-    tilt_status_template: "{{ value | int }}"
-    retain: true
-  - platform: mqtt
-    name: Dining Room
-    state_topic: "digitalstrom/devices/Dining_Room_Cover/shadePositionOutside/state"
-    state_closed: "0.00"
-    state_open: "100.00"
-    command_topic: "digitalstrom/devices/Dining_Room_Cover/shadePositionOutside/command"
-    payload_close: "0.00"
-    payload_open: "100.00"
-    payload_stop: "STOP"
-    position_topic: "digitalstrom/devices/Dining_Room_Cover/shadePositionOutside/state"
-    set_position_topic: "digitalstrom/devices/Dining_Room_Cover/shadePositionOutside/command"
-    position_template: "{{ value | int }}"
-    tilt_status_topic: "digitalstrom/devices/Dining_Room_Cover/shadeOpeningAngleOutside/state"
-    tilt_command_topic: "digitalstrom/devices/Dining_Room_Cover/shadeOpeningAngleOutside/command"
-    tilt_status_template: "{{ value | int }}"
-    retain: true
+    - name: Ensuite Bathroom
+      command_topic: "digitalstrom/devices/Ensuite_Bathroom_Light/brightness/command"
+      state_topic: "digitalstrom/devices/Ensuite_Bathroom_Light/brightness/state"
+      payload_on: "100.00"
+      payload_off: "0.00"
+    - name: Ensuite Bathroom Mirror
+      command_topic: "digitalstrom/devices/Ensuite_Bathroom_Mirror_Light/brightness/command"
+      state_topic: "digitalstrom/devices/Ensuite_Bathroom_Mirror_Light/brightness/state"
+      payload_on: "100.00"
+      payload_off: "0.00"
+  cover:
+    - name: Living Room
+      state_topic: "digitalstrom/devices/Living_Room_Cover/shadePositionOutside/state"
+      state_closed: "0.00"
+      state_open: "100.00"
+      command_topic: "digitalstrom/devices/Living_Room_Cover/shadePositionOutside/command"
+      payload_close: "0.00"
+      payload_open: "100.00"
+      payload_stop: "STOP"
+      position_topic: "digitalstrom/devices/Living_Room_Cover/shadePositionOutside/state"
+      set_position_topic: "digitalstrom/devices/Living_Room_Cover/shadePositionOutside/command"
+      position_template: "{{ value | int }}"
+      tilt_status_topic: "digitalstrom/devices/Living_Room_Cover/shadeOpeningAngleOutside/state"
+      tilt_command_topic: "digitalstrom/devices/Living_Room_Cover/shadeOpeningAngleOutside/command"
+      tilt_status_template: "{{ value | int }}"
+      retain: true
+    - name: Bedroom
+      state_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadePositionOutside/state"
+      state_closed: "0.00"
+      state_open: "100.00"
+      command_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadePositionOutside/command"
+      payload_close: "0.00"
+      payload_open: "100.00"
+      payload_stop: "STOP"
+      position_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadePositionOutside/state"
+      set_position_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadePositionOutside/command"
+      position_template: "{{ value | int }}"
+      tilt_status_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadeOpeningAngleOutside/state"
+      tilt_command_topic: "digitalstrom/devices/Main_Bedroom_Cover/shadeOpeningAngleOutside/command"
+      tilt_status_template: "{{ value | int }}"
+      retain: true
+    - name: Kid's Room
+      state_topic: "digitalstrom/devices/Kids_Room_Cover/shadePositionOutside/state"
+      state_closed: "0.00"
+      state_open: "100.00"
+      command_topic: "digitalstrom/devices/Kids_Room_Cover/shadePositionOutside/command"
+      payload_close: "0.00"
+      payload_open: "100.00"
+      payload_stop: "STOP"
+      position_topic: "digitalstrom/devices/Kids_Room_Cover/shadePositionOutside/state"
+      set_position_topic: "digitalstrom/devices/Kids_Room_Cover/shadePositionOutside/command"
+      position_template: "{{ value | int }}"
+      tilt_status_topic: "digitalstrom/devices/Kids_Room_Cover/shadeOpeningAngleOutside/state"
+      tilt_command_topic: "digitalstrom/devices/Kids_Room_Cover/shadeOpeningAngleOutside/command"
+      tilt_status_template: "{{ value | int }}"
+      retain: true
+    - name: Office
+      state_topic: "digitalstrom/devices/Office_Cover/shadePositionOutside/state"
+      state_closed: "0.00"
+      state_open: "100.00"
+      command_topic: "digitalstrom/devices/Office_Cover/shadePositionOutside/command"
+      payload_close: "0.00"
+      payload_open: "100.00"
+      payload_stop: "STOP"
+      position_topic: "digitalstrom/devices/Office_Cover/shadePositionOutside/state"
+      set_position_topic: "digitalstrom/devices/Office_Cover/shadePositionOutside/command"
+      position_template: "{{ value | int }}"
+      tilt_status_topic: "digitalstrom/devices/Office_Cover/shadeOpeningAngleOutside/state"
+      tilt_command_topic: "digitalstrom/devices/Office_Cover/shadeOpeningAngleOutside/command"
+      tilt_status_template: "{{ value | int }}"
+      retain: true
+    - name: Dining Room
+      state_topic: "digitalstrom/devices/Dining_Room_Cover/shadePositionOutside/state"
+      state_closed: "0.00"
+      state_open: "100.00"
+      command_topic: "digitalstrom/devices/Dining_Room_Cover/shadePositionOutside/command"
+      payload_close: "0.00"
+      payload_open: "100.00"
+      payload_stop: "STOP"
+      position_topic: "digitalstrom/devices/Dining_Room_Cover/shadePositionOutside/state"
+      set_position_topic: "digitalstrom/devices/Dining_Room_Cover/shadePositionOutside/command"
+      position_template: "{{ value | int }}"
+      tilt_status_topic: "digitalstrom/devices/Dining_Room_Cover/shadeOpeningAngleOutside/state"
+      tilt_command_topic: "digitalstrom/devices/Dining_Room_Cover/shadeOpeningAngleOutside/command"
+      tilt_status_template: "{{ value | int }}"
+      retain: true
 
-sensor:
-  - platform: mqtt
-    name: Energy Meter Kitchen/Bathrooms
-    state_topic: "digitalstrom/circuits/kitchen_bathroom/EnergyWs/state"
-    unit_of_measurement: "kWh"
-    device_class: energy
-    state_class: total_increasing
-    value_template: "{{ value | float / (3600*1000) | round(3) }}"
-  - platform: mqtt
-    name: Energy Meter Private Rooms
-    state_topic: "digitalstrom/circuits/private_rooms/EnergyWs/state"
-    unit_of_measurement: "kWh"
-    device_class: energy
-    state_class: total_increasing
-    value_template: "{{ value | float / (3600*1000) | round(3) }}"
-  - platform: mqtt
-    name: Energy Meter Common Area
-    state_topic: "digitalstrom/circuits/common_area/EnergyWs/state"
-    unit_of_measurement: "kWh"
-    device_class: energy
-    state_class: total_increasing
-    value_template: "{{ value | float / (3600*1000) | round(3) }}"
+  sensor:
+    - name: Energy Meter Kitchen/Bathrooms
+      state_topic: "digitalstrom/circuits/kitchen_bathroom/EnergyWs/state"
+      unit_of_measurement: "kWh"
+      device_class: energy
+      state_class: total_increasing
+      value_template: "{{ value | float / (3600*1000) | round(3) }}"
+    - name: Energy Meter Private Rooms
+      state_topic: "digitalstrom/circuits/private_rooms/EnergyWs/state"
+      unit_of_measurement: "kWh"
+      device_class: energy
+      state_class: total_increasing
+      value_template: "{{ value | float / (3600*1000) | round(3) }}"
+    - name: Energy Meter Common Area
+      state_topic: "digitalstrom/circuits/common_area/EnergyWs/state"
+      unit_of_measurement: "kWh"
+      device_class: energy
+      state_class: total_increasing
+      value_template: "{{ value | float / (3600*1000) | round(3) }}"
 
-  - platform: mqtt
-    name: Power Consumption Kitchen/Bathrooms
-    state_topic: "digitalstrom/circuits/kitchen_bathroom/consumptionW/state"
-    unit_of_measurement: "W"
-    device_class: power
-  - platform: mqtt
-    name: Power Consumption Private Rooms
-    state_topic: "digitalstrom/circuits/private_rooms/consumptionW/state"
-    unit_of_measurement: "W"
-    device_class: power
-  - platform: mqtt
-    name: Power Consumption Common Area
-    state_topic: "digitalstrom/circuits/common_area/consumptionW/state"
-    unit_of_measurement: "W"
-    device_class: power
+    - name: Power Consumption Kitchen/Bathrooms
+      state_topic: "digitalstrom/circuits/kitchen_bathroom/consumptionW/state"
+      unit_of_measurement: "W"
+      device_class: power
+    - name: Power Consumption Private Rooms
+      state_topic: "digitalstrom/circuits/private_rooms/consumptionW/state"
+      unit_of_measurement: "W"
+      device_class: power
+    - name: Power Consumption Common Area
+      state_topic: "digitalstrom/circuits/common_area/consumptionW/state"
+      unit_of_measurement: "W"
+      device_class: power
 
 template:
   - sensor:

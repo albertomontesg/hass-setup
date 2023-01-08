@@ -7,11 +7,12 @@ homeassistant:
   longitude: 8.562337074545214
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 408
-  # metric for Metric, imperial for Imperial
-  unit_system: metric
-  # Pick yours from here:
-  # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  # Setup for our home location.
+  country: CH
   time_zone: Europe/Zurich
+  unit_system: metric
+  currency: CHF
+  language: en
   # Customization file
   customize: !include customize.yaml
   # Split config in multiple files
@@ -152,19 +153,6 @@ panel_iframe:
     title: ESPHome
     icon: mdi:chip
     url: ///esphome.hass.c6.montesg.xyz/
-
-mqtt:
-  broker: mqtt
-  port: 1883
-  username: !secret mqtt_username
-  password: !secret mqtt_password
-  # Required for zigbee2mqtt
-  birth_message:
-    topic: "hass/status"
-    payload: "online"
-  will_message:
-    topic: "hass/status"
-    payload: "offline"
 
 logger:
   default: info

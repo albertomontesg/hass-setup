@@ -9,10 +9,12 @@ cards:
         content: "# {{ states('sensor.time') }}"
       - type: markdown
         content: "## {{ states('sensor.date') }}"
-  - type: glance
-    entities:
-      - person.judith
-      - person.alberto
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: person.judith
+      - type: tile
+        entity: person.alberto
   - type: vertical-stack
     title: Weather
     cards:
@@ -65,93 +67,113 @@ cards:
         animate: true
         hour24: true
         decimals: 0
-  - type: vertical-stack
+  - type: grid
     title: Lights
+    square: false
+    columns: 2
     cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - light.living_room
-          - light.dna_lamp
-          - type: divider
-          - light.bathroom
-          - type: divider
-          - light.kitchen
-          - light.dining_room
-          - type: divider
-          - light.hallway
-          - type: divider
-          - light.bedroom
-          - light.bed_led_strip
-          - type: divider
-          - light.office
-          - type: divider
-          - light.kid_s_room
-  - type: vertical-stack
+      - type: tile
+        entity: light.living_room
+        name: Living Room
+      - type: tile
+        entity: light.dna_lamp
+        name: DNA Lamp
+      - type: tile
+        entity: light.bathroom
+        name: Bathroom
+      - type: tile
+        entity: light.kitchen
+        name: Kitchen
+      - type: tile
+        entity: light.dining_room
+        name: Dining Room
+      - type: tile
+        entity: light.hallway
+        name: Hallway
+      - type: tile
+        entity: light.bedroom
+        name: Bedroom
+      - type: tile
+        entity: light.bed_led_strip
+        name: Bed LED Strip
+      - type: tile
+        entity: light.office
+        name: Office
+      - type: tile
+        entity: light.kid_s_room
+        name: Kid's Room
+  - type: grid
     title: Covers
+    square: false
+    columns: 2
     cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - cover.living_room
-          - cover.balcony_shades
-          - type: divider
-          - cover.dining_room
-          - type: divider
-          - cover.bedroom
-          - type: divider
-          - cover.office
-          - type: divider
-          - cover.kid_s_room
+      - type: tile
+        entity: cover.living_room
+        features:
+          - type: "cover-open-close"
+      - type: tile
+        entity: cover.balcony_shades
+        features:
+          - type: "cover-open-close"
+      - type: tile
+        entity: cover.dining_room
+        features:
+          - type: "cover-open-close"
+      - type: tile
+        entity: cover.bedroom
+        features:
+          - type: "cover-open-close"
+      - type: tile
+        entity: cover.office
+        features:
+          - type: "cover-open-close"
+      - type: tile
+        entity: cover.kid_s_room
+        features:
+          - type: "cover-open-close"
   - type: vertical-stack
     title: Cleaning
     cards:
-      - type: custom:xiaomi-vacuum-card
+      - type: tile
         entity: vacuum.xiaomi_vacuum_cleaner
-        name: Vacuum
+        features:
+          - type: vacuum-commands
+            commands:
+              - start_pause
+              - stop
+              - clean_spot
+              - locate
+              - return_home
       - type: entities
         entities:
           - input_boolean.vacuum_clean_when_leave_home
           - input_select.vacuum_room
-  - type: vertical-stack
+  - type: grid
     title: Waste
+    square: false
+    columns: 2
     cards:
-      - type: custom:garbage-collection-card
+      - type: tile
         entity: sensor.cardboard_waste
-      - type: custom:garbage-collection-card
+      - type: tile
         entity: sensor.paper_waste
-  - type: horizontal-stack
+  - type: grid
     title: Scenes
+    square: false
+    columns: 2
     cards:
-      - type: custom:button-card
+      - type: tile
         entity: scene.daylight
-        tap_action:
-          action: call-service
-          service: scene.turn_on
-          service_data:
-            entity_id: scene.daylight
-      - type: custom:button-card
+      - type: tile
         entity: scene.evening
-        tap_action:
-          action: call-service
-          service: scene.turn_on
-          service_data:
-            entity_id: scene.evening
-      - type: custom:button-card
+      - type: tile
         entity: scene.night
-        tap_action:
-          action: call-service
-          service: scene.turn_on
-          service_data:
-            entity_id: scene.night
-      - type: custom:button-card
-        entity: scene.gaming
-        tap_action:
-          action: call-service
-          service: scene.turn_on
-          service_data:
-            entity_id: scene.gaming
-      - type: custom:button-card
+  - type: grid
+    title: Locks
+    square: false
+    columns: 2
+    cards:
+      - type: tile
         entity: lock.entrance_door
-        tap_action:
-          action: more-info
+      # - type: tile
+      #   entity: lock.street_door

@@ -54,10 +54,3 @@ scene:
       media_player.living_room_tv: "off"
       lock.entrance_door: locked
       switch.white_noise_music: "off"
-
-  - name: Gaming
-    icon: "mdi:google-controller"
-    entities:
-      media_player.living_room_tv:
-        state: "on"
-        source: "Stadia"
