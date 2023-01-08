@@ -54,6 +54,10 @@
       service: media_player.media_pause
       target:
         entity_id: media_player.office
+    - alias: Turn off light
+      service: light.turn_off
+      target:
+        entity_id: light.office_wall_lines
 
 - alias: Work Resume Music after Meeting
   id: work_resume_music_after_meeting
@@ -75,6 +79,10 @@
       service: media_player.media_play
       target:
         entity_id: media_player.office
+    - alias: Turn on light
+      service: light.turn_on
+      target:
+        entity_id: light.office_wall_lines
 
 - alias: Work Close Light
   id: work_close_light
