@@ -16,7 +16,7 @@ scene:
       cover.living_room:
         state: open
         current_position: 100
-      cover.kid_s_room:
+      cover.kids_room:
         state: open
         current_position: 100
       lock.entrance_door: unlocked
@@ -30,12 +30,12 @@ scene:
         state: closed
         current_position: 0
         current_tilt_position: 0
-      cover.kid_s_room:
+      cover.kids_room:
         state: closed
         current_position: 0
         current_tilt_position: 0
       # light.bed_led_strip: "on"
-      light.kid_s_room: "on"
+      light.kids_room: "on"
       switch.white_noise_music: "on"
       humidifier.main_bedroom: "on"
 
@@ -51,7 +51,7 @@ scene:
       light.living_room: "off"
       light.office: "off"
       light.office_wall_lines: "off"
-      light.kid_s_room: "off"
+      light.kids_room: "off"
       media_player.living_room_tv: "off"
       lock.entrance_door: locked
       switch.white_noise_music: "off"

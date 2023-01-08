@@ -22,14 +22,14 @@ cards:
       - type: entities
         show_header_toggle: false
         entities:
-          - light.kid_s_room
+          - light.kids_room
   - type: vertical-stack
     title: Cover
     cards:
       - type: entities
         show_header_toggle: false
         entities:
-          - cover.kid_s_room
+          - cover.kids_room
   - type: vertical-stack
     title: Climate
     cards:

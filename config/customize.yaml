@@ -30,6 +30,9 @@ climate.office:
 
 light.dna_lamp:
   icon: "mdi:floor-lamp"
+light.living_room_lamp:
+  friendly_name: "DNA Lamp"
+  icon: "mdi:floor-lamp"
 light.christmas_tree:
   icon: "mdi:pine-tree"
 

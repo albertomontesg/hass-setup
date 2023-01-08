@@ -76,8 +76,8 @@ cards:
         entity: light.living_room
         name: Living Room
       - type: tile
-        entity: light.dna_lamp
-        name: DNA Lamp
+        entity: light.living_room_lamp
+        # name: DNA Lamp
       - type: tile
         entity: light.bathroom
         name: Bathroom
@@ -100,7 +100,7 @@ cards:
         entity: light.office
         name: Office
       - type: tile
-        entity: light.kid_s_room
+        entity: light.kids_room
         name: Kid's Room
   - type: grid
     title: Covers
@@ -128,7 +128,7 @@ cards:
         features:
           - type: "cover-open-close"
       - type: tile
-        entity: cover.kid_s_room
+        entity: cover.kids_room
         features:
           - type: "cover-open-close"
   - type: vertical-stack

@@ -30,4 +30,4 @@
     - alias: Toggle Lights
       service: light.toggle
       target:
-        entity_id: light.kid_s_room
+        entity_id: light.kids_room

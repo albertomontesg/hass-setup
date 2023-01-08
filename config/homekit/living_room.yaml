@@ -5,7 +5,7 @@
 - binary_sensor.living_room_occupancy
 - media_player.living_room
 - light.living_room
-- light.dna_lamp
+- light.living_room_lamp
 - cover.living_room
 - scene.gaming
 - cover.balcony_shades

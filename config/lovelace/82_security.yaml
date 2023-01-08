@@ -3,20 +3,15 @@ title: Security
 icon: mdi:shield-lock
 path: security
 cards:
-  - type: horizontal-stack
+  - type: grid
     title: Locks
+    square: false
+    columns: 2
     cards:
-      - type: custom:button-card
+      - type: tile
         entity: lock.entrance_door
-        tap_action:
-          action: more-info
-      - type: custom:button-card
+      - type: tile
         entity: lock.street_door
-        tap_action:
-          action: call-service
-          service: lock.unlock
-          service_data:
-            entity_id: lock.street_door
   - type: vertical-stack
     title: Alarm
     cards:
