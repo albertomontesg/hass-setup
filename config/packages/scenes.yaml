@@ -21,6 +21,7 @@ scene:
         current_position: 100
       lock.entrance_door: unlocked
       humidifier.main_bedroom: "off"
+      switch.white_noise_music: "off"
 
   - name: Evening
     icon: "mdi:weather-sunset-down"

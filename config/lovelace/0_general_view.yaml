@@ -27,7 +27,7 @@ cards:
     cards:
       - type: custom:mini-media-player
         entity: media_player.living_room_tv
-        artwork: full-cover
+        artwork: cover
       - type: custom:mini-media-player
         entity: media_player.living_room
         name: Sonos Speakers
