@@ -12,30 +12,32 @@ cards:
         hide:
           power: true
           icon: true
-  - type: vertical-stack
+  - type: grid
     title: Lights
+    square: false
+    columns: 2
     cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - light.kitchen
-          - light.kitchen_focus
-          - light.kitchen_led_strip_ceiling
-          - light.kitchen_led_strip_floor
-          - type: divider
-          - light.dining_room
-          - type: divider
-          - light.north_balcony
+      - type: tile
+        entity: light.kitchen
+      - type: tile
+        entity: light.kitchen_focus
+      - type: tile
+        entity: light.kitchen_led_strip_ceiling
+      - type: tile
+        entity: light.kitchen_led_strip_floor
+      - type: tile
+        entity: light.dining_room
+      - type: tile
+        entity: light.north_balcony
   - type: vertical-stack
     title: Cover
     cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - cover.dining_room
+      - type: tile
+        entity: cover.dining_room
+        features:
+          - type: "cover-open-close"
   - type: vertical-stack
     title: Presence
     cards:
-      - type: glance
-        entities:
-          - binary_sensor.dining_room_occupancy
+      - type: tile
+        entity: binary_sensor.dining_room_occupancy

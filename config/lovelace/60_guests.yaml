@@ -3,15 +3,15 @@ path: guests
 title: Guests
 icon: "mdi:account-multiple-plus"
 cards:
-  - type: vertical-stack
+  - type: grid
     title: Guests
+    square: false
+    columns: 2
     cards:
-      - type: glance
-        entities:
-          - entity: input_boolean.guests_visiting
-            tap_action:
-              action: toggle
-          - binary_sensor.guests_presence
+      - type: tile
+        entity: input_boolean.guests_visiting
+      - type: tile
+        entity: binary_sensor.guests_presence
 
   - type: vertical-stack
     title: WiFi

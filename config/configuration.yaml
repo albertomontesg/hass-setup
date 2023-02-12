@@ -154,6 +154,26 @@ panel_iframe:
     icon: mdi:chip
     url: ///esphome.hass.c6.montesg.xyz/
 
+panel_custom:
+  - name: Automations
+    sidebar_title: Automations
+    sidebar_icon: mdi:cog-transfer
+    js_url: /api/hassio/app/entrypoint.js
+    url_path: config/automation/dashboard
+    embed_iframe: true
+    require_admin: true
+    config:
+      ingress: core_configurator
+  - name: Devices
+    sidebar_title: Devices
+    sidebar_icon: mdi:devices
+    js_url: /api/hassio/app/entrypoint.js
+    url_path: config/devices/dashboard
+    embed_iframe: true
+    require_admin: true
+    config:
+      ingress: core_configurator
+
 logger:
   default: info
   logs:

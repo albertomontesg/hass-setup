@@ -21,12 +21,17 @@ cards:
   - type: vertical-stack
     title: Motion Sensors
     cards:
-      - type: glance
-        entities:
-          - binary_sensor.motion_at_home
+      - type: tile
+        entity: binary_sensor.motion_at_home
       - type: custom:auto-entities
         card:
-          type: glance
+          type: grid
+          square: false
+          columns: 2
+        card_param: cards
         filter:
           include:
             - entity_id: binary_sensor.*_occupancy
+              options:
+                type: tile
+                entity: this.entity_id

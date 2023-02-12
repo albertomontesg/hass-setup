@@ -39,28 +39,58 @@ cards:
     cards:
       - type: custom:auto-entities
         card:
-          type: custom:battery-state-card
+          type: grid
+          square: false
+          columns: 2
+        card_param: cards
         filter:
           include:
-            - entity_id: sensor.*_sensor_battery
-            - entity_id: sensor.*_switch_battery
             - entity_id: sensor.*_battery
+              options:
+                type: tile
+                entity: this.entity_id
   - type: vertical-stack
     title: Device Status
     cards:
       - type: custom:auto-entities
         card:
-          type: entities
+          type: grid
+          square: false
+          columns: 2
+        card_param: cards
         filter:
           include:
             - entity_id: binary_sensor.*_status
+              options:
+                type: tile
+                entity: this.entity_id
   - type: vertical-stack
-    title: Devices Connectivity
+    title: Wifi Devices Connectivity
     cards:
       - type: custom:auto-entities
         card:
-          type: entities
+          type: grid
+          square: false
+          columns: 2
+        card_param: cards
         filter:
           include:
             - entity_id: sensor.*_wifi_signal_strength
+              options:
+                type: tile
+                entity: this.entity_id
+  - type: vertical-stack
+    title: Zigbee Devices Connectivity
+    cards:
+      - type: custom:auto-entities
+        card:
+          type: grid
+          square: false
+          columns: 2
+        card_param: cards
+        filter:
+          include:
             - entity_id: sensor.*_linkquality
+              options:
+                type: tile
+                entity: this.entity_id

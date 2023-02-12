@@ -35,3 +35,5 @@
   type: module
 - url: /hacsfiles/battery-state-card/battery-state-card.js
   type: module
+- url: /hacsfiles/mini-humidifier/mini-humidifier-bundle.js
+  type: module

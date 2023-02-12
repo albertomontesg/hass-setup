@@ -15,46 +15,63 @@ cards:
         hide:
           power: true
           icon: true
-  - type: vertical-stack
+  - type: grid
     title: Lights
+    square: false
+    columns: 2
     cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - light.living_room
-          - light.dna_lamp
-          - type: divider
-          - light.south_balcony
-          - light.south_balcony_floor
-  - type: vertical-stack
-    title: Cover
+      - type: tile
+        entity: light.living_room
+        name: Living Room
+      - type: tile
+        entity: light.living_room_lamp
+      - type: tile
+        entity: light.south_balcony
+      - type: tile
+        entity: light.south_balcony_floor
+  - type: grid
+    title: Covers
+    square: false
+    columns: 2
     cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - cover.living_room
-          - type: divider
-          - cover.balcony_shades
-  - type: horizontal-stack
+      - type: tile
+        entity: cover.living_room
+        features:
+          - type: "cover-open-close"
+      - type: tile
+        entity: cover.balcony_shades
+        features:
+          - type: "cover-open-close"
+  - type: grid
     title: Climate
+    square: false
+    columns: 2
     cards:
-      - type: custom:mini-graph-card
-        entities:
-          - sensor.living_room_temperature
+      - type: tile
+        entity: sensor.living_room_temperature
         name: Temperature
-        animate: true
-        hour24: true
-        decimals: 0
-      - type: custom:mini-graph-card
-        entities:
-          - sensor.living_room_humidity
+      - type: tile
+        entity: sensor.living_room_humidity
         name: Humidity
-        animate: true
-        hour24: true
-        decimals: 0
+  # - type: horizontal-stack
+  #   title: Climate
+  #   cards:
+  #     - type: custom:mini-graph-card
+  #       entities:
+  #         - sensor.living_room_temperature
+  #       name: Temperature
+  #       animate: true
+  #       hour24: true
+  #       decimals: 0
+  #     - type: custom:mini-graph-card
+  #       entities:
+  #         - sensor.living_room_humidity
+  #       name: Humidity
+  #       animate: true
+  #       hour24: true
+  #       decimals: 0
   - type: vertical-stack
     title: Presence
     cards:
-      - type: glance
-        entities:
-          - binary_sensor.living_room_occupancy
+      - type: tile
+        entity: binary_sensor.living_room_occupancy

@@ -3,43 +3,38 @@ title: Bathrooms
 icon: mdi:shower
 path: bathrooms
 cards:
-  - type: vertical-stack
+  - type: grid
     title: Lights
+    square: false
+    columns: 2
     cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - light.bathroom
-          - light.bathroom_mirror
-  - type: horizontal-stack
+      - type: tile
+        entity: light.bathroom
+      - type: tile
+        entity: light.bathroom_mirror
+  - type: grid
     title: Climate
+    square: false
+    columns: 2
     cards:
-      - type: custom:mini-graph-card
-        entities:
-          - sensor.bathroom_temperature
+      - type: tile
+        entity: sensor.bathroom_temperature
         name: Temperature
-        animate: true
-        hour24: true
-        decimals: 0
-      - type: custom:mini-graph-card
-        entities:
-          - sensor.bathroom_humidity
+      - type: tile
+        entity: sensor.bathroom_humidity
         name: Humidity
-        animate: true
-        hour24: true
-        decimals: 0
-  - type: horizontal-stack
+  - type: grid
     title: Laundry
+    square: false
+    columns: 2
     cards:
-      - type: glance
-        entities:
-          - name: Washing Machine
-            entity: binary_sensor.washing_machine_running
-            tap_action:
-              action: navigate
-              navigation_path: "/config/devices/device/647b028956fd860b6ab3835f5f5fcf42"
-          - name: Dryer
-            entity: binary_sensor.dryer_running
-            tap_action:
-              action: navigate
-              navigation_path: "/config/devices/device/0cedba055e4825631a1b6ab8692c38b3"
+      - type: tile
+        entity: binary_sensor.washing_machine_running
+        tap_action:
+          action: navigate
+          navigation_path: "/config/devices/device/647b028956fd860b6ab3835f5f5fcf42"
+      - type: tile
+        entity: binary_sensor.dryer_running
+        tap_action:
+          action: navigate
+          navigation_path: "/config/devices/device/0cedba055e4825631a1b6ab8692c38b3"

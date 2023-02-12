@@ -15,48 +15,60 @@ cards:
         hide:
           power: true
           icon: true
-  - type: vertical-stack
+  - type: grid
     title: Lights
+    square: false
+    columns: 2
     cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - light.bedroom
-          - light.bed_led_strip
-          - type: divider
-          - light.ensuite_bathroom
-          - light.ensuite_bathroom_mirror
-          - type: divider
-          - light.dressing_room
+      - type: tile
+        entity: light.bedroom
+      - type: tile
+        entity: light.bed_led_strip
+      - type: tile
+        entity: light.ensuite_bathroom
+      - type: tile
+        entity: light.ensuite_bathroom_mirror
+      - type: tile
+        entity: light.dressing_room
   - type: vertical-stack
     title: Cover
     cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - cover.bedroom
-  - type: vertical-stack
+      - type: tile
+        entity: cover.bedroom
+        features:
+          - type: "cover-open-close"
+  - type: grid
     title: Climate
+    square: false
+    columns: 2
     cards:
-      - type: horizontal-stack
-        cards:
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.bedroom_temperature
-            name: Temperature
-            animate: true
-            hour24: true
-            decimals: 0
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.bedroom_humidity
-            name: Humidity
-            animate: true
-            hour24: true
-            decimals: 0
+      - type: tile
+        entity: sensor.bedroom_temperature
+        name: Temperature
+      - type: tile
+        entity: sensor.bedroom_humidity
+        name: Humidity
+  # - type: vertical-stack
+  #   title: Climate
+  #   cards:
+  #     - type: horizontal-stack
+  #       cards:
+  #         - type: custom:mini-graph-card
+  #           entities:
+  #             - sensor.bedroom_temperature
+  #           name: Temperature
+  #           animate: true
+  #           hour24: true
+  #           decimals: 0
+  #         - type: custom:mini-graph-card
+  #           entities:
+  #             - sensor.bedroom_humidity
+  #           name: Humidity
+  #           animate: true
+  #           hour24: true
+  #           decimals: 0
   - type: vertical-stack
     title: Presence
     cards:
-      - type: glance
-        entities:
-          - binary_sensor.bedroom_occupancy
+      - type: tile
+        entity: binary_sensor.bedroom_occupancy

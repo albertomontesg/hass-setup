@@ -144,10 +144,10 @@ cards:
               - clean_spot
               - locate
               - return_home
-      - type: entities
-        entities:
-          - input_boolean.vacuum_clean_when_leave_home
-          - input_select.vacuum_room
+      # - type: entities
+      #   entities:
+      #     - input_boolean.vacuum_clean_when_leave_home
+      #     - input_select.vacuum_room
   - type: grid
     title: Waste
     square: false

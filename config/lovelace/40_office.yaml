@@ -12,53 +12,68 @@ cards:
         hide:
           power: true
           icon: true
-  - type: vertical-stack
+  - type: grid
     title: Lights
+    square: false
+    columns: 2
     cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - light.office
-          - light.office_wall_lines
+      - type: tile
+        entity: light.office
+      - type: tile
+        entity: light.office_wall_lines
   - type: vertical-stack
     title: Cover
     cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - cover.office
-  - type: vertical-stack
+      - type: tile
+        entity: cover.office
+        features:
+          - type: "cover-open-close"
+  - type: grid
     title: Climate
+    square: false
+    columns: 2
     cards:
-      - type: custom:mini-climate
-        entity: climate.office
-        name: Fan
-        temperature:
-          round: 0
-      - type: horizontal-stack
-        cards:
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.office_temperature
-            name: Temperature
-            animate: true
-            hour24: true
-            decimals: 1
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.office_humidity
-            name: Humidity
-            animate: true
-            hour24: true
-            decimals: 1
-  - type: vertical-stack
+      - type: tile
+        entity: sensor.office_temperature
+        name: Temperature
+      - type: tile
+        entity: sensor.office_humidity
+        name: Humidity
+  # - type: vertical-stack
+  #   title: Climate
+  #   cards:
+  #     - type: custom:mini-climate
+  #       entity: climate.office
+  #       name: Fan
+  #       temperature:
+  #         round: 0
+  #     - type: horizontal-stack
+  #       cards:
+  #         - type: custom:mini-graph-card
+  #           entities:
+  #             - sensor.office_temperature
+  #           name: Temperature
+  #           animate: true
+  #           hour24: true
+  #           decimals: 1
+  #         - type: custom:mini-graph-card
+  #           entities:
+  #             - sensor.office_humidity
+  #           name: Humidity
+  #           animate: true
+  #           hour24: true
+  #           decimals: 1
+  - type: grid
     title: Alberto Working
+    square: false
+    columns: 3
     cards:
-      - type: glance
-        entities:
-          - name: Is Working?
-            entity: binary_sensor.alberto_working
-          - name: Hours
-            entity: sensor.alberto_working_hours
-          - name: In a Meeting
-            entity: binary_sensor.alberto_in_working_meeting
+      - type: tile
+        entity: binary_sensor.alberto_working
+        name: Is Working?
+      - type: tile
+        entity: sensor.alberto_working_hours
+        name: Hours
+      - type: tile
+        entity: binary_sensor.alberto_in_working_meeting
+        name: In a Meeting

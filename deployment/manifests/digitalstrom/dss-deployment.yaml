@@ -14,6 +14,7 @@ data:
   MQTT_URL: tcp://mqtt:1883
   MQTT_USERNAME: mosquitto
   MQTT_PASSWORD: 6hwxKrRnWT4MP64MoNrF
+  MQTT_RETAIN: "true"
   HOME_ASSISTANT_DISCOVERY_ENABLED: "true"
   HOME_ASSISTANT_DISCOVERY_PREFIX: "homeassistant"
   HOME_ASSISTANT_REMOVE_REGEXP_FROM_NAME: "(light|cover)"
@@ -41,7 +42,7 @@ spec:
     spec:
       containers:
         - name: digitalstrom
-          image: gaetancollaud/digitalstrom-mqtt:1.6.1
+          image: gaetancollaud/digitalstrom-mqtt:1.6.4
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:

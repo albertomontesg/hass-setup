@@ -9,30 +9,40 @@ cards:
       - type: custom:xiaomi-vacuum-card
         entity: vacuum.xiaomi_vacuum_cleaner
         name: Vacuum
-  - type: horizontal-stack
+  - type: grid
     title: Configuration
+    square: false
+    columns: 2
     cards:
-      - type: glance
-        entities:
-          - name: Clean When Leaving
-            entity: input_boolean.vacuum_clean_when_leave_home
-            tap_action:
-              action: toggle
-          - name: Clean on Monday
-            entity: automation.vacuum_clean_on_monday
-            tap_action:
-              action: toggle
-          - name: To Empty Bin
-            entity: script.vacuum_to_empty_bin
-            show_state: false
-            tap_action:
-              action: toggle
+      - type: tile
+        entity: input_boolean.vacuum_clean_when_leave_home
+        name: Clean When Leaving
+      - type: tile
+        entity: automation.vacuum_clean_on_monday
+        name: Clean on Monday
+      - type: tile
+        entity: script.vacuum_to_empty_bin
+        name: To Empty Bin
+        icon_tap_action:
+          action: call-service
+          service: script.vacuum_to_empty_bin
+          confirmation: true
   - type: vertical-stack
     title: Clean Room
     cards:
       - type: custom:auto-entities
         card:
-          type: entities
+          type: grid
+          square: false
+          columns: 2
+        card_param: cards
         filter:
           include:
             - entity_id: script.vacuum_room_.*
+              options:
+                type: tile
+                entity: this.entity_id
+                icon_tap_action:
+                  action: call-service
+                  service: this.entity_id
+                  confirmation: true
