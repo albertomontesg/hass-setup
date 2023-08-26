@@ -3,5 +3,5 @@ notify:
   - name: mobile_app_both_iphones
     platform: group
     services:
-      - service: mobile_app_iphone_alberto
+      - service: mobile_app_iphone_alberto_2
       - service: mobile_app_iphone_judith

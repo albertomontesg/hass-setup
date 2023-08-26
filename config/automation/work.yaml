@@ -1,4 +1,33 @@
 ---
+- alias: Work Music Activate
+  id: work_music_activate
+  trigger:
+    - platform: time
+      at: "08:00:00"
+  condition:
+    - alias: Working Day
+      condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: "on"
+  action:
+    - alias: Set Volume for Music
+      service: media_player.volume_set
+      data:
+        entity_id: media_player.office
+        volume_level: 0.10
+
+- alias: Work Music Deactivate
+  id: work_music_deactivate
+  trigger:
+    - platform: time
+      at: "18:00:00"
+  action:
+    - alias: Set Volume for Music
+      service: media_player.volume_set
+      data:
+        entity_id: media_player.office
+        volume_level: 0.0
+
 - alias: Work Start
   id: work_start
   trigger:
@@ -22,7 +51,6 @@
           light.office_wall_lines: "on"
           media_player.office:
             state: playing
-            volume_level: 0.1
 
 - alias: Work Stop
   id: work_stop

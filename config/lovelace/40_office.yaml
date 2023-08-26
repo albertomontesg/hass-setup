@@ -28,41 +28,24 @@ cards:
         entity: cover.office
         features:
           - type: "cover-open-close"
-  - type: grid
+  - type: vertical-stack
     title: Climate
-    square: false
-    columns: 2
     cards:
-      - type: tile
-        entity: sensor.office_temperature
-        name: Temperature
-      - type: tile
-        entity: sensor.office_humidity
-        name: Humidity
-  # - type: vertical-stack
-  #   title: Climate
-  #   cards:
-  #     - type: custom:mini-climate
-  #       entity: climate.office
-  #       name: Fan
-  #       temperature:
-  #         round: 0
-  #     - type: horizontal-stack
-  #       cards:
-  #         - type: custom:mini-graph-card
-  #           entities:
-  #             - sensor.office_temperature
-  #           name: Temperature
-  #           animate: true
-  #           hour24: true
-  #           decimals: 1
-  #         - type: custom:mini-graph-card
-  #           entities:
-  #             - sensor.office_humidity
-  #           name: Humidity
-  #           animate: true
-  #           hour24: true
-  #           decimals: 1
+      - type: custom:mini-climate
+        entity: climate.office
+        name: Fan
+        temperature:
+          round: 0
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+          - type: tile
+            entity: sensor.office_temperature
+            name: Temperature
+          - type: tile
+            entity: sensor.office_humidity
+            name: Humidity
   - type: grid
     title: Alberto Working
     square: false

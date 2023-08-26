@@ -21,8 +21,8 @@ scene:
         current_position: 100
       lock.entrance_door: unlocked
       humidifier.main_bedroom: "off"
-      switch.white_noise_music: "off"
-      light.kids_room: "on"
+      # switch.white_noise_music: "off"
+      # light.kids_room: "on"
 
   - name: Evening
     icon: "mdi:weather-sunset-down"
@@ -36,7 +36,7 @@ scene:
         current_position: 0
         current_tilt_position: 0
       light.kids_room: "on"
-      switch.white_noise_music: "on"
+      # switch.white_noise_music: "on"
       humidifier.main_bedroom: "on"
 
   - name: Night
