@@ -1,0 +1,10 @@
+---
+sensor:
+  - platform: swiss_public_transport
+    name: Judith's Next Departure
+    from: "Glattpark, Glattpark"
+    to: "Zürich, Bahnhofplatz/HB"
+  - platform: swiss_public_transport
+    name: Alberto's Next Departure
+    from: "Glattpark, Chavez-Allee"
+    to: "Zürich Oerlikon, Bahnhof"

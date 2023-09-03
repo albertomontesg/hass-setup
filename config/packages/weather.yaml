@@ -1,20 +1,20 @@
 ---
-weather:
-  - platform: darksky
-    api_key: ebd7db258e14c7f89c5a48f8b110bcc7
-    name: Weather
-    mode: daily
+# weather:
+#   - platform: darksky
+#     api_key: ebd7db258e14c7f89c5a48f8b110bcc7
+#     name: Weather
+#     mode: daily
 
-sensor:
-  - platform: darksky
-    api_key: ebd7db258e14c7f89c5a48f8b110bcc7
-    monitored_conditions:
-      - temperature
-      - humidity
-      - apparent_temperature
-      - minutely_summary
-      - hourly_summary
-      - daily_summary
+# sensor:
+#   - platform: darksky
+#     api_key: ebd7db258e14c7f89c5a48f8b110bcc7
+#     monitored_conditions:
+#       - temperature
+#       - humidity
+#       - apparent_temperature
+#       - minutely_summary
+#       - hourly_summary
+#       - daily_summary
 
 # Track the sun
 sun:

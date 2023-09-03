@@ -1,9 +1,4 @@
 ---
-binary_sensor:
-  - platform: workday
-    country: CH
-    province: ZH
-
 template:
   - binary_sensor:
       - name: Alberto Working

@@ -46,9 +46,9 @@ http:
     - 10.0.0.0/8
 
 # Discover some devices automatically
-discovery:
-  ignore:
-    - google_cast
+# discovery:
+#   ignore:
+#     - google_cast
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:

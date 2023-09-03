@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: teslamate
-          image: teslamate/teslamate:1.26.1
+          image: teslamate/teslamate:latest
           imagePullPolicy: Always
           ports:
             - name: http
@@ -55,6 +55,8 @@ spec:
               value: "6hwxKrRnWT4MP64MoNrF"
             - name: TZ
               value: "Europe/Zurich"
+            - name: ENCRYPTION_KEY
+              value: "InZDSwfQDR947B+3ChOQHEe8RXHxq2TedIW3fHc+G9Ru6E8b7lbSYSa/1xavtz2S"
           envFrom:
             - secretRef:
                 name: tesla-db

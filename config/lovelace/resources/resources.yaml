@@ -1,6 +1,4 @@
 ---
-- url: /hacsfiles/garbage-collection-card/garbage-collection-card.js
-  type: module
 - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
   type: module
 - url: /hacsfiles/lovelace-card-tools/card-tools.js
@@ -36,4 +34,6 @@
 - url: /hacsfiles/battery-state-card/battery-state-card.js
   type: module
 - url: /hacsfiles/mini-humidifier/mini-humidifier-bundle.js
+  type: module
+- url: /hacsfiles/platinum-weather-card/platinum-weather-card.js
   type: module

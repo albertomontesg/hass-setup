@@ -1,0 +1,37 @@
+---
+substitutions:
+  name: wall-tablet-switch
+  friendly_name: Wall Tablet Switch
+  device_name: Wall Tablet Switch
+  device_ip: 10.4.2.11
+
+esphome:
+  name: "${name}"
+
+esp8266:
+  board: esp8285
+  restore_from_flash: true
+
+packages:
+  common: !include templates/common.yaml
+
+button:
+  - platform: restart
+    id: restart_button
+    name: "${friendly_name} Restart"
+
+switch:
+  # Relay
+  - platform: gpio
+    name: "${friendly_name}"
+    pin: GPIO5
+    id: relay1
+    restore_mode: RESTORE_DEFAULT_ON
+
+light:
+  - platform: status_led
+    name: "${friendly_name} Status LED"
+    disabled_by_default: true
+    pin:
+      inverted: true
+      number: GPIO16

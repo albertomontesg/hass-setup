@@ -10,7 +10,7 @@
       attribute: elevation
       below: 36.0
     - platform: numeric_state
-      entity_id: weather.weather
+      entity_id: weather.65_dufaux_strasse_glattpark
       attribute: wind_speed
       below: 15.0
       for: "00:02:00"
@@ -28,7 +28,7 @@
       above: 5.0
     - alias: Not windy
       condition: numeric_state
-      entity_id: weather.weather
+      entity_id: weather.65_dufaux_strasse_glattpark
       attribute: wind_speed
       below: 15.0
     # Make sure to be in the afternoon to avoid actioning in the morning.
@@ -38,7 +38,7 @@
     # Additional condition to perform it only when sunny outside.
     - alias: Sun Shining
       condition: state
-      entity_id: weather.weather
+      entity_id: weather.65_dufaux_strasse_glattpark
       state:
         - sunny
         - partlycloudy
@@ -57,7 +57,7 @@
       attribute: elevation
       below: 5.0
     - platform: numeric_state
-      entity_id: weather.weather
+      entity_id: weather.65_dufaux_strasse_glattpark
       attribute: wind_speed
       above: 15.0
       for: "00:02:00"

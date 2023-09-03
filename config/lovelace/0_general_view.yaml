@@ -20,7 +20,7 @@ cards:
     cards:
       - type: weather-forecast
         name: Weather
-        entity: weather.weather
+        entity: weather.65_dufaux_strasse_glattpark
 
   - type: vertical-stack
     title: Media

@@ -27,7 +27,6 @@ ota:
   password: !secret esphome_ota_password
 
 api:
-  password: !secret esphome_api_password
   encryption:
     key: !secret esphome_api_encryption_key
 
